@@ -1,0 +1,22 @@
+.singleword {
+    font-family:'Times New Roman', Times, serif
+}
+
+.singleword__word {
+    padding-top: 1rem;
+}
+
+.singleword__finnish {
+    font-weight: 800;
+    font-size: large;
+}
+
+.singleword__english {
+    font-weight: 800;
+    font-size: large;
+}
+
+.singleword__definition {
+    padding: 2rem 0;
+    white-space: pre-wrap;
+}
