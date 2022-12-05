@@ -7,14 +7,11 @@
   --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
   --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
   
-  --color-bg: rgba(118, 117, 117, 0.587);
-  --color-footer: #031B34;
-  --color-blog: #042c54;
-  --color-text: #e7eaec;
-  --color-subtext: #FF8A71;
+  --color-bg: #EEEEEE;
+  --color-text: #6F38C5;
+  --color-search-bar: #6F38C5;
 }
 
 body {
-  background-image: url(./assets/sep09.jpg);
   background-color: var(--color-bg);
 }

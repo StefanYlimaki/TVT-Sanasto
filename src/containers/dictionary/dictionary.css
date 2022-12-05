@@ -1,0 +1,37 @@
+.category {
+  padding-top: 2rem;
+}
+
+.category__list-item_text {
+  cursor: pointer;
+}
+
+.category__input-text {
+    color: var(--color-search-bar);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+input {
+    display: flex;
+    border-color: var(--color-text);
+    text-emphasis-color: var(--color-text);
+    color: black;
+    font-size: 24px;
+    height: 50px;
+    width: 68%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.category__input-box_button {
+  padding-top: 1rem;
+}
+
+.category__input-box {
+  display: flex;
+  direction: row;
+  width: 100%;
+}

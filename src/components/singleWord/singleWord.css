@@ -1,6 +1,6 @@
 .singleword {
     font-family:'Times New Roman', Times, serif;
-    color: blanchedalmond;
+    color: var(--color-text);
 }
 
 .singleword__word {

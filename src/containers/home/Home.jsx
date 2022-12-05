@@ -11,7 +11,6 @@ const Home = () => {
         <br />
         <br />
         <p>Sovelluksen verkkoversion on kehittänyt <strong><a href='https://www.linkedin.com/in/stefan-ylim%C3%A4ki/'>Stefan Ylimäki</a></strong></p>
-        <p>Sovelluksen ideoinut <strong><a href='https://www.linkedin.com/in/anttijuustila/'>Antti Juustila</a></strong></p>
       </div>
       
     </div>

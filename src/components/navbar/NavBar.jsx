@@ -16,8 +16,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" onClick={() => navigate('/')}/>
         </div>
         <div className="tvt__navbar-links_container">
-          <Button component={Link} to="/comp_basic">Tietotekniikan perustermistöä </Button>
-          <Button component={Link} to="/networks_basic">Internet ja tietoverkot</Button>
+          <Button component={Link} to="/dictionary">Sanakirja </Button>
         </div>
       </div>
       <div className="tvt__navbar-menu">
@@ -27,8 +26,7 @@ const Navbar = () => {
         {toggleMenu && (
         <div className="tvt__navbar-menu_container scale-up-center">
           <div className="tvt__navbar-menu_container-links">
-            <Button onClick={() => setToggleMenu(false)} component={Link} to="/comp_basic">Tietotekniikan perustermistöä </Button>
-            <Button onClick={() => setToggleMenu(false)} component={Link} to="/networks_basic">Internet ja tietoverkot</Button>
+          <Button component={Link} to="/dictionary">Sanakirja </Button>
           </div>
         </div>
         )}
