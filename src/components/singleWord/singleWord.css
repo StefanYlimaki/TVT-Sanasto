@@ -1,5 +1,6 @@
 .singleword {
-    font-family:'Times New Roman', Times, serif
+    font-family:'Times New Roman', Times, serif;
+    color: blanchedalmond;
 }
 
 .singleword__word {
@@ -8,15 +9,24 @@
 
 .singleword__finnish {
     font-weight: 800;
-    font-size: large;
+    font-size: 24px;
 }
 
 .singleword__english {
     font-weight: 800;
-    font-size: large;
+    font-size: 24px;
 }
 
 .singleword__definition {
     padding: 2rem 0;
     white-space: pre-wrap;
+    font-size: 24px;
+}
+
+.singleword__sources {
+    font-size: 24px;
+}
+
+.singleword__backwards-button {
+    padding-top: 1rem 0rem;
 }
