@@ -1,8 +1,13 @@
 import React from 'react'
 import { useParams as getParams } from 'react-router-dom'
 
-import words from '../../assets/networks-basic.json'
+import networks_basic from '../../assets/networks-basic.json'
+import comp_basic from '../../assets/comp-basic.json'
 import './singleWord.css'
+
+const words = networks_basic.concat(comp_basic)
+
+console.log(words)
 
 const singleWord = () => {
     const { id } = getParams()

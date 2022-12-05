@@ -3,8 +3,6 @@ import './networksBasicCategory.css'
 import words from '../../assets/networks-basic.json'
 import Word from '../../components/word/Word'
 
-
-
 const NetworksBasicCategory = () => {
   return (
     <div>
