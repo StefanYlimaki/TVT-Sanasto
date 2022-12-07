@@ -57,7 +57,6 @@ select {
   flex: 1;
   display: flex;
   width: 100%;
-  max-width: 400px;
   justify-content: flex-start;
   flex-shrink: 0;
 }
@@ -86,6 +85,10 @@ select {
 
   .category__input-text {
     font-size: 20px;
+  }
+
+  .category__input-box_search input{
+    max-width: 400px;
   }
 }
 
