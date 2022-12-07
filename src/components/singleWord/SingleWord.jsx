@@ -10,10 +10,10 @@ const SingleWord = ({ word }) => {
   
       
       <div className="singleword__finnish">
-        <img src={flag_finland}></img>{ ' ' + word.finnish }
+        <img src={flag_finland} alt="flag of Finland"></img>{ ' ' + word.finnish }
       </div>
       <div className="singleword__english">
-        <img src={flag_united_kingdom}></img>{ ' ' + word.english }</div>
+        <img src={flag_united_kingdom} alt="flag of United Kingdom"></img>{ ' ' + word.english }</div>
       
       <div className="singleword__definition">{ word.definition }</div>
       <div className="singleword__sources">

@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import "./dictionary.css";
-import comp_basic from "../../assets/comp-basic.json";
-import networks_basic from "../../assets/networks-basic.json"
 import { Button } from "@mui/material";
 import { styled as mstyled } from '@mui/material/styles';
-import styled from '@emotion/styled'
 
-import "../../index.css";
+import "./dictionary.css";
 import WordList from "../../components/wordList/WordList";
 import SingleWord from "../../components/singleWord/SingleWord";
+import comp_basic from "../../assets/comp-basic.json";
+import networks_basic from "../../assets/networks-basic.json"
 
-
-import NativeSelect from '@mui/material/NativeSelect';
 import InputBase from '@mui/material/InputBase';
 
 const BootstrapInput = mstyled(InputBase)(({ theme }) => ({
