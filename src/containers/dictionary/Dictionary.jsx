@@ -25,33 +25,13 @@ const BootstrapInput = mstyled(InputBase)(({ theme }) => ({
     border: '2px solid #6F38C5',
     fontSize: 20,
     padding: '12px 0px 11px 10px',
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
+    fontFamily: [].join(','),
     '&:focus': {
       borderRadius: 10,
       borderColor: '#6F38C5',
     },
   },
 }));
-
-
-const Input = styled.input`
-  background-color: white;
-  &:disabled {
-    background-color: gray;
-  }
-`;
-
 
 const CompBasicCategory = () => {
   const [category, setGategory] = useState("comp_basic")
@@ -76,21 +56,24 @@ const CompBasicCategory = () => {
       <div className="category__input">
         <div className="category__input-text">Suomi - Englanti - Suomi</div>
         <div className="category__input-box">
-          <Input
-            placeholder="Hae sanaa suomeksi tai englanniksi"
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          ></Input>
-          <div style={{ padding: "5px" }}></div>
-          <NativeSelect
-          value={category}
-          onChange={(e)=>setGategory(e.target.value)}
-          input={<BootstrapInput />}
-        >
-          <option value={"comp_basic"}>Tietotekniikan Perustermistöä</option>
-          <option value={"networks_basic"}>Internet ja Tietoverkot</option>
-        </NativeSelect>
+          <div className="category__input-box_search">
+            <input
+              placeholder="Hae sanaa englanninksi tai suomeksi"
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            ></input>
+          </div>
+          <div className="catogory__input-box_select">
+            <NativeSelect
+            value={category}
+            onChange={(e)=>setGategory(e.target.value)}
+            input={<BootstrapInput />}
+            >
+              <option value={"comp_basic"}>Tietotekniikan Perustermistöä</option>
+              <option value={"networks_basic"}>Internet ja Tietoverkot</option>
+            </NativeSelect>
+          </div>
         </div>
         <div>
           {search !== "" || word 

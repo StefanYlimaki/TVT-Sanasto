@@ -32,6 +32,36 @@ input {
 
 .category__input-box {
   display: flex;
-  direction: row;
+  justify-content: stretch;
+}
+
+.category__input-box_search {
+  flex: 1;
+  display: flex;
+}
+
+.category__input-box_search input{
+  flex: 1;
+  display: flex;
   width: 100%;
+  max-width: 400px;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.catogory__input-box_select {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+
+@media screen and (max-width: 800px) {
+  .category__input-box {
+    flex-direction: column;
+  }
+  .catogory__input-box_select {
+    justify-content: flex-start;
+  }
 }

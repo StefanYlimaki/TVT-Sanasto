@@ -3,10 +3,12 @@
 import React from 'react'
 import { List, ListItem, ListItemText } from "@mui/material";
 import SingleWord from "../../components/singleWord/SingleWord";
+import './wordList.css'
 
 const color = "#453C67";
 
 const WordList = ({ words, setSearch, setWord }) => {
+
   return (
     <div>
         {words.length === 1 
