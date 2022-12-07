@@ -1,0 +1,50 @@
+.game__error {
+    font-family: var(--font-family);
+    color: red;
+    font-size: 20px;
+}
+
+.game__gameplay-options {
+    display: flex;
+    justify-content: space-between;
+    align-self: space-between;
+    flex-direction: row;
+    padding: 1rem 0rem;
+}
+
+.game__gameplay-options_single {
+    display: flex;
+    flex-direction: row;
+}
+
+.game__gameplay-options_single button {
+    width: 100%;
+    background-color:white;
+    border: none;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.game__gameplay-options_single div {
+    background-color: blanchedalmond;
+    display: flex;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 1px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.game__gameplay-options_single p {
+    padding: 0rem 0.5rem;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    background-color: #D6E4E5;
+    border-radius: 10px;
+    padding: 1rem;
+}
