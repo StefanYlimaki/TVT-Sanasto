@@ -3,8 +3,9 @@ import { Routes, Route } from 'react-router-dom'
 import { Container } from '@mui/material'
 
 import Dictionary from "./containers/dictionary/Dictionary";
-
 import Home from "./containers/home/Home"
+import Games from "./containers/games/Games"
+import MatchWordAndDefinition from "./containers/games/matchWordAndDefinition/MatchWordAndDefinition";
 
 import './app.css'
 
@@ -19,9 +20,11 @@ const App = () => {
         <div className="homepage">
         </div>
         <Routes>
-              <Route path='/' element={ <Home /> } />
-              <Route path='/dictionary' element={<Dictionary /> }/>
-          </Routes>
+          <Route path='/' element={ <Home /> }/>
+          <Route path='/dictionary' element={<Dictionary /> }/>
+          <Route path='/games' element={<Games /> }/>
+          <Route path='/games/match_word_and_definition' element={<MatchWordAndDefinition /> }/>
+        </Routes>
       </div>
     </Container>
   );
