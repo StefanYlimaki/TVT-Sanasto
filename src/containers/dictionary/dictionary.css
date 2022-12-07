@@ -16,11 +16,24 @@
 
 input {
     display: flex;
-    border-color: var(--color-text);
+    border-color:  #6F38C5;
     text-emphasis-color: var(--color-text);
     color: black;
-    font-size: 24px;
+    font-size: 20px;
     height: 50px;
+    width: 68%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+select {
+  display: flex;
+  border-color:  #6F38C5;
+  border-width: 2px;
+    text-emphasis-color: var(--color-text);
+    color: black;
+    font-size: 20px;
+    height: 55px;
     width: 68%;
     border-radius: 10px;
     padding-left: 10px;
@@ -49,11 +62,12 @@ input {
   flex-shrink: 0;
 }
 
-.catogory__input-box_select {
+.catogory__input-box_select select{
   flex: 1;
   display: flex;
-  justify-content: flex-end;
   flex-shrink: 0;
+  width: 100%;
+  max-width: 400px;
 }
 
 
@@ -63,5 +77,31 @@ input {
   }
   .catogory__input-box_select {
     justify-content: flex-start;
+  }
+
+  .catogory__input-box_select select{
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .category__input-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .category__input-box_search input {
+    max-height: 30px;
+  }
+
+  .catogory__input-box_select select {
+    font-size: 14px;
+    max-height: 30px;
+  }
+
+  .category__input-box_search input{
+    width: 100%;
+    max-width: 300px;
+    font-size: 14px;
   }
 }

@@ -65,14 +65,14 @@ const CompBasicCategory = () => {
             ></input>
           </div>
           <div className="catogory__input-box_select">
-            <NativeSelect
+            <select
             value={category}
             onChange={(e)=>setGategory(e.target.value)}
             input={<BootstrapInput />}
             >
               <option value={"comp_basic"}>Tietotekniikan Perustermistöä</option>
               <option value={"networks_basic"}>Internet ja Tietoverkot</option>
-            </NativeSelect>
+            </select>
           </div>
         </div>
         <div>

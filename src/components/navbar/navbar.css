@@ -99,6 +99,10 @@
     .tvt__navbar-menu {
         display: flex;
     }
+
+    .tvt__navbar {
+        max-height: 0px;
+    }
 }
 
 @media screen and (max-width: 500px) {
