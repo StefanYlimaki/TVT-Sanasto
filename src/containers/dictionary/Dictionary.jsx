@@ -58,7 +58,7 @@ const CompBasicCategory = () => {
         <div className="category__input-box">
           <div className="category__input-box_search">
             <input
-              placeholder="Hae sanaa englanninksi tai suomeksi"
+              placeholder="Hae sanaa englanniksi tai suomeksi"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
