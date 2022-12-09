@@ -57,13 +57,13 @@ const CompBasicCategory = () => {
               placeholder="Hae sanaa englanniksi tai suomeksi"
               type="text"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => {setWord(null); setSearch(e.target.value)}}
             ></input>
           </div>
           <div className="catogory__input-box_select">
             <select
             value={category}
-            onChange={(e)=>setGategory(e.target.value)}
+            onChange={(e)=>{setGategory(e.target.value); setWord(null); setSearch('')}}
             input={<BootstrapInput />}
             >
               <option value={"comp_basic"}>Tietotekniikan Perustermistöä</option>
