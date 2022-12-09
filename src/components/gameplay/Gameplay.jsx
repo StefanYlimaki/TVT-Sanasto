@@ -13,7 +13,7 @@ const Gameplay = ({
   words,
   setError,
   setCondition,
-  gameLenght
+  gameLenght,
 }) => {
   // random word to be guessed definition of
   const [randomWord, setRandomWord] = useState();
@@ -21,9 +21,9 @@ const Gameplay = ({
   const [usedWordIndexes, setUsedWordIndexes] = useState([]);
   // save the definitions to use
   const [definitions, setDefinitions] = useState([]);
-  const [usedRandomWordsIndexes, setUsedRandomWordsIndexes] = useState([])
+  const [usedRandomWordsIndexes, setUsedRandomWordsIndexes] = useState([]);
   const [gameRunning, setGameRunning] = useState(false);
-  const [round, setRound] = useState(0)
+  const [round, setRound] = useState(0);
   const definitionsToUse = [];
 
   // start the game
@@ -35,16 +35,15 @@ const Gameplay = ({
   // function for getting a random word, which index is not in usedWordIndexes
   const getRandomWord = (boolean) => {
     let index = Math.floor(Math.random() * words.length);
-    if(boolean === true){
+    if (boolean === true) {
       for (let i = 0; usedRandomWordsIndexes.includes(index); i++) {
         index = Math.floor(Math.random() * words.length);
       }
-      setUsedRandomWordsIndexes(usedRandomWordsIndexes.concat(index))
+      setUsedRandomWordsIndexes(usedRandomWordsIndexes.concat(index));
     } else {
       for (let i = 0; usedWordIndexes.includes(index); i++) {
         index = Math.floor(Math.random() * words.length);
       }
-
     }
     setUsedWordIndexes(usedWordIndexes.push(index));
     return words[index];
@@ -69,22 +68,30 @@ const Gameplay = ({
   const startGame = () => {
     setGameRunning(true);
     setError(null);
-    nextRound();
+    nextRound(true);
   };
 
   // function for starting next round
-  const nextRound = () => {
-    setRound(round + 1)
+  const nextRound = (correctAnswer) => {
+    setRound(round + 1);
+    
+    if (round >= gameLenght) {
+      let condition;
+      if (points >= round) {
+        condition = "won";
+      } else {
+        condition = "lost";
+      }
 
-    if(round >= gameLenght){
-      const condition = 'won' 
-      endGame(condition)
+      endGame(condition);
+    }
+    
+    if (correctAnswer) {
+      // increment points by one
+      setPoints(points + 1);
     }
 
-    // increment points by one
-    setPoints(points + 1);
-
-    // get new random word 
+    // get new random word
     const newRandomWord = getRandomWord(true);
     // set the new random word
     setRandomWord(newRandomWord);
@@ -111,19 +118,17 @@ const Gameplay = ({
     );
 
     if (answer === filteredDefinition) {
-      nextRound();
+      nextRound(true);
     } else {
-      const condition='lost'
-      endGame(condition);
+      nextRound(false);
     }
   };
 
   const endGame = (condition) => {
     setScoreBoardVisible(true);
-    setCondition(condition)
+    setCondition(condition);
     setWords(null);
   };
-
 
   return (
     <div className="game__gameplay">
@@ -131,7 +136,12 @@ const Gameplay = ({
         <div>game loading...</div>
       ) : (
         <div>
-          <div>Kierros {round}/10</div>
+          <div>
+            Kierros {round}/{gameLenght}
+          </div>
+          <div>
+            Pisteet {points}/{round - 1}
+          </div>
           <div className="game__gameplay-advice">
             <div className="game__gameplay-advice_text">
               Mikä seuraavista selityksistä sopii sanalle:

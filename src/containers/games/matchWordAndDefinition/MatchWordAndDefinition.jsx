@@ -30,7 +30,7 @@ const MatchWordAndDefinition = () => {
       */}
       {words === null && !scoreBoardVisible ? (
         <div className="game__settings">
-          <GameSettings setWords={setWords} />
+          <GameSettings setWords={setWords} gameLength={gameLength} setGameLength={setGameLength} />
         </div>
       ) : (
         <div>
@@ -48,13 +48,16 @@ const MatchWordAndDefinition = () => {
               />
             </div>
           ) : (
-            <Scoreboard
-              setPoints = { setPoints }
-              points = { points }
-              setScoreBoardVisible = { setScoreBoardVisible }
-              setCondition = { setCondition }
-              condition = { condition }
-            />
+            <div>
+              <Scoreboard
+                setPoints = { setPoints }
+                points = { points }
+                setScoreBoardVisible = { setScoreBoardVisible }
+                setCondition = { setCondition }
+                condition = { condition }
+                gameLenght = { gameLength }
+              />
+            </div>
           )}
         </div>
       )}

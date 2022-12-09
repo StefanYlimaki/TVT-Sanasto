@@ -4,16 +4,63 @@
     align-content: space-between;
 }
 
-.game__settings-category_select {
+.game__setting-gamelength {
+    padding: 4rem, 0rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+}
+.game__setting-gamelength p {
+    padding: 2rem 2rem;
+    width: 300px;
+    font-size: 20px;
+    display: flex;
+    font-family: var(--font-family);
 }
 
-.game__settings-category_select button {
+.game__setting-gamelength_slider {
+    padding-left: 2rem;
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+
+.game__settings-category {
+    padding: 4rem, 0rem;
+    display: flex;
+}
+
+.game__settings-category p {
+    padding: 2rem 2rem;
+    width: 300px;
+    font-size: 20px;
+    display: flex;
+    font-family: var(--font-family);
+}
+
+.game__settings-category {
+    padding: 4rem, 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.game__settings-category_buttons {
+    display: flex;
+    width: 40%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game__settings-category_buttons button {
+    
+    font-family: var(--font-family);
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 200px;
   height: 200px;
+  border-radius: 20px;
+  background-color: #24a0ed;
+  cursor: pointer;
 }
 
 .game__setting-start_game {
