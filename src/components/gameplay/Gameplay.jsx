@@ -25,7 +25,6 @@ const Gameplay = ({
   const [gameRunning, setGameRunning] = useState(false);
   const [round, setRound] = useState(0)
   const definitionsToUse = [];
-  console.log('used random word indexes', usedRandomWordsIndexes)
 
   // start the game
   useEffect(() => {
@@ -35,31 +34,19 @@ const Gameplay = ({
 
   // function for getting a random word, which index is not in usedWordIndexes
   const getRandomWord = (boolean) => {
-    console.log('getting new random word')
     let index = Math.floor(Math.random() * words.length);
     if(boolean === true){
-      console.log('that\'s a newRandomWord')
-      console.log('usedRandomWordIndexes', usedRandomWordsIndexes)
-      console.log('new index is', index)
-      console.log('is used: ', usedRandomWordsIndexes.includes(index))
       for (let i = 0; usedRandomWordsIndexes.includes(index); i++) {
-        console.log('duplicate random word', index)
         index = Math.floor(Math.random() * words.length);
-        console.log('new random word index', index)
       }
       setUsedRandomWordsIndexes(usedRandomWordsIndexes.concat(index))
     } else {
-      console.log('that\'s not a newRandomWord')
-      console.log('usedWordIndexes', usedWordIndexes)
-      console.log('new index is', index)
-      console.log('is used: ', usedWordIndexes.includes(index))
       for (let i = 0; usedWordIndexes.includes(index); i++) {
-        console.log('duplicate', index)
         index = Math.floor(Math.random() * words.length);
+      }
+
     }
-    }
-    
-    setUsedWordIndexes(usedWordIndexes.concat(index));
+    setUsedWordIndexes(usedWordIndexes.push(index));
     return words[index];
   };
 
