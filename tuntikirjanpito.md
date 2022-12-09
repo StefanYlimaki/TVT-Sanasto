@@ -8,6 +8,7 @@
 | 07.12.2022 | 6 | Verkkosovelluksen laajentaminen "pelit" sivulla, pelin ideointi ja prototypointi |
 | 08.12.2022 | 3 | Peliin liittyvien ongelmien ratkominen ja uusien asioiden toteuttaminen, bugi-fixejä, tyylien lisäämistä
 | 09.12.2022 | 3 | Pelin koodin refaktorointia (koodin jakaminen pienempiin osiin), bugien fixausta
+| 09.12.2022 | 2 | Pelin pituuden asettamisominaisuus, tyylien lisäämistä pelin asetukset näytölle sekä scoreboardille
 
 
- 24/175 tuntia käytetty
+ 26/175 tuntia käytetty
