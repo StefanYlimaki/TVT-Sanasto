@@ -1,0 +1,32 @@
+.game__settings {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.game__settings-category_select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.game__settings-category_select button {
+  display: flex;
+  width: 200px;
+  height: 200px;
+}
+
+.game__setting-start_game {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    justify-content: flex-end;
+    height: 75px;
+}
+.game__setting-start_game button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
