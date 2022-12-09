@@ -1,5 +1,5 @@
-This application is available on https://tvt-sanasto.vercel.app/
-The dictionaries used are from https://gitlab.com/sanasto
+#### This application is available on https://tvt-sanasto.vercel.app/
+###¤ The dictionaries used are from https://gitlab.com/sanasto
 
 # Getting Started with Create React App
 
