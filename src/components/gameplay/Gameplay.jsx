@@ -20,11 +20,12 @@ const Gameplay = ({
   // store indexes of already used words whilst getting random definitions
   const [usedWordIndexes, setUsedWordIndexes] = useState([]);
   // save the definitions to use
-  const [definitions, setDefinitions] = useState([]);
   const [usedRandomWordsIndexes, setUsedRandomWordsIndexes] = useState([]);
   const [gameRunning, setGameRunning] = useState(false);
   const [round, setRound] = useState(0);
-  const definitionsToUse = [];
+  const [optionWords, setOptionWords] = useState([])
+  const [correctAnswer, setCorrectAnswer] = useState({})
+  const wordsToUse = [];
 
   // start the game
   useEffect(() => {
@@ -32,20 +33,29 @@ const Gameplay = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // function for getting a random word, which index is not in usedWordIndexes
+  // function for getting a random word, which's index is not in usedWordIndexes
   const getRandomWord = (boolean) => {
+    // get random index that's between 0 and length of words-array
     let index = Math.floor(Math.random() * words.length);
+    // boolean is true when random word we want is to be the word to be guessed the definition of
     if (boolean === true) {
+      // in that case we want the word to not be any word which definition we have guessed previously
       for (let i = 0; usedRandomWordsIndexes.includes(index); i++) {
         index = Math.floor(Math.random() * words.length);
       }
+      // then set the word to be correct answer
+      setCorrectAnswer(words[index])
+      // and save the used index
       setUsedRandomWordsIndexes(usedRandomWordsIndexes.concat(index));
     } else {
+      // when the boolean is not true, we just want a random word that is not a same word, used in the options for this round
       for (let i = 0; usedWordIndexes.includes(index); i++) {
         index = Math.floor(Math.random() * words.length);
       }
     }
+    // then let's set the index used (no matter if the boolean was true or not), to the array of used indexes. That way we dont have duplicates even for the word to be guessed
     setUsedWordIndexes(usedWordIndexes.push(index));
+    // return the random word
     return words[index];
   };
 
@@ -68,27 +78,33 @@ const Gameplay = ({
   const startGame = () => {
     setGameRunning(true);
     setError(null);
-    nextRound(true);
+    nextRound(false);
   };
 
   // function for starting next round
   const nextRound = (correctAnswer) => {
-    setRound(round + 1);
-    
-    if (round >= gameLenght) {
+    // check if round same to game length (NOTICE! before incrementing the round count)
+    if (round === gameLenght) {
+      // if true
       let condition;
-      if (points >= round) {
+      // check if (points + 1) equals to rounds and latest answer was correct
+      if (points + 1 === round && correctAnswer ) {
+        // set condition to 'won'
         condition = "won";
       } else {
+        // set condition to 'lost'
         condition = "lost";
       }
-
+      // end game with correct condition
       endGame(condition);
     }
-    
+
+    // increment round count
+    setRound(round + 1);
+
     if (correctAnswer) {
       // increment points by one
-      setPoints(points + 1);
+      setPoints(points + 1)
     }
 
     // get new random word
@@ -97,33 +113,28 @@ const Gameplay = ({
     setRandomWord(newRandomWord);
 
     // get definitions to use in the game
-    definitionsToUse.push(getFilteredDefinition(getRandomWord(false)));
-    definitionsToUse.push(getFilteredDefinition(getRandomWord(false)));
-    definitionsToUse.push(getFilteredDefinition(newRandomWord));
+    wordsToUse.push((getRandomWord(false)));
+    wordsToUse.push((getRandomWord(false)));
+    wordsToUse.push((newRandomWord));
 
-    // set used words indexes to empty array every second round
+    // set used words indexes to empty array
     setUsedWordIndexes([]);
-    setDefinitions(shuffleArray(definitionsToUse));
+    setOptionWords(shuffleArray(wordsToUse));
   };
 
-  const handleClickOnDefinition = (definition) => {
-    const answer = definition;
-
-    let wordsToFilterEnglish = randomWord.english.toLowerCase().split(/[- ,]+/);
-    let wordsToFilterFinnish = randomWord.finnish.toLowerCase().split(/[- ,]+/);
-    const wordsToFilter = wordsToFilterFinnish.concat(wordsToFilterEnglish);
-    let filteredDefinition = randomWord.definition.toLowerCase();
-    wordsToFilter.forEach(
-      (w) => (filteredDefinition = filteredDefinition.replaceAll(w, "****"))
-    );
-
-    if (answer === filteredDefinition) {
+  // function for handling click on an option
+  const handleClickOnOption = (word) => {
+    // if selected option's (word selected) id matches with that of correct answer's 
+    if (word.id === correctAnswer.id) {
+      // call nextRound function with paramater value true (correctAnswer === true in nextRound-function)
       nextRound(true);
     } else {
+      // call nextRound function with paramater value false  (correctAnswer === false in nextRound-function)
       nextRound(false);
     }
   };
 
+  // function for ending the game
   const endGame = (condition) => {
     setScoreBoardVisible(true);
     setCondition(condition);
@@ -155,15 +166,15 @@ const Gameplay = ({
             )}
           </div>
           <div className="game__gameplay-options">
-            {definitions !== null ? (
+            {optionWords !== null ? (
               <div className="game__gameplay-options_single">
-                {definitions.map((d) => (
+                {optionWords.map((w) => (
                   <div
-                    key={d}
+                    key={w.definition}
                     className="game__gameplay-options_single-option"
-                    onClick={() => handleClickOnDefinition(d)}
+                    onClick={() => handleClickOnOption(w)}
                   >
-                    <p>{d}</p>
+                    <p>{getFilteredDefinition(w)}</p>
                   </div>
                 ))}
               </div>

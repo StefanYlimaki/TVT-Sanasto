@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import comp_basic from "../../assets/comp-basic.json";
 import networks_basic from "../../assets/networks-basic.json";
@@ -6,6 +6,8 @@ import "./gameSettings.css";
 import { Slider } from "@mui/material";
 
 const GameSettings = ({ setWords, gameLength, setGameLength }) => {
+  const [selectedCategory, setSelectedCategory] = useState(null)
+
   const marks = [
     {
       value: 4,
@@ -46,19 +48,22 @@ const GameSettings = ({ setWords, gameLength, setGameLength }) => {
         <div className="game__settings-category_buttons">
           <button
             onClick={() => {
-              setWords(comp_basic);
+              setSelectedCategory(comp_basic)
             }}
           >
             Tietotekniikan Perustermistöä
           </button>
           <button
             onClick={() => {
-              setWords(networks_basic);
+              setSelectedCategory(networks_basic)
             }}
           >
             Internet ja Tietoverkot
           </button>
         </div>
+      </div>
+      <div className="game__settings-start_game">
+        <button onClick={() => setWords(selectedCategory)} >Aloita peli</button>
       </div>
     </div>
   );

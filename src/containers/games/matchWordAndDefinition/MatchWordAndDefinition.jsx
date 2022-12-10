@@ -9,7 +9,7 @@ const MatchWordAndDefinition = () => {
   const [words, setWords] = useState(null); // Words from the chosen category
   const [scoreBoardVisible, setScoreBoardVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [points, setPoints] = useState(-1);
+  const [points, setPoints] = useState(0);
   // game lenght in rounds
   const [gameLength, setGameLength] = useState(10)
   const [condition, setCondition] = useState(null)

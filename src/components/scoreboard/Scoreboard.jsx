@@ -20,7 +20,7 @@ const Scoreboard = ({
       <button
         onClick={() => {
           setScoreBoardVisible(false);
-          setPoints(-1);
+          setPoints(0);
           setCondition(null);
         }}
       >
