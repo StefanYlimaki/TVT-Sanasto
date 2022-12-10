@@ -45,6 +45,11 @@
   flex: 1;
 }
 
+.game__gameplay-options_single-option p:hover {
+  border-radius: 20px;
+  background-color: yellowgreen
+}
+
 .game__gameplay-options_single p {
   border-style: solid;
   border-radius: 10px;
