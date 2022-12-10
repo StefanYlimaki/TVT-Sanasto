@@ -9,6 +9,7 @@
 | 08.12.2022 | 3 | Peliin liittyvien ongelmien ratkominen ja uusien asioiden toteuttaminen, bugi-fixejä, tyylien lisäämistä
 | 09.12.2022 | 3 | Pelin koodin refaktorointia (koodin jakaminen pienempiin osiin), bugien fixausta
 | 09.12.2022 | 2 | Pelin pituuden asettamisominaisuus, tyylien lisäämistä pelin asetukset näytölle sekä scoreboardille
+| 10.12.2022 | 4 | Tein sovelluksesta paremman mobiililaitteille
 
 
- 26/175 tuntia käytetty
+ 30/175 tuntia käytetty
