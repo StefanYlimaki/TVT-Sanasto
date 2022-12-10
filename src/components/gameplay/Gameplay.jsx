@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import shuffleArray from "../../utils/shuffleArray";
 import "./gameplay.css";
 import { useEffect } from "react";
+import { Slider } from "@mui/material";
 
 const Gameplay = ({
   setScoreBoardVisible,
@@ -25,6 +26,7 @@ const Gameplay = ({
   const [round, setRound] = useState(0);
   const [optionWords, setOptionWords] = useState([])
   const [correctAnswer, setCorrectAnswer] = useState({})
+  const [definitionLength, setDefinitionLength] = useState(300)
   const wordsToUse = [];
 
   // start the game
@@ -141,18 +143,36 @@ const Gameplay = ({
     setWords(null);
   };
 
+  const getShortenedText = (text) => {
+    let shortenedText = text.substring(0, definitionLength)
+    const lastIndex = shortenedText.lastIndexOf('.')
+    return shortenedText.substring(0, lastIndex + 1)
+  }
+
   return (
     <div className="game__gameplay">
       {!gameRunning ? (
         <div>game loading...</div>
       ) : (
-        <div>
-          <div>
-            Kierros {round}/{gameLenght}
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
+          <div className="game__gameplay-stats_and-text_length">
+            <div className="game__gameplay-stats_and-text_length-stats">
+              <div>Kierros {round}/{gameLenght}</div>
+              <div>Pisteet {points}/{round - 1}</div>
+            </div>
+            <div className="game__gameplay-stats_and-text_length-text_length"> Säädä vaihtoehtojen pituutta
+              <Slider
+                defaultValue={300}
+                min={200}
+                max={800}
+                step={100}
+                valueLabelDisplay="auto"
+                value={definitionLength}
+                onChange={(event, value) => setDefinitionLength(value)}
+              />
+            </div>
           </div>
-          <div>
-            Pisteet {points}/{round - 1}
-          </div>
+          
           <div className="game__gameplay-advice">
             <div className="game__gameplay-advice_text">
               Mikä seuraavista selityksistä sopii sanalle:
@@ -174,7 +194,8 @@ const Gameplay = ({
                     className="game__gameplay-options_single-option"
                     onClick={() => handleClickOnOption(w)}
                   >
-                    <p>{getFilteredDefinition(w)}</p>
+                    <p>{getShortenedText(getFilteredDefinition(w))}</p>
+                    
                   </div>
                 ))}
               </div>

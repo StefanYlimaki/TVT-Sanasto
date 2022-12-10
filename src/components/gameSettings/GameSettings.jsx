@@ -11,15 +11,15 @@ const GameSettings = ({ setWords, gameLength, setGameLength }) => {
   const marks = [
     {
       value: 4,
-      label: "4 Kierrosta",
+      label: "4",
     },
     {
       value: 10,
-      label: "10 Kierrosta",
+      label: "10",
     },
     {
       value: 20,
-      label: "20 Kierrosta",
+      label: "20",
     },
   ];
 

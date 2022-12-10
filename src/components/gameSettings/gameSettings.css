@@ -8,6 +8,7 @@
     padding: 4rem, 0rem;
     display: flex;
 }
+
 .game__setting-gamelength p {
     padding: 2rem 2rem;
     width: 300px;
@@ -107,4 +108,47 @@
 .game__settings-start_game button:hover {
     border-radius: 20px; 
     background-color: #24a0ed;
+}
+
+@media screen and (max-width: 600px){
+    .game__setting-gamelength {
+        flex-direction: column;
+        padding: none;
+    }
+
+    .game__setting-gamelength p {
+        display: flex;
+        justify-content: flex-start;
+        font-size: 16px;
+    }
+
+    .game__setting-gamelength_slider {
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        align-self: center;
+        width: 90%;
+    }
+
+    .game__settings-category {
+        flex-direction: column;
+        padding: none;
+    }
+
+    .game__settings-category p {
+        display: flex;
+        font-size: 16px;
+        justify-content: flex-start;
+    }
+
+    .game__settings-category_buttons{
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .game__settings-category_buttons button{
+        padding: 0rem 4rem;
+        height: 6rem;
+        width: 6rem;
+    }
+
 }
