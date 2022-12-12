@@ -1,4 +1,9 @@
-.tvt__home-description {
+.tvt__home-description p {
     color: var(--color-text);
     font-size: 24px;
+}
+@media screen and (max-width: 600px) {
+    .tvt__home-description p {
+        font-size: 18px;
+    }
 }
