@@ -5,7 +5,7 @@ import networks_basic from "../../../../assets/networks-basic.json";
 import "./gameSettings.css";
 import { Slider } from "@mui/material";
 
-const GameSettings = ({ setWords, gameLength, setGameLength }) => {
+const GameSettings = ({ setWords, gameLength, setGameLength, setErrorMessage }) => {
   const [selectedCategory, setSelectedCategory] = useState(null)
 
   const marks = [
@@ -26,6 +26,18 @@ const GameSettings = ({ setWords, gameLength, setGameLength }) => {
   const handleSliderChange = (event, newValue) => {
     setGameLength(newValue);
   };
+
+  const handleStartGameClick = () => {
+    if(selectedCategory !== null) {
+      setWords(selectedCategory)
+    } else {
+      setErrorMessage('Valitse kategoria')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 2000)
+    }
+    
+  }
 
   return (
     <div className="game__settings">
@@ -63,7 +75,7 @@ const GameSettings = ({ setWords, gameLength, setGameLength }) => {
         </div>
       </div>
       <div className="game__settings-start_game">
-        <button onClick={() => setWords(selectedCategory)} >Aloita peli</button>
+        <button onClick={handleStartGameClick} >Aloita peli</button>
       </div>
     </div>
   );
