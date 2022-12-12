@@ -11,6 +11,7 @@ import "./app.css";
 
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./containers/footer/Footer";
+
 const App = () => {
   return (
     <Container>
