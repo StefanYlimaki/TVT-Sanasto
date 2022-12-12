@@ -1,10 +1,10 @@
-
 const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
+  const arrayToShuffle = array
+  for (let i = arrayToShuffle.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [arrayToShuffle[i], arrayToShuffle[j]] = [arrayToShuffle[j], arrayToShuffle[i]]
   }
-  return array;
-};
+  return arrayToShuffle
+}
 
-export default shuffleArray;
+export default shuffleArray
