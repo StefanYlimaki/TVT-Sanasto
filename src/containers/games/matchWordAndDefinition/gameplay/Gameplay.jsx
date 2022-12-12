@@ -203,7 +203,7 @@ const Gameplay = ({
               <></>
             )}
           </div>
-          <Button onClick={() => endGame()}>Lopeta peli</Button>
+          <Button onClick={() => endGame()} >Lopeta peli</Button>
         </div>
       )}
     </div>

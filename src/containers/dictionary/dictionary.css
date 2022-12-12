@@ -7,36 +7,39 @@
 }
 
 .category__input-text {
-    color: var(--color-search-bar);
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 2rem;
+  color: var(--color-search-bar);
+  font-family: var(--font-family);
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
 }
 
 input {
-    display: flex;
-    border-color:  #6F38C5;
-    text-emphasis-color: var(--color-text);
-    color: black;
-    font-size: 20px;
-    height: 50px;
-    width: 68%;
-    border-radius: 10px;
-    padding-left: 10px;
+  font-family: var(--font-family);
+  display: flex;
+  border-color: #6f38c5;
+  text-emphasis-color: var(--color-text);
+  color: black;
+  font-size: 20px;
+  height: 50px;
+  width: 68%;
+  border-radius: 10px;
+  padding-left: 10px;
 }
 
 select {
+  font-family: var(--font-family);
   display: flex;
-  border-color:  #6F38C5;
+  border-color: #6f38c5;
   border-width: 2px;
-    text-emphasis-color: var(--color-text);
-    color: black;
-    font-size: 20px;
-    height: 55px;
-    width: 68%;
-    border-radius: 10px;
-    padding-left: 10px;
+  text-emphasis-color: var(--color-text);
+  color: black;
+  font-size: 20px;
+  height: 55px;
+  width: 68%;
+  border-radius: 10px;
+  padding-left: 10px;
 }
 
 .category__input-box_button {
@@ -53,7 +56,7 @@ select {
   display: flex;
 }
 
-.category__input-box_search input{
+.category__input-box_search input {
   flex: 1;
   display: flex;
   width: 100%;
@@ -61,14 +64,13 @@ select {
   flex-shrink: 0;
 }
 
-.catogory__input-box_select select{
+.catogory__input-box_select select {
   flex: 1;
   display: flex;
   flex-shrink: 0;
   width: 100%;
   max-width: 400px;
 }
-
 
 @media screen and (max-width: 800px) {
   .category__input-box {
@@ -78,7 +80,7 @@ select {
     justify-content: flex-start;
   }
 
-  .catogory__input-box_select select{
+  .catogory__input-box_select select {
     width: 100%;
     max-width: 300px;
   }
@@ -87,7 +89,7 @@ select {
     font-size: 20px;
   }
 
-  .category__input-box_search input{
+  .category__input-box_search input {
     max-width: 400px;
   }
 }
@@ -102,7 +104,7 @@ select {
     max-height: 30px;
   }
 
-  .category__input-box_search input{
+  .category__input-box_search input {
     width: 100%;
     max-width: 300px;
     font-size: 14px;
