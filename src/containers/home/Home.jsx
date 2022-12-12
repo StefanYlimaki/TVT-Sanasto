@@ -16,7 +16,7 @@ function Home() {
         <br />
         <br />
         <p>
-          Sovelluksen verkkoversion on kehittänyt
+          Sovelluksen verkkoversion on kehittänyt&nbsp;
           <strong><a href="https://www.linkedin.com/in/stefan-ylim%C3%A4ki/">Stefan Ylimäki</a></strong>
         </p>
       </div>
