@@ -13,5 +13,4 @@
 | 12.12.2022 | 3 | Deployment pipelinen käyttöönottoa ja testausta, master branchin asettaminen protected branchiksi, tyylien lisäämistä, bugien korjausta
 | 12.12.2022 | 2 | Eslint lisätty, eslint konfigurointi, pipelinen laajentamista
 
-
  35/175 tuntia käytetty
