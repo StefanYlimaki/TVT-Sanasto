@@ -6,9 +6,7 @@ import Dictionary from "./containers/dictionary/Dictionary";
 import Home from "./containers/home/Home";
 import Games from "./containers/games/Games";
 import MatchWordAndDefinition from "./containers/games/matchWordAndDefinition/MatchWordAndDefinition";
-
 import "./app.css";
-
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./containers/footer/Footer";
 
