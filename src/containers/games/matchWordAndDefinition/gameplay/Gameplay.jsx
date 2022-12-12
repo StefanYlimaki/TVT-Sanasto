@@ -160,7 +160,7 @@ const Gameplay = ({
               <div>Kierros {round}/{gameLenght}</div>
               <div>Pisteet {points}/{round - 1}</div>
             </div>
-            <div className="game__gameplay-stats_and-text_length-text_length"> Säädä vaihtoehtojen pituutta
+            <div className="game__gameplay-stats_and-text_length-text_length"> Säädä vastausvaihtoehtojen pituutta
               <Slider
                 defaultValue={300}
                 min={200}
