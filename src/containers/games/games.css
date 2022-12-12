@@ -42,6 +42,10 @@
     cursor: pointer;
 }
 
+.tvt__games-selection_option-single:hover {
+    zoom: 1.1;
+}
+
 .tvt__games-selection_option-single button {
     display: flex;
     flex: 1;

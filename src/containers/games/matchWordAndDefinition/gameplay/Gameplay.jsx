@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 
-import shuffleArray from "../../utils/shuffleArray";
+import shuffleArray from "../../../../utils/shuffleArray";
 import "./gameplay.css";
 import { useEffect } from "react";
 import { Slider } from "@mui/material";

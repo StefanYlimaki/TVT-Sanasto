@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./matchWordAndDefinition.css";
 
-import GameSettings from "../../../components/gameSettings/GameSettings";
-import Gameplay from "../../../components/gameplay/Gameplay";
-import Scoreboard from "../../../components/scoreboard/Scoreboard";
+import GameSettings from "./gameSettings/GameSettings";
+import Gameplay from "./gameplay/Gameplay";
+import Scoreboard from "./scoreboard/Scoreboard";
 
 const MatchWordAndDefinition = () => {
   const [words, setWords] = useState(null); // Words from the chosen category

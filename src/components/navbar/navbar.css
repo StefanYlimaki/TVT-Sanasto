@@ -30,7 +30,9 @@
     display: flex;
     flex-direction: row;
     align-content: center;
+
 }
+
 .tvt__navbar-menu_container-links button {
     color: #fff;
     font-family: var(--font-family);
@@ -40,11 +42,17 @@
     text-transform: capitalize;
     border: none;
     background-color: black;
-
     margin: 0 1rem;
     cursor: pointer;
 }
+
+.tvt__navbar-menu_container-links button:hover {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
 .tvt__navbar-links_container button {
+    padding: 0rem 1rem;
     color: #1e1e1e;
     font-family: var(--font-family);
     font-weight: 500;
@@ -53,9 +61,15 @@
     text-transform: capitalize;
     border: none;
     background-color: var(--color-bg);
-
     margin: 0 1rem;
     cursor: pointer;
+}
+
+
+.tvt__navbar-links_container button:hover {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    color: #FFF;
 }
 
 .tvt__navbar-menu {
@@ -98,10 +112,6 @@
 
     .tvt__navbar-menu {
         display: flex;
-    }
-
-    .tvt__navbar {
-        max-height: 0px;
     }
 }
 

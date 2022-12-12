@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import comp_basic from "../../assets/comp-basic.json";
-import networks_basic from "../../assets/networks-basic.json";
+import comp_basic from "../../../../assets/comp-basic.json";
+import networks_basic from "../../../../assets/networks-basic.json";
 import "./gameSettings.css";
 import { Slider } from "@mui/material";
 
