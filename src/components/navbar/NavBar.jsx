@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom'
 
-import logo from '../../assets/depositphotos_471130528-stock-illustration-book-yellow-glowing-neon-icon.jpg'
+import logo from '../../assets/photos/tvt-sanasto-logo.jpg'
 import './navbar.css';
 
 const Navbar = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./singleWord.css";
-import flag_united_kingdom from '../../assets/flag_of_united_kingdom.jpg'
-import flag_finland from '../../assets/flag_of_finland.png'
+import flag_united_kingdom from '../../assets/photos/flag_of_united_kingdom.jpg'
+import flag_finland from '../../assets/photos/flag_of_finland.png'
 
 const SingleWord = ({ word }) => {
   return (

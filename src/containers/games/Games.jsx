@@ -1,6 +1,6 @@
 import React from 'react'
 import './games.css'
-import match_word_and_meaning_logo from '../../assets/match_word_and_meaning.jpg'
+import match_word_and_meaning_logo from '../../assets/photos/match_word_and_meaning.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Games = () => {

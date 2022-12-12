@@ -5,8 +5,8 @@ import { styled as mstyled } from '@mui/material/styles';
 import "./dictionary.css";
 import WordList from "../../components/wordList/WordList";
 import SingleWord from "../../components/singleWord/SingleWord";
-import comp_basic from "../../assets/comp-basic.json";
-import networks_basic from "../../assets/networks-basic.json"
+import comp_basic from "../../assets/data/comp-basic.json";
+import networks_basic from "../../assets/data/networks-basic.json"
 
 import InputBase from '@mui/material/InputBase';
 
