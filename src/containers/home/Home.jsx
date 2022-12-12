@@ -7,10 +7,9 @@ function Home() {
       <div className="tvt__home-description">
         <p>Tämän sovelluksen tarkoituksena on selkeyttää tietotekniikan alan opiskelussa käytettyjä termejä ja lyhenteitä.</p>
         <p>
-          Sovelluksessa on tällä hetkellä kaksi kategoriaa:
-          <strong>Tietotekniikan Perustermistöä</strong>
-          {' '}
-          sekä
+          Sovelluksessa on tällä hetkellä kaksi kategoriaa:&nbsp;
+          <strong>Tietotekniikan Perustermistöä</strong>&nbsp;
+          sekä&nbsp;
           <strong>Internet ja Tietoverkot</strong>
         </p>
         <br />

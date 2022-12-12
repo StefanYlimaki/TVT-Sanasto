@@ -30,7 +30,7 @@ function Gameplay({
   // start the game
   useEffect(() => {
     startGame()
-  })
+  }, [])
 
   // function for getting a random word, which's index is not in usedWordIndexes
   const getRandomWord = (boolean) => {
@@ -155,13 +155,13 @@ function Gameplay({
           <div className="game__gameplay-stats_and-text_length">
             <div className="game__gameplay-stats_and-text_length-stats">
               <div>
-                Kierros
+                Kierros&nbsp;
                 {round}
                 /
                 {gameLenght}
               </div>
               <div>
-                Pisteet
+                Pisteet&nbsp;
                 {points}
                 /
                 {round - 1}

@@ -23,7 +23,7 @@ function Scoreboard({
         )
         : <div>Hävisit pelin</div>}
       <p>
-        Sait
+        Sait&nbsp;
         {points}
         /
         {gameLenght}
