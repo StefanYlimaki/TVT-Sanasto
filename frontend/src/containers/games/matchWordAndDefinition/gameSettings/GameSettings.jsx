@@ -1,34 +1,36 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import comp_basic from "../../../../assets/data/comp-basic.json";
-import networks_basic from "../../../../assets/data/networks-basic.json";
-import "./gameSettings.css";
-import { Slider } from "@mui/material";
+import comp_basic from '../../../../assets/data/comp-basic.json'
+import networks_basic from '../../../../assets/data/networks-basic.json'
+import './gameSettings.css'
+import { Slider } from '@mui/material'
 
-const GameSettings = ({ setWords, gameLength, setGameLength, setErrorMessage }) => {
+function GameSettings({
+  setWords, gameLength, setGameLength, setErrorMessage,
+}) {
   const [selectedCategory, setSelectedCategory] = useState(null)
 
   const marks = [
     {
       value: 4,
-      label: "4",
+      label: '4',
     },
     {
       value: 10,
-      label: "10",
+      label: '10',
     },
     {
       value: 20,
-      label: "20",
+      label: '20',
     },
-  ];
+  ]
 
   const handleSliderChange = (event, newValue) => {
-    setGameLength(newValue);
-  };
+    setGameLength(newValue)
+  }
 
   const handleStartGameClick = () => {
-    if(selectedCategory !== null) {
+    if (selectedCategory !== null) {
       setWords(selectedCategory)
     } else {
       setErrorMessage('Valitse kategoria')
@@ -36,7 +38,6 @@ const GameSettings = ({ setWords, gameLength, setGameLength, setErrorMessage }) 
         setErrorMessage(null)
       }, 2000)
     }
-    
   }
 
   return (
@@ -75,10 +76,10 @@ const GameSettings = ({ setWords, gameLength, setGameLength, setErrorMessage }) 
         </div>
       </div>
       <div className="game__settings-start_game">
-        <button onClick={handleStartGameClick} >Aloita peli</button>
+        <button onClick={handleStartGameClick}>Aloita peli</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GameSettings;
+export default GameSettings

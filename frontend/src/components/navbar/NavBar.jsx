@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import React, { useState } from 'react'
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
 import logo from '../../assets/photos/tvt-sanasto-logo.jpg'
-import './navbar.css';
+import './navbar.css'
 
-const Navbar = () => {
+function Navbar() {
   const navigate = useNavigate()
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   return (
     <div className="tvt__navbar">
@@ -25,16 +25,16 @@ const Navbar = () => {
           ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
         {toggleMenu && (
-        <div className="tvt__navbar-menu_container scale-up-center">
-          <div className="tvt__navbar-menu_container-links">
-          <button onClick={() => { navigate('/dictionary'); setToggleMenu(false) } }>Sanakirja</button>
-          <button onClick={() => { navigate('/games'); setToggleMenu(false) } }>Pelit </button>
+          <div className="tvt__navbar-menu_container scale-up-center">
+            <div className="tvt__navbar-menu_container-links">
+              <button onClick={() => { navigate('/dictionary'); setToggleMenu(false) }}>Sanakirja</button>
+              <button onClick={() => { navigate('/games'); setToggleMenu(false) }}>Pelit </button>
+            </div>
           </div>
-        </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

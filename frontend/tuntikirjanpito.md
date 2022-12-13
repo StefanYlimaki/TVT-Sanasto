@@ -10,6 +10,7 @@
 | 09.12.2022 | 3 | Pelin koodin refaktorointia (koodin jakaminen pienempiin osiin), bugien fixausta
 | 09.12.2022 | 2 | Pelin pituuden asettamisominaisuus, tyylien lisäämistä pelin asetukset näytölle sekä scoreboardille
 | 10.12.2022 | 4 | Tein sovelluksesta paremman mobiililaitteille
+| 12.12.2022 | 3 | Deployment pipelinen käyttöönottoa ja testausta, master branchin asettaminen protected branchiksi, tyylien lisäämistä, bugien korjausta
+| 12.12.2022 | 2 | Eslint lisätty, eslint konfigurointi, pipelinen laajentamista ja testaamista
 
-
- 30/175 tuntia käytetty
+ 35/175 tuntia käytetty
