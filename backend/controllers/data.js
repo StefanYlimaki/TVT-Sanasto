@@ -14,9 +14,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  if(req.params.id && req.params.id === 'comp-basic'){
+  if(req.params.id && req.params.id === 'basic-comp'){
     await page.goto('https://gitlab.com/sanasto/comp-basic/-/raw/main/comp-basic.json')
-  } else if (req.params.id === 'networks-basic'){
+  } else if (req.params.id === 'internet-basic'){
     await page.goto('https://gitlab.com/sanasto/internet-basic/-/raw/main/networks-basic.json')
   }
   const data = await page.evaluate(() => {
