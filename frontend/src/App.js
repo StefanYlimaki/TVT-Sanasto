@@ -1,14 +1,14 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Container } from "@mui/material";
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { Container } from '@mui/material'
 
-import Dictionary from "./containers/dictionary/Dictionary";
-import Home from "./containers/home/Home";
-import Games from "./containers/games/Games";
-import MatchWordAndDefinition from "./containers/games/matchWordAndDefinition/MatchWordAndDefinition";
-import "./app.css";
-import NavBar from "./components/navbar/NavBar";
-import Footer from "./containers/footer/Footer";
+import Dictionary from './containers/dictionary/Dictionary'
+import Home from './containers/home/Home'
+import Games from './containers/games/Games'
+import MatchWordAndDefinition from './containers/games/matchWordAndDefinition/MatchWordAndDefinition'
+import './app.css'
+import NavBar from './components/navbar/NavBar'
+import Footer from './containers/footer/Footer'
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const App = () => {
         <Footer />
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default App;
+export default App
