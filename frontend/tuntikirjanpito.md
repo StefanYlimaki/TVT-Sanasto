@@ -10,5 +10,6 @@
 | 10.12.2022 | 4 | Tein sovelluksesta paremman mobiililaitteille
 | 12.12.2022 | 5 | Deployment pipelinen käyttöönottoa ja testausta, master branchin asettaminen protected branchiksi, tyylien lisäämistä, bugien korjausta. Eslint lisätty, eslint konfigurointi, pipelinen laajentamista ja testaamista
 | 13.12.2022 | 7 | Backend lisätty, backend yhteydessä postgres tietokantaan, jossa käyttäjien tiedot. Lisäksi backend hakee sanastot verkosta ns. web-scraper:lla. Tämä siksi, kun GitLab:sta (jossa sanastot ovat) ei voi fetchata dataa API-kutsuilla. Lisäsin myös testausmielessä (vielä) frontendin hakemaan nämä tiedot, vaikka se ei niitä vielä käytäkään. Tänään vastaan tuli monta ongelmaa (kuten GitLab:in cors policy --> ratkaisu: käytä web-scraperia), lisäksi tietokannan käyttöönottoon liittyviä asioita tuli kerrattua uudelleen.
+| 14.12.2022 | 5 | Muutoksia backendiin. Kysytty data haetaan verkosta, vain jos sitä ei ole palvelimella. Jos kyselyn mukana tulee pyyntö eritoten hakea data verkosta, se haetaan. Sen jälkeen tarkistetaan, oliko haettu data samaa mikä palvelimella on, jos ei niin tallennetaan juuri haettu data palvelimelle. Backendin koodin refaktorointia, helper-functions ja middlewarea. Frontend hakee datan backendistä oikein, mutta ei vielä käytä sitä.
 
- 42/175 tuntia käytetty
+47/175 tuntia käytetty
