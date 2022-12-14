@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Container } from '@mui/material'
 import axios from 'axios'
+import fetchDictionaryData from './utils/fetchDictionaryData'
 
 import Dictionary from './containers/dictionary/Dictionary'
 import Home from './containers/home/Home'
@@ -13,21 +14,14 @@ import Footer from './containers/footer/Footer'
 
 
 const App = () => {
-  axios.get('http://localhost:3001/api/users/')
-    .then((response) => {
-      console.log(response.data)
-    })
+  axios.get('http://localhost:3001/api/users/').then((response) => {
+    console.log(response.data)
+  })
 
-  axios.get('http://localhost:3001/api/data/')
-    .then((response) => {
-      console.log(response.data)
-      response.data.map((d) => {
-        axios.get(`http://localhost:3001/api/data/${d.id}`)
-          .then((response) => {
-            console.log(response.data)
-          })
-      })
-    })
+  useEffect(() => {
+    fetchDictionaryData()
+  }, [])
+
 
   return (
     <Container>
