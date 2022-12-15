@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-
-import comp_basic from '../../../../assets/data/comp-basic.json'
-import networks_basic from '../../../../assets/data/networks-basic.json'
 import './gameSettings.css'
 import { Slider } from '@mui/material'
 
@@ -31,7 +28,7 @@ function GameSettings({
 
   const handleStartGameClick = () => {
     if (selectedCategory !== null) {
-      setWords(selectedCategory)
+      setWords(JSON.parse(localStorage.getItem(selectedCategory)))
     } else {
       setErrorMessage('Valitse kategoria')
       setTimeout(() => {
@@ -61,14 +58,14 @@ function GameSettings({
         <div className="game__settings-category_buttons">
           <button
             onClick={() => {
-              setSelectedCategory(comp_basic)
+              setSelectedCategory('basic-comp')
             }}
           >
             Tietotekniikan Perustermistöä
           </button>
           <button
             onClick={() => {
-              setSelectedCategory(networks_basic)
+              setSelectedCategory('networks-basic')
             }}
           >
             Internet ja Tietoverkot
