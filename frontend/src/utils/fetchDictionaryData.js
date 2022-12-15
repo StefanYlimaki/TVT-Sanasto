@@ -8,7 +8,7 @@ const fetchDictionaryData = () => {
       response.data.map((d) => {
         axios.get(`http://localhost:3001/api/data/${d.id}`)
           .then((response) => {
-            console.log(response.data)
+            localStorage.setItem(d.id, JSON.stringify(response.data))
           })
       })
     })

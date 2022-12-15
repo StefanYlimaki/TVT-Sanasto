@@ -5,8 +5,6 @@ import { Button } from '@mui/material'
 import './dictionary.css'
 import WordList from '../../components/wordList/WordList'
 import SingleWord from '../../components/singleWord/SingleWord'
-import comp_basic from '../../assets/data/comp-basic.json'
-import networks_basic from '../../assets/data/networks-basic.json'
 
 function CompBasicCategory() {
   const [category, setGategory] = useState('comp_basic')
@@ -16,9 +14,9 @@ function CompBasicCategory() {
   let selectedWords
 
   if (category === 'comp_basic') {
-    selectedWords = comp_basic
+    selectedWords = JSON.parse(localStorage.getItem('basic-comp'))
   } else {
-    selectedWords = networks_basic
+    selectedWords = JSON.parse(localStorage.getItem('internet-basic'))
   }
 
   const wordsToShow = selectedWords.filter((w) => w.english.toLowerCase().includes(search.toLowerCase())
