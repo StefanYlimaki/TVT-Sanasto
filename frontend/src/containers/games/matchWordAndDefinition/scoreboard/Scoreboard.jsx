@@ -4,39 +4,42 @@ import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
 function Scoreboard({
-  setPoints,
-  points,
-  setScoreBoardVisible,
-  setCondition,
-  condition,
-  gameLenght,
+  setGameRunning,
+  raport
 }) {
+  const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
+  let won = false
+  console.log('hello from scoreboard', raport)
+
+
+  let category
+  if(category_id === 'basic-comp'){
+    category = 'Tietotekniikan Perustermistöä'
+  } else if(category_id === 'internet-basic'){
+    category = 'Internet ja Tietoverkot'
+  } else (
+    category = tuntematon
+  )
+
+  if(points === rounds){
+    won = true
+  }
+
   return (
     <div>
-      {condition === 'won'
+      { won
         ? (
           <div>
+            Mahtavaa!
             <Confetti width={width} height={height} />
-            Voitit Pelin
           </div>
         )
-        : <div>Hävisit pelin</div>}
-      <p>
-        Sait&nbsp;
-        {points}
-        /
-        {gameLenght}
-        {' '}
-        pistettä
-      </p>
-      <button
-        onClick={() => {
-          setScoreBoardVisible(false)
-          setPoints(0)
-          setCondition(null)
-        }}
-      >
+        : (<div>Parempi onni ensi kerralla!</div>)
+      }
+      <div>{`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}</div>
+
+      <button onClick={() => { setGameRunning('false') } }>
         sulje scoreboard
       </button>
     </div>

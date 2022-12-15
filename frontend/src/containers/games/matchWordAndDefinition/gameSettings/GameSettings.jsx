@@ -3,7 +3,11 @@ import './gameSettings.css'
 import { Slider } from '@mui/material'
 
 function GameSettings({
-  setWords, gameLength, setGameLength, setErrorMessage,
+  setCategory,
+  gameLength,
+  setGameLength,
+  setErrorMessage,
+  setGameRunning
 }) {
   const [selectedCategory, setSelectedCategory] = useState(null)
 
@@ -28,7 +32,8 @@ function GameSettings({
 
   const handleStartGameClick = () => {
     if (selectedCategory !== null) {
-      setWords(JSON.parse(localStorage.getItem(selectedCategory)))
+      setCategory(selectedCategory)
+      setGameRunning('true')
     } else {
       setErrorMessage('Valitse kategoria')
       setTimeout(() => {
@@ -65,7 +70,7 @@ function GameSettings({
           </button>
           <button
             onClick={() => {
-              setSelectedCategory('networks-basic')
+              setSelectedCategory('internet-basic')
             }}
           >
             Internet ja Tietoverkot
