@@ -5,8 +5,8 @@ import shuffleArray from '../../../../utils/shuffleArray'
 import './gameplay.css'
 import Scoreboard from '../scoreboard/Scoreboard'
 
-import comp_basic from '../../assets/data/comp-basic.json'
-import internet_basic from '../../assets/data/networks-basic.json'
+import comp_basic from '../../../../assets/data/comp-basic.json'
+import internet_basic from '../../../../assets/data/networks-basic.json'
 
 function Gameplay({
   category,
