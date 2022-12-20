@@ -14,6 +14,7 @@
 | 15.12.2022 | 4 | Muutin sovelluksen tallettamaan sanasto-json tiedostot laitteelle backendistä jokaisen sivun päivityksen yhteydessä. (Huom. ei vielä mahdollisuutta varmistaa, että backend varmistaa sanaston ajankohtaisuuden, kun refresh-attribuuttia ei lähetetä backendille). Refaktoroin pelin koodia, ja mahdollistin pelin scoreboardin päivityksen tulevaisuudessa.
 | 16.12.2022 | 6 | Ei committeja tänään. Tutkin mahdollisuuksia koko sovelluksen deploymentille verkkoon. Tutustuin Dockeriin ja Kubernetes:iin
 | 19.12.2022 | 5 | Ei committeja tänään. Tutkin mahdollisuuksia koko sovelluksen hostaamiselle verkossa. Tutuistuin PERN-stackin hostaamiseen, verceliin, ja postgres tietokannan hostaamiseen. Postgres tietokannan osaan nyt hostata verkossa.
+| 20.12.2022 | 6 | Loin verkkoon API:n, josta sanastot saa fetchattua. Laitoin frontendin käyttämään sitä. Tutustuin API:n luomiseen Vercelissä.
 
-62/175 tuntia käytetty
+68/175 tuntia käytetty
 
