@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import { Button } from '@mui/material'
 
 import './dictionary.css'
-import comp_basic from '../../assets/data/comp-basic.json'
-import internet_basic from '../../assets/data/networks-basic.json'
 import WordList from '../../components/wordList/WordList'
 import SingleWord from '../../components/singleWord/SingleWord'
 
@@ -16,9 +14,9 @@ function CompBasicCategory() {
   let selectedWords
 
   if (category === 'comp_basic') {
-    selectedWords = comp_basic //JSON.parse(localStorage.getItem('basic-comp'))
+    selectedWords = JSON.parse(localStorage.getItem('basic-comp'))
   } else {
-    selectedWords = internet_basic //JSON.parse(localStorage.getItem('internet-basic'))
+    selectedWords = JSON.parse(localStorage.getItem('internet-basic'))
   }
 
   const wordsToShow = selectedWords.filter((w) => w.english.toLowerCase().includes(search.toLowerCase())

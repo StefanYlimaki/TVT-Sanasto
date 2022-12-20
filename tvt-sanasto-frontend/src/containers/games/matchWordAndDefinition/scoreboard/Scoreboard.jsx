@@ -10,7 +10,6 @@ function Scoreboard({
   const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
   let won = false
-  console.log('hello from scoreboard', raport)
 
 
   let category

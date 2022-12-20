@@ -5,9 +5,6 @@ import shuffleArray from '../../../../utils/shuffleArray'
 import './gameplay.css'
 import Scoreboard from '../scoreboard/Scoreboard'
 
-import comp_basic from '../../../../assets/data/comp-basic.json'
-import internet_basic from '../../../../assets/data/networks-basic.json'
-
 function Gameplay({
   category,
   gameLenght,
@@ -16,10 +13,10 @@ function Gameplay({
 
 
   let words = []
-  if(category === 'basic-comp'){
-    words = comp_basic
-  } else  {
-    words = internet_basic
+  if (category === 'basic-comp') {
+    words = JSON.parse(localStorage.getItem('basic-comp'))
+  } else {
+    words = JSON.parse(localStorage.getItem('internet-basic'))
   }
 
   const [points, setPoints] = useState(0)
