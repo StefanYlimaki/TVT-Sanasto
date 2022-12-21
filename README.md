@@ -1,7 +1,8 @@
 # This is a repository for Full Stack Project of Full Stack Open 2022
 
-### Application available at https://vercel.com/stefanylimaki/tvt-sanasto-frontend
-### Dictionaries used are from https://gitlab.com/sanasto
+#### Application available at https://tvt-sanasto-frontend.vercel.app/
+#### Application API available at https://tvt-sanasto-api.vercel.app/
+#### Dictionaries used are from https://gitlab.com/sanasto
 
 # Getting started with this Application
 This project's frontend is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
