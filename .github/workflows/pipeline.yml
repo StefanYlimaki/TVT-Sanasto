@@ -26,6 +26,7 @@ jobs:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
   check_frontend:
+    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '), '#skip_checks') == false }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -39,7 +40,7 @@ jobs:
           npm run eslint
           npm run build
   tag:
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#skip_tag') == false }}
     needs: [check_frontend]
     runs-on: ubuntu-20.04
     steps:
