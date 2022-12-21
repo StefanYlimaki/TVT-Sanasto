@@ -32,10 +32,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: cd tvt-sanasto-frontend
-        run: cd tvt-sanasto-frontend
       - name: npm install
-        run: npm install
+        run: cd tvt-sanasto-frontend&&npm install
       - name: eslint
         run: npm run eslint
       - name: build
