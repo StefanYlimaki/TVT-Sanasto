@@ -2,6 +2,7 @@ import React from 'react'
 import './games.css'
 import { useNavigate } from 'react-router-dom'
 import match_word_and_meaning_logo from '../../assets/photos/match_word_and_meaning.jpg'
+import match_word_and_translation_logo from '../../assets/photos/match_word_and_translation.png'
 
 function Games() {
   const navigate = useNavigate()
@@ -10,7 +11,13 @@ function Games() {
     {
       name: 'Yhdistä sana ja selitys',
       picture: match_word_and_meaning_logo,
+      address: '/games/match_word_and_definition'
     },
+    {
+      name: 'Yhdistä sana ja käännös',
+      picture: match_word_and_translation_logo,
+      address: '/games/match_word_and_translation'
+    }
   ]
 
   return (
@@ -22,7 +29,7 @@ function Games() {
             <div
               key={g.name}
               className="tvt__games-selection_option-single"
-              onClick={() => navigate('/games/match_word_and_definition')}
+              onClick={() => navigate(g.address)}
             >
               <img src={g.picture} alt="yhdistä sana ja selitys" />
               <button>{g.name}</button>
