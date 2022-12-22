@@ -7,6 +7,7 @@ import Dictionary from './containers/dictionary/Dictionary'
 import Home from './containers/home/Home'
 import Games from './containers/games/Games'
 import MatchWordAndDefinition from './containers/games/matchWordAndDefinition/MatchWordAndDefinition'
+import MatchWordAndTranslation from './containers/games/matchWordAndTranslation/MatchWordAndTranslation'
 import './app.css'
 import NavBar from './components/navbar/NavBar'
 import Footer from './containers/footer/Footer'
@@ -32,6 +33,10 @@ const App = () => {
           <Route
             path="/games/match_word_and_definition"
             element={<MatchWordAndDefinition />}
+          />
+          <Route
+            path="/games/match_word_and_translation"
+            element={<MatchWordAndTranslation />}
           />
         </Routes>
         <Footer />
