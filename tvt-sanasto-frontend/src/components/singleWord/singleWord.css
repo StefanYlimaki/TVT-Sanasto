@@ -46,11 +46,31 @@
     .singleword__sources p {
         font-size: 18px;
     }
+
+    .singleword__english,
+    .singleword__finnish,
+    .singleword__definition {
+    font-size: 20px;
+    }
+
+    .singleword__sources {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 450px) {
     .singleword__sources p {
         font-size: 12px;
+    }
+
+    .singleword__sources {
+        font-size: 16px;
+    }
+
+    .singleword__english,
+    .singleword__finnish,
+    .singleword__definition {
+    font-size: 16px;
     }
 }
 

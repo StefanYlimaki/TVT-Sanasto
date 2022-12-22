@@ -34,8 +34,6 @@ const App = () => {
             element={<MatchWordAndDefinition />}
           />
         </Routes>
-        <br />
-        <br />
         <Footer />
       </div>
     </Container>

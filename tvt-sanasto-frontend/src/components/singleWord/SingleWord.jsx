@@ -13,7 +13,7 @@ function SingleWord({ word }) {
       </div>
       <div className="singleword__english">
         <img src={flag_united_kingdom} alt="flag of United Kingdom" />
-        { ` ${word.english}` }
+        <> {word.english}</>
       </div>
 
       <div className="singleword__definition">{ word.definition }</div>
