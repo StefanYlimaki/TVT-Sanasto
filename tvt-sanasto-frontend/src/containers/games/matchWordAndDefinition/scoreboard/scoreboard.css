@@ -1,0 +1,27 @@
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.scoreboard__raport {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.correctwrong {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: aqua;
+    padding: 3rem;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 500px) {
+    .scoreboard {
+        padding-right: 2rem;
+    }
+}
