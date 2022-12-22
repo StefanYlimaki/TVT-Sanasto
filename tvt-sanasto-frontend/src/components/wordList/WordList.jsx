@@ -15,7 +15,7 @@ function WordList({ words, setSearch, setWord }) {
             {words.map((word) => (
               <ListItem className="category__list-item" key={word.id}>
                 <ListItemText
-                  onClick={() => { setWord(word); setSearch(word.english) }}
+                  onClick={() => { setWord(word); setSearch(word.english); window.scrollTo(0, 0) }}
                   primaryTypographyProps={{ fontSize: 18, color: { color } }}
                   secondaryTypographyProps={{ fontSize: 14, color: { color } }}
                   className="category__list-item_text"
