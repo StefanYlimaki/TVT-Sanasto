@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './scoreboard.css'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
@@ -14,6 +14,7 @@ function Scoreboard({
   raport
 }) {
   const { points, rounds, category_id } = raport
+  const [showFullLength, setShowFullLength] = useState(Array(rounds).fill(false))
   const { width, height } = useWindowSize()
   let won = false
 
@@ -25,7 +26,7 @@ function Scoreboard({
   } else if(category_id === 'internet-basic'){
     category = 'Internet ja Tietoverkot'
   } else (
-    category = tuntematon
+    category = 'tuntematon'
   )
 
   if(points === rounds){
@@ -43,29 +44,42 @@ function Scoreboard({
 
   for(let i = 0; i < rounds; i++){
     let round = {
+      index: i,
       answer: raport.answers[i],
       question: raport.questions[i],
-      correctDefinition: raport.questions[i].definition
+      correctDefinition: raport.questions[i].definition,
+      showFullDefinition: true
     }
     raportRounds.push(round)
   }
 
-  console.log(raportRounds)
+  const getShortenedDefinition = (definition) => {
+    const shortenedText = definition.substring(0, 300)
+    const lastIndex = shortenedText.lastIndexOf('.')
+    return shortenedText.substring(0, lastIndex + 1)
+  }
 
+  const toggleShowFullLength = (round) => {
+    let temp = [...showFullLength]
+    temp[round.index] = !temp[round.index]
+    setShowFullLength(temp)
+  }
 
   return (
-    <div>
-      { won
-        ? (
-          <div>
+    <div className='scoreboard'>
+      <div className='scoreboard__textual-feedback'>
+        { won
+          ? (
+            <div>
             Mahtavaa!
-            <Confetti width={width} height={height} />
-          </div>
-        )
-        : (<div>Parempi onni ensi kerralla!</div>)
-      }
-      <div>{`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}</div>
-      <div>
+              <Confetti width={width} height={height} />
+            </div>
+          )
+          : (<div>Parempi onni ensi kerralla!</div>)
+        }
+        {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
+      </div>
+      <div className='scoreboard__raport'>
         <TableContainer component={Paper}>
           <Table>
             <TableBody>
@@ -85,15 +99,26 @@ function Scoreboard({
                   <TableRow key={round.question.id} style={{ backgroundColor: '#F0F8FF' }}>
                     <TableCell>
                       { checkIfCorrect(round)
-                        ? <div><CheckIcon /></div>
-                        : <div><ClearIcon /></div>
+                        ? <CheckIcon />
+                        : <ClearIcon />
                       }
                     </TableCell>
                     <TableCell>
                       { round.question.finnish }
                     </TableCell>
                     <TableCell>
-                      { round.question.definition }
+                      { showFullLength[round.index]
+                        ?
+                        <div>
+                          <p>{ round.question.definition }</p>
+                          <Button size="small" onClick={ () => toggleShowFullLength(round) }>Piilota koko vastaus</Button>
+                        </div>
+                        :
+                        <div>
+                          <p>{ getShortenedDefinition(round.question.definition) }</p>
+                          <Button size="small" onClick={ () => toggleShowFullLength(round) }>Näytä koko vastaus</Button>
+                        </div>
+                      }
                     </TableCell>
                   </TableRow>
                 ))

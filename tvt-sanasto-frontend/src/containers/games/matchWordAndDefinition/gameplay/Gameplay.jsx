@@ -125,7 +125,7 @@ function Gameplay({
   const generateGameRaport = () => {
     const raport = {
       points: points,
-      rounds: gameLenght,
+      rounds: round - 1,
       category_id: category,
       questions: questions,
       answers: answers,
