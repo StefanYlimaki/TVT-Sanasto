@@ -1,0 +1,20 @@
+.game__gameplay {
+    display: flex;
+    flex-direction: column;
+}
+
+.game_gameplay-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+.game_gameplay-main Button {
+    align-self: center;
+    width: 80%
+}
+
+.game__gameplay-options {
+    display: flex;
+    justify-content: center;
+}
