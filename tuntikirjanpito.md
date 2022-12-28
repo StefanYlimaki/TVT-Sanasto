@@ -16,6 +16,8 @@
 | 19.12.2022 | 5 | Ei committeja tänään. Tutkin mahdollisuuksia koko sovelluksen hostaamiselle verkossa. Tutuistuin PERN-stackin hostaamiseen, verceliin, ja postgres tietokannan hostaamiseen. Postgres tietokannan osaan nyt hostata verkossa.
 | 20.12.2022 | 6 | Loin verkkoon API:n, josta sanastot saa fetchattua. Laitoin frontendin käyttämään sitä. Tutustuin API:n luomiseen Vercelissä.
 | 21.12.2022 | 3 | Pipeline käyttöönottoa varten muutoksia ja testausta, ja readmen kirjottelua
+| 22.12.2022 | 6 | Aloitin uuden pelin lisäämisen, tein sovelluksesta paremman mobiililaitteille
+| 28.12.2022 | 3 | Jatkoin uuden pelin kehittämistä, peli toimii nyt hyvin tietokoneella
 
-68/175 tuntia käytetty
+77/175 tuntia käytetty
 

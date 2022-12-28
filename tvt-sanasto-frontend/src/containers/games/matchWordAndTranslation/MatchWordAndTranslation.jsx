@@ -10,8 +10,8 @@ const MatchWordAndTranslation = () => {
   const [gameRunning, setGameRunning] = useState('false')
   const [errorMessage, setErrorMessage] = useState(null)
   const [gameLength, setGameLength] = useState(10)
-
   const [amountOfOptions, setAmountOfOptions] = useState(4)
+
   return (
     <div>
       <ErrorMessage message={ errorMessage }/>
