@@ -18,6 +18,11 @@
 | 21.12.2022 | 3 | Pipeline käyttöönottoa varten muutoksia ja testausta, ja readmen kirjottelua
 | 22.12.2022 | 6 | Aloitin uuden pelin lisäämisen, tein sovelluksesta paremman mobiililaitteille
 | 28.12.2022 | 3 | Jatkoin uuden pelin kehittämistä, peli toimii nyt hyvin tietokoneella
+| 30.12.2022 | 4 | Uuden pelin myötä tulleiden uusien bugien fixausta. Yhdistä sana ja käännös -pelissä peliraporttitaulukko ei sopinut mobiililaitteille, joten asian tutkimisen ja opiskelemisen myötä tein mobiililaitteille kokonaan oman näkymän. Lisäksi pieniä fixejä.
 
-77/175 tuntia käytetty
+81/175 tuntia käytetty
+
+TODO:
+Ensi kertaa sivulla vierailevan käyttäjän laitteelle sanojen lataaminen kestää liian kauan.
+Mahdollisia fixejä: Nopeampi API (API ei scrapeis tietoa verkosta pyynnöstä, vaan intervallein. Ja tallentaisi sanat API-serverille.)
 
