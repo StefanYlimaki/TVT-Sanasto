@@ -7,6 +7,8 @@ import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } 
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect'
+
 const Scoreboard = ({
   setGameRunning,
   raport
@@ -50,67 +52,72 @@ const Scoreboard = ({
 
   return (
     <div className='scoreboard'>
-      <div className='scoreboard__textual-feedback'>
-        { won
-          ? (
-            <div>
+      <BrowserView>
+        <div className='scoreboard__textual-feedback'>
+          { won
+            ? (
+              <div>
             Mahtavaa!
-              <Confetti width={width} height={height} />
-            </div>
-          )
-          : (<div>Parempi onni ensi kerralla!</div>)
-        }
-        {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
-      </div>
-      <div className='scoreboard__raport'>
-        <TableContainer className='scoreboard__raport-table' component={Paper}>
-          <Table>
-            <TableBody>
-              <TableRow className='tableRow' style={{ backgroundColor: '#7CFC00' }}>
-                <TableCell className='tablecell'>
-                  <p><strong>Oikein/ Väärin</strong></p>
-                </TableCell>
-                <TableCell className='tablecell'>
-                  <p><strong>Kysytty Sana</strong></p>
-                </TableCell>
-                <TableCell className='tablecell'>
-                  <p><strong>Vastauksesi</strong></p>
-                </TableCell>
-                <TableCell className='tablecell'>
-                  <p><strong>Oikea Vastaus</strong></p>
-                </TableCell>
-              </TableRow>
-              {
-                raportRounds.map((round) => (
-                  <TableRow key={round.question.id} style={{ backgroundColor: '#F0F8FF' }}>
-                    <TableCell className='tablecell'>
-                      { checkIfCorrect(round)
-                        ? <CheckIcon />
-                        : <ClearIcon />
-                      }
-                    </TableCell>
-                    <TableCell className='tablecell'>
-                      <p>{ round.question.finnish }</p>
-                    </TableCell>
-                    <TableCell className='tablecell'>
-                      <p>{ round.answer.english }</p>
-                    </TableCell>
-                    <TableCell className='tablecell'>
-                      <div>
-                        <p>{ round.correctAnswer }</p>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              }
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
+                <Confetti width={width} height={height} />
+              </div>
+            )
+            : (<div>Parempi onni ensi kerralla!</div>)
+          }
+          {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
+        </div>
+        <div className='scoreboard__raport'>
+          <TableContainer className='scoreboard__raport-table' component={Paper}>
+            <Table>
+              <TableBody>
+                <TableRow className='tableRow' style={{ backgroundColor: '#7CFC00' }}>
+                  <TableCell className='tablecell'>
+                    <p><strong>Oikein/ Väärin</strong></p>
+                  </TableCell>
+                  <TableCell className='tablecell'>
+                    <p><strong>Kysytty Sana</strong></p>
+                  </TableCell>
+                  <TableCell className='tablecell'>
+                    <p><strong>Vastauksesi</strong></p>
+                  </TableCell>
+                  <TableCell className='tablecell'>
+                    <p><strong>Oikea Vastaus</strong></p>
+                  </TableCell>
+                </TableRow>
+                {
+                  raportRounds.map((round) => (
+                    <TableRow key={round.question.id} style={{ backgroundColor: '#F0F8FF' }}>
+                      <TableCell className='tablecell'>
+                        { checkIfCorrect(round)
+                          ? <CheckIcon />
+                          : <ClearIcon />
+                        }
+                      </TableCell>
+                      <TableCell className='tablecell'>
+                        <p>{ round.question.finnish }</p>
+                      </TableCell>
+                      <TableCell className='tablecell'>
+                        <p>{ round.answer.english }</p>
+                      </TableCell>
+                      <TableCell className='tablecell'>
+                        <div>
+                          <p>{ round.correctAnswer }</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                }
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
 
-      <Button variant="contained" onClick={() => { setGameRunning('false') } }>
+        <Button variant="contained" onClick={() => { setGameRunning('false') } }>
         Sulje Raportti
-      </Button>
+        </Button>
+      </BrowserView>
+      <MobileView>
+        <h1>Game raport not yet available on mobile devices</h1>
+      </MobileView>
     </div>
   )
 
