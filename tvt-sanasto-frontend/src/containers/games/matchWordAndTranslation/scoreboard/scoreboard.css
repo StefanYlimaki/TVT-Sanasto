@@ -21,8 +21,34 @@
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 400px) {
     .tablecell p {
         font-size: 10px;
     }
+
+    .mobile__raport-content__tablecell p,
+    .mobile__raport-header__tablecell p{
+        font-size: 10px;
+    }
 }
+
+.mobile__raport-content__tablecell {
+    width: 75%;
+
+}
+.mobile__raport-header__tablecell {
+    width: 25%;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+.mobile__raport-tablebody {
+    border-style: solid;
+    border-width: 2px; 
+}
+
+.mobile__raport {
+    background-color: transparent;
+    padding-top: 2rem;
+}
+
