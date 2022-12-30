@@ -31,7 +31,7 @@ function Games() {
               className="tvt__games-selection_option-single"
               onClick={() => navigate(g.address)}
             >
-              <img src={g.picture} alt="yhdistä sana ja selitys" />
+              <img src={g.picture} alt={g.name} />
               <button>{g.name}</button>
             </div>
           ))}
