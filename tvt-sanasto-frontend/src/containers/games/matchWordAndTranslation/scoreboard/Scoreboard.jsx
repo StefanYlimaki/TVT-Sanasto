@@ -14,6 +14,9 @@ const Scoreboard = ({
   raport
 }) => {
 
+  console.log('You are surfing on mobile', isMobile)
+  console.log('You are surfing on browser', isBrowser)
+
   const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
   let won = false
@@ -111,10 +114,6 @@ const Scoreboard = ({
             </Table>
           </TableContainer>
         </div>
-
-        <Button variant="contained" onClick={() => { setGameRunning('false') } }>
-        Sulje Raportti
-        </Button>
       </BrowserView>
       { /* MOBILE DEVICES */}
       <MobileView>
@@ -182,6 +181,10 @@ const Scoreboard = ({
 
         }
       </MobileView>
+      <div style={{ height: '20px' }}></div>
+      <Button variant="contained" onClick={() => { setGameRunning('false') } }>
+        Sulje Raportti
+      </Button>
     </div>
   )
 
