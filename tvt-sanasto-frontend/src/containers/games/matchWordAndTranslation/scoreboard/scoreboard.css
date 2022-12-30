@@ -21,8 +21,33 @@
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 400px) {
     .tablecell p {
         font-size: 10px;
     }
+
+    .mobile__raport-content__tablecell,
+    .mobile__raport-header__tablecell {
+        font-size: 10px;
+    }
 }
+
+.separator {
+    height: 50px;
+}
+.mobile__raport-tablebody {
+ border-style: solid;
+ border-width: 2px; 
+}
+
+.mobile__raport-tablebody__spacer {
+    height: 50px;
+}
+
+
+.mobile__raport-tableContainter {
+    background-color: transparent;
+    box-shadow: none;
+    padding-top: 2rem;
+}
+

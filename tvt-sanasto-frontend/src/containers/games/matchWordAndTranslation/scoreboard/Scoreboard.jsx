@@ -118,16 +118,29 @@ const Scoreboard = ({
       </BrowserView>
       { /* MOBILE DEVICES */}
       <MobileView>
-        <TableContainer>
-          <Table>
-            {
-              raportRounds.map((round) => (
-                <TableBody key={round.question.id}>
-                  <TableRow style={{ backgroundColor: '#F0F8FF' }}>
-                    <TableCell>
-                      <p>Oikein/ Väärin</p>
+        <div className='scoreboard__textual-feedback'>
+          { won
+            ? (
+              <div>
+            Mahtavaa!
+                <Confetti width={width} height={height} />
+              </div>
+            )
+            : (<div>Parempi onni ensi kerralla!</div>)
+          }
+          {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
+        </div>
+
+        {
+          raportRounds.map((round) => (
+            <TableContainer className='mobile__raport-tableContainter' key={round.question.id} component={Paper}>
+              <Table className='mobile__raport-table' >
+                <TableBody className='mobile__raport-tablebody' >
+                  <TableRow>
+                    <TableCell className='mobile__raport-header__tablecell'>
+                      <p><strong>Oikein/Väärin</strong></p>
                     </TableCell>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-content__tablecell'>
                       { checkIfCorrect(round)
                         ? <CheckIcon />
                         : <ClearIcon />
@@ -135,37 +148,37 @@ const Scoreboard = ({
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-header__tablecell'>
                       <p><strong>Kysytty Sana</strong></p>
                     </TableCell>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-content__tablecell'>
                       <p>{ round.question.finnish }</p>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-header__tablecell'>
                       <p><strong>Vastauksesi</strong></p>
                     </TableCell>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-content__tablecell'>
                       <p>{ round.answer.english }</p>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-header__tablecell'>
                       <p><strong>Oikea Vastaus</strong></p>
                     </TableCell>
-                    <TableCell className='tablecell'>
+                    <TableCell className='mobile__raport-content__tablecell'>
                       <div>
                         <p>{ round.correctAnswer }</p>
                       </div>
                     </TableCell>
                   </TableRow>
                 </TableBody>
-              ))
+              </Table>
+            </TableContainer>
+          ))
 
-            }
-          </Table>
-        </TableContainer>
+        }
       </MobileView>
     </div>
   )
