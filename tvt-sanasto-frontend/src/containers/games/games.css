@@ -71,3 +71,13 @@
     border-left-style: solid;
     border-right-style: solid;
 }
+
+@media screen and (max-width: 600px) {
+    .tvt__games-selection_options {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tvt__games-selection_option-single {
+        padding-top: 2rem;
+    }
+}
