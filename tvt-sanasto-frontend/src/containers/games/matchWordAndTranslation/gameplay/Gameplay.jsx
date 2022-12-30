@@ -125,12 +125,12 @@ const Gameplay = ({
         ? ( <div>game loading...</div> )
         : ( <div className='game__gameplay'>
           { gameHasEnded
-            ? (<div><Scoreboard
+            ? (<Scoreboard
               setGameRunning = { setGameRunning }
               points = { points }
               rounds = { gameLenght }
               raport = { generateGameRaport() }
-            /></div>)
+            />)
             : (<div className="game_gameplay-main">
               <div className="game__gameplay-stats_and-text_length">
                 <div className="game__gameplay-stats_and-text_length-stats">

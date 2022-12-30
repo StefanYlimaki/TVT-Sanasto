@@ -16,8 +16,6 @@ const Scoreboard = ({
   const { width, height } = useWindowSize()
   let won = false
 
-  console.log(raport)
-
   let category
   if(category_id === 'basic-comp'){
     category = 'Tietotekniikan Perustermistöä'
@@ -65,39 +63,39 @@ const Scoreboard = ({
         {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
       </div>
       <div className='scoreboard__raport'>
-        <TableContainer component={Paper}>
+        <TableContainer className='scoreboard__raport-table' component={Paper}>
           <Table>
             <TableBody>
-              <TableRow style={{ backgroundColor: '#7CFC00' }}>
-                <TableCell>
-                  <strong>Oikein/Väärin</strong>
+              <TableRow className='tableRow' style={{ backgroundColor: '#7CFC00' }}>
+                <TableCell className='tablecell'>
+                  <p><strong>Oikein/ Väärin</strong></p>
                 </TableCell>
-                <TableCell>
-                  <strong>Kysytty Sana</strong>
+                <TableCell className='tablecell'>
+                  <p><strong>Kysytty Sana</strong></p>
                 </TableCell>
-                <TableCell>
-                  <strong>Vastauksesi</strong>
+                <TableCell className='tablecell'>
+                  <p><strong>Vastauksesi</strong></p>
                 </TableCell>
-                <TableCell>
-                  <strong>Oikea Vastaus</strong>
+                <TableCell className='tablecell'>
+                  <p><strong>Oikea Vastaus</strong></p>
                 </TableCell>
               </TableRow>
               {
                 raportRounds.map((round) => (
                   <TableRow key={round.question.id} style={{ backgroundColor: '#F0F8FF' }}>
-                    <TableCell>
+                    <TableCell className='tablecell'>
                       { checkIfCorrect(round)
                         ? <CheckIcon />
                         : <ClearIcon />
                       }
                     </TableCell>
-                    <TableCell>
-                      { round.question.finnish }
+                    <TableCell className='tablecell'>
+                      <p>{ round.question.finnish }</p>
                     </TableCell>
-                    <TableCell>
-                      { round.answer.english }
+                    <TableCell className='tablecell'>
+                      <p>{ round.answer.english }</p>
                     </TableCell>
-                    <TableCell>
+                    <TableCell className='tablecell'>
                       <div>
                         <p>{ round.correctAnswer }</p>
                       </div>

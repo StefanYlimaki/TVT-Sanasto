@@ -12,9 +12,9 @@ const GameSettings = ({
   setAmountOfOptions
 }) => {
 
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedCategory, setSelectedCategory] = useState(null) // Keeps track of selected category
 
-  const marksRounds = [
+  const marksForAmountOfRounds = [
     {
       value: 4,
       label: '4',
@@ -29,7 +29,7 @@ const GameSettings = ({
     },
   ]
 
-  const marksOptions = [
+  const MarksForAmountOfOptions = [
     {
       value: 2,
       label: '2',
@@ -48,8 +48,8 @@ const GameSettings = ({
     },
   ]
 
-  const handleRoundsSliderChange = (event, newValue) => {
-    setGameLength(newValue)
+  const handleRoundsSliderChange = (event) => {
+    setGameLength(event.target.value)
   }
 
   const handleOptionsSliderChange = (event) => {
@@ -78,7 +78,7 @@ const GameSettings = ({
             min={4}
             max={20}
             valueLabelDisplay="auto"
-            marks={marksRounds}
+            marks={marksForAmountOfRounds}
             value={gameLength}
             onChange={handleRoundsSliderChange}
           />
@@ -92,7 +92,7 @@ const GameSettings = ({
             min={2}
             max={8}
             valueLabelDisplay="auto"
-            marks={marksOptions}
+            marks={MarksForAmountOfOptions}
             value={amountOfOptions}
             onChange={handleOptionsSliderChange}
           />
