@@ -52,6 +52,7 @@ const Scoreboard = ({
 
   return (
     <div className='scoreboard'>
+      { /* BROWSERS */}
       <BrowserView>
         <div className='scoreboard__textual-feedback'>
           { won
@@ -115,8 +116,56 @@ const Scoreboard = ({
         Sulje Raportti
         </Button>
       </BrowserView>
+      { /* MOBILE DEVICES */}
       <MobileView>
-        <h1>Game raport not yet available on mobile devices</h1>
+        <TableContainer>
+          <Table>
+            {
+              raportRounds.map((round) => (
+                <TableBody key={round.question.id}>
+                  <TableRow style={{ backgroundColor: '#F0F8FF' }}>
+                    <TableCell>
+                      <p>Oikein/ Väärin</p>
+                    </TableCell>
+                    <TableCell className='tablecell'>
+                      { checkIfCorrect(round)
+                        ? <CheckIcon />
+                        : <ClearIcon />
+                      }
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className='tablecell'>
+                      <p><strong>Kysytty Sana</strong></p>
+                    </TableCell>
+                    <TableCell className='tablecell'>
+                      <p>{ round.question.finnish }</p>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className='tablecell'>
+                      <p><strong>Vastauksesi</strong></p>
+                    </TableCell>
+                    <TableCell className='tablecell'>
+                      <p>{ round.answer.english }</p>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className='tablecell'>
+                      <p><strong>Oikea Vastaus</strong></p>
+                    </TableCell>
+                    <TableCell className='tablecell'>
+                      <div>
+                        <p>{ round.correctAnswer }</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              ))
+
+            }
+          </Table>
+        </TableContainer>
       </MobileView>
     </div>
   )
