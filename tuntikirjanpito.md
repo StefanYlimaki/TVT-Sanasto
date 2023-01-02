@@ -19,7 +19,7 @@
 | 22.12.2022 | 6 | Aloitin uuden pelin lisäämisen, tein sovelluksesta paremman mobiililaitteille
 | 28.12.2022 | 3 | Jatkoin uuden pelin kehittämistä, peli toimii nyt hyvin tietokoneella
 | 30.12.2022 | 4 | Uuden pelin myötä tulleiden uusien bugien fixausta. Yhdistä sana ja käännös -pelissä peliraporttitaulukko ei sopinut mobiililaitteille, joten asian tutkimisen ja opiskelemisen myötä tein mobiililaitteille kokonaan oman näkymän. Lisäksi pieniä fixejä.
-| 02.01.2022 | 5 | Kysytyn sanan kielen valitsemisen ominaisuus lisäys peliin "yhdistä sana ja käännös". Korjasin bugin, jossa sovellus kaatui, mikäli API-kutsu ei ollut palauttanut sanasto-dataa, kun sanakirja sivu tai peli-sivu avattiin. Nyt sovellus näyttää loading-ruutua, niin kauan kuin on tarpeellista.
+| 02.01.2022 | 5 | Kysytyn sanan kielen valitsemisen ominaisuus lisäys peliin "yhdistä sana ja käännös". Korjasin bugin, jossa sovellus kaatui, mikäli API-kutsu ei ollut palauttanut sanasto-dataa, kun sanakirja sivu tai peli-sivu avattiin. Nyt sovellus näyttää loading-ruutua, niin kauan kuin on tarpeellista. Lisäsin testejä kolmelle komponentille.
 
 86/175 tuntia käytetty
 
