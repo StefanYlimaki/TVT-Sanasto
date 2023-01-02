@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './gameSettings.css'
 import { Slider } from '@mui/material'
 
@@ -14,6 +14,23 @@ const GameSettings = ({
 }) => {
 
   const [selectedCategory, setSelectedCategory] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+      setIsLoading(false)
+    }
+    const interval = setInterval(() => {
+      if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+        setIsLoading(false)
+      }
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  if(isLoading){
+    return(<div>Loading...</div>)
+  }
 
   const marksRounds = [
     {
