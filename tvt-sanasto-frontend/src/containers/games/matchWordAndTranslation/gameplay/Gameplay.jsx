@@ -8,8 +8,10 @@ const Gameplay = ({
   category,
   gameLenght,
   setGameRunning,
-  amountOfOptions
+  amountOfOptions,
+  languages
 }) => {
+
   let words = []
   if (category === 'basic-comp') {
     words = JSON.parse(localStorage.getItem('basic-comp'))
@@ -33,9 +35,11 @@ const Gameplay = ({
   const [questions, setQuestions] = useState([])
   const [answers, setAnswers] = useState([])
   const [options, setOptions] = useState([])
+  const [questionLanguages, setQuestionLanguages] = useState([])
+
+  const [questionLanguage, setQuestionLanguage] = useState('finnish')
 
   const wordsToUse = []
-
 
   useEffect(() => {
     startGame()
@@ -65,6 +69,20 @@ const Gameplay = ({
   }
 
   const nextRound = (correctAnswer) => {
+
+    if(languages.length === 2){
+      let random = Math.floor(Math.random()* 2)
+      if(random === 0){
+        setQuestionLanguage('english')
+      } else {
+        setQuestionLanguage('finnish')
+      }
+    } else if(languages.includes === 'finnish'){
+      setQuestionLanguage('finnish')
+    } else {
+      setQuestionLanguage('english')
+    }
+
     if (round === gameLenght) {
       if(correctAnswer) endGame(true)
       endGame(false)
@@ -88,6 +106,7 @@ const Gameplay = ({
 
     // saving options for later use
     setOptions(options.concat(wordsToUse))
+    setQuestionLanguages(questionLanguages.concat(questionLanguage))
 
     setUsedWordIndexes([])
     setOptionWords(shuffleArray(wordsToUse))
@@ -105,6 +124,7 @@ const Gameplay = ({
 
   const generateGameRaport = () => {
     const raport = {
+      questionLanguages: questionLanguages,
       points: points,
       rounds: round - 1,
       category_id: category,
@@ -118,6 +138,23 @@ const Gameplay = ({
   const endGame = () => {
     setGameHasEnded(true)
   }
+
+  const getWordToBeGuessed = (word) => {
+    if(questionLanguage === 'finnish'){
+      return word.finnish
+    } else {
+      return word.english
+    }
+  }
+
+  const getWordToBeOption= (word) => {
+    if(questionLanguage === 'finnish'){
+      return word.english
+    } else {
+      return word.finnish
+    }
+  }
+
 
   return (
     <div>
@@ -155,7 +192,7 @@ const Gameplay = ({
                 </div>
                 {randomWord !== null ? (
                   <div className="game__gameplay-advice_word">
-                    {randomWord.finnish}
+                    { getWordToBeGuessed(randomWord) }
                     {' '}
                   </div>
                 ) : (
@@ -171,7 +208,7 @@ const Gameplay = ({
                         className="game__gameplay-options_single-option"
                         onClick={() => handleClickOnOption(w)}
                       >
-                        <p>{w.english}</p>
+                        <p>{getWordToBeOption(w)}</p>
 
                       </div>
                     ))}

@@ -110,7 +110,7 @@
     background-color: #24a0ed;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 750px){
     .game__setting-gamelength {
         flex-direction: column;
         padding: none;
@@ -148,6 +148,26 @@
     .game__settings-category_buttons button{
         padding: 0rem 4rem;
         height: 6rem;
+        width: 6rem;
+    }
+
+}
+
+@media screen and (max-width: 400px){
+    .game__setting-gamelength p {
+        font-size: 12px;
+        padding-left: 0rem;
+    }
+
+    .game__settings-category p {
+        font-size: 12px;
+        padding-left: 0rem;
+    }
+    
+    .game__settings-category_buttons button{
+        font-size: 10px;
+        padding: 0rem 2rem;
+        height: 4rem;
         width: 6rem;
     }
 
