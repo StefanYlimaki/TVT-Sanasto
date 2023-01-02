@@ -33,12 +33,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: npm install, run eslint and build
+      - name: npm install, run eslint, build and test
         working-directory: ./tvt-sanasto-frontend
         run: |
           npm install
           npm run eslint
           npm run build
+          CI=true npm test
   tag:
     if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#skip_tag') == false }}
     needs: [check_frontend]
