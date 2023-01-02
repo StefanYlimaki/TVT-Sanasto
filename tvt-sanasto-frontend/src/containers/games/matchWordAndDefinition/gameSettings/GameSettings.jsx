@@ -43,8 +43,8 @@ function GameSettings({
     },
   ]
 
-  const handleSliderChange = (event, newValue) => {
-    setGameLength(newValue)
+  const handleSliderChange = (event) => {
+    setGameLength(event.target.value)
   }
 
   const handleStartGameClick = () => {
