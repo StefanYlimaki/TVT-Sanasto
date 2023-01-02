@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import './gameSettings.css'
-import { Slider } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup, Slider } from '@mui/material'
 
 const GameSettings = ({
   setCategory,
@@ -10,11 +10,14 @@ const GameSettings = ({
   setErrorMessage,
   setGameRunning,
   amountOfOptions,
-  setAmountOfOptions
+  setAmountOfOptions,
+  setLanguages
 }) => {
 
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [finnish, setFinnish] = useState(true)
+  const [english, setEnglish] = useState(true)
 
   useEffect(() => {
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
@@ -74,9 +77,24 @@ const GameSettings = ({
     setAmountOfOptions(event.target.value)
   }
 
+  const getLanguages = () => {
+    let array = new Array()
+
+    if(finnish){
+      array.push('finnish')
+    }
+
+    if(english){
+      array.push('english')
+    }
+
+    return array
+  }
+
   const handleStartGameClick = () => {
     if (selectedCategory !== null) {
       setCategory(selectedCategory)
+      setLanguages(getLanguages())
       setGameRunning('true')
     } else {
       setErrorMessage('Valitse kategoria')
@@ -86,8 +104,25 @@ const GameSettings = ({
     }
   }
 
+  const handleFinnishChange = (event) => {
+    setFinnish(event.target.checked)
+  }
+
+  const handleEnglishChange = (event) => {
+    setEnglish(event.target.checked)
+  }
+
   return(
     <div className="game__settings">
+      <div className='game__setting-languages'>
+        <div className='game__setting-languages__text'>
+          <p>Kysymykset kielellä:</p>
+        </div>
+        <div className='game__setting-languages__checkbox'>
+          <p>Suomi <Checkbox checked={finnish} onChange={handleFinnishChange} /></p>
+          <p>Englanti <Checkbox checked={english} onChange={handleEnglishChange} /></p>
+        </div>
+      </div>
       <div className="game__setting-gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
         <div className="game__setting-gamelength_slider">

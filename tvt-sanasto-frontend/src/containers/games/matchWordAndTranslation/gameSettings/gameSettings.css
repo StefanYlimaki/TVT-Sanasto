@@ -1,0 +1,62 @@
+
+.game__setting-languages {
+    display: flex;
+}
+
+.game__setting-languages__text p {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    width: 300px;
+    font-size: 20px;
+    font-family: var(--font-family);
+}
+
+.game__setting-languages__checkbox {
+    display: flex;
+    padding-left: 2rem;
+    padding-top: 2rem;
+}
+
+.game__setting-languages__checkbox p {
+    font-size: 20px;
+    font-family: var(--font-family);
+    width: 130px;
+}
+
+@media screen and (max-width: 750px){
+    .game__setting-languages,
+    .game__setting-languages p {
+        font-size: 16px;
+        flex-direction: column;
+        padding: none;
+    }
+
+    .game__setting-languages__checkbox {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 400px){
+
+    .game__setting-languages__text p {
+        
+    padding-left: 0rem;
+    padding-right: 0rem;
+    padding-top: 0rem;
+        font-size: 12px;
+        padding-left: none;
+    }
+
+    .game__setting-languages p {
+        padding: none;
+        font-size: 12px;
+    }
+
+    .game__setting-languages__checkbox {
+        font-size: 12px;
+        padding-top: 0rem;
+    }
+
+}

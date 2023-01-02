@@ -13,10 +13,6 @@ const Scoreboard = ({
   setGameRunning,
   raport
 }) => {
-
-  console.log('You are surfing on mobile', isMobile)
-  console.log('You are surfing on browser', isBrowser)
-
   const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
   let won = false
@@ -46,11 +42,34 @@ const Scoreboard = ({
   for(let i = 0; i < rounds; i++){
     let round = {
       index: i,
+      language: raport.questionLanguages[i],
       answer: raport.answers[i],
       question: raport.questions[i],
-      correctAnswer: raport.questions[i].english,
+      correctAnswer: raport.questions[i]
     }
     raportRounds.push(round)
+  }
+
+
+  const getPromptedWord = (round) => {
+    if(round.language === 'finnish'){
+      return round.question.finnish
+    }
+    return round.question.english
+  }
+
+  const getAnsweredWord = (round) => {
+    if(round.language === 'finnish'){
+      return round.answer.english
+    }
+    return round.answer.finnish
+  }
+
+  const getCorrectAnswer = (round) => {
+    if(round.language === 'finnish'){
+      return round.correctAnswer.english
+    }
+    return round.correctAnswer.finnish
   }
 
   return (
@@ -97,15 +116,13 @@ const Scoreboard = ({
                         }
                       </TableCell>
                       <TableCell className='tablecell'>
-                        <p>{ round.question.finnish }</p>
+                        <p>{ getPromptedWord(round) }</p>
                       </TableCell>
                       <TableCell className='tablecell'>
-                        <p>{ round.answer.english }</p>
+                        <p>{ getAnsweredWord(round) }</p>
                       </TableCell>
                       <TableCell className='tablecell'>
-                        <div>
-                          <p>{ round.correctAnswer }</p>
-                        </div>
+                        <p>{ getCorrectAnswer(round) }</p>
                       </TableCell>
                     </TableRow>
                   ))
