@@ -14,7 +14,6 @@ import Footer from './containers/footer/Footer'
 
 
 const App = () => {
-
   useEffect(() => {
     fetchDictionaryData()
   }, [])
