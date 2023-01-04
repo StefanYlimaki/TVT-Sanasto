@@ -41,7 +41,7 @@ jobs:
           npm run build
           CI=true npm test
   tag:
-    if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#skip_tag') == false }}
+    if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#tag') == true }}
     needs: [check_frontend]
     runs-on: ubuntu-20.04
     steps:
