@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './gameSettings.css'
-import { Slider } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup, Slider } from '@mui/material'
 
 const GameSettings = ({
   setCategory,
@@ -10,12 +10,32 @@ const GameSettings = ({
   setErrorMessage,
   setGameRunning,
   amountOfOptions,
-  setAmountOfOptions
+  setAmountOfOptions,
+  setLanguages
 }) => {
 
   const [selectedCategory, setSelectedCategory] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [finnish, setFinnish] = useState(true)
+  const [english, setEnglish] = useState(true)
 
-  const marksRounds = [
+  useEffect(() => {
+    if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+      setIsLoading(false)
+    }
+    const interval = setInterval(() => {
+      if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+        setIsLoading(false)
+      }
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  if(isLoading){
+    return(<div>Loading...</div>)
+  }
+
+  const marksForAmountOfRounds = [
     {
       value: 4,
       label: '4',
@@ -30,7 +50,7 @@ const GameSettings = ({
     },
   ]
 
-  const marksOptions = [
+  const MarksForAmountOfOptions = [
     {
       value: 2,
       label: '2',
@@ -49,17 +69,32 @@ const GameSettings = ({
     },
   ]
 
-  const handleRoundsSliderChange = (event, newValue) => {
-    setGameLength(newValue)
+  const handleRoundsSliderChange = (event) => {
+    setGameLength(event.target.value)
   }
 
   const handleOptionsSliderChange = (event) => {
     setAmountOfOptions(event.target.value)
   }
 
+  const getLanguages = () => {
+    let array = new Array()
+
+    if(finnish){
+      array.push('finnish')
+    }
+
+    if(english){
+      array.push('english')
+    }
+
+    return array
+  }
+
   const handleStartGameClick = () => {
     if (selectedCategory !== null) {
       setCategory(selectedCategory)
+      setLanguages(getLanguages())
       setGameRunning('true')
     } else {
       setErrorMessage('Valitse kategoria')
@@ -69,8 +104,25 @@ const GameSettings = ({
     }
   }
 
+  const handleFinnishChange = (event) => {
+    setFinnish(event.target.checked)
+  }
+
+  const handleEnglishChange = (event) => {
+    setEnglish(event.target.checked)
+  }
+
   return(
     <div className="game__settings">
+      <div className='game__setting-languages'>
+        <div className='game__setting-languages__text'>
+          <p>Kysymykset kielellä:</p>
+        </div>
+        <div className='game__setting-languages__checkbox'>
+          <p>Suomi <Checkbox checked={finnish} onChange={handleFinnishChange} /></p>
+          <p>Englanti <Checkbox checked={english} onChange={handleEnglishChange} /></p>
+        </div>
+      </div>
       <div className="game__setting-gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
         <div className="game__setting-gamelength_slider">
@@ -79,7 +131,7 @@ const GameSettings = ({
             min={4}
             max={20}
             valueLabelDisplay="auto"
-            marks={marksRounds}
+            marks={marksForAmountOfRounds}
             value={gameLength}
             onChange={handleRoundsSliderChange}
           />
@@ -93,7 +145,7 @@ const GameSettings = ({
             min={2}
             max={8}
             valueLabelDisplay="auto"
-            marks={marksOptions}
+            marks={MarksForAmountOfOptions}
             value={amountOfOptions}
             onChange={handleOptionsSliderChange}
           />

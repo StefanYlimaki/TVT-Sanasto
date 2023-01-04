@@ -11,12 +11,13 @@ const MatchWordAndTranslation = () => {
   const [errorMessage, setErrorMessage] = useState(null)
   const [gameLength, setGameLength] = useState(10)
   const [amountOfOptions, setAmountOfOptions] = useState(4)
+  const [languages, setLanguages] = useState([])
 
   return (
-    <div>
+    <div className='game'>
       <ErrorMessage message={ errorMessage }/>
       { gameRunning === 'false'
-        ? (<div><GameSettings
+        ? (<GameSettings
           setCategory = { setCategory }
           gameLength = { gameLength }
           setGameLength = { setGameLength }
@@ -24,13 +25,15 @@ const MatchWordAndTranslation = () => {
           setGameRunning = { setGameRunning }
           amountOfOptions = { amountOfOptions }
           setAmountOfOptions = { setAmountOfOptions }
-        /></div>)
-        : (<div><Gameplay
+          setLanguages = { setLanguages }
+        />)
+        : (<Gameplay
           category = { category }
           gameLenght = { gameLength }
           setGameRunning = { setGameRunning }
           amountOfOptions = { amountOfOptions }
-        /></div>)
+          languages = { languages }
+        />)
       }
     </div>)
 }
