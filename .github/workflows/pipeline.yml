@@ -45,7 +45,7 @@ jobs:
       - name: The job has failed
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
-        with:
+        with: 
           severity: error
           details: check_frontend failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
