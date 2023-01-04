@@ -12,7 +12,11 @@ jobs:
         uses: jtalk/url-health-check-action@v3
         with:
           # Check the following URLs one by one sequentially
-          url: https://tvt-sanasto-frontend.vercel.app/
+          url:  https://tvt-sanasto-frontend.vercel.app/
+                https://tvt-sanasto-frontend.vercel.app/dictionary
+                https://tvt-sanasto-frontend.vercel.app/games
+                https://tvt-sanasto-frontend.vercel.app/games/match_word_and_definition
+                https://tvt-sanasto-frontend.vercel.app/games/match_word_and_translation
           # Follow redirects, or just report success on 3xx status codes
           follow-redirect: false # Optional, defaults to "false"
           # Fail this action after this many failed attempts
