@@ -1,17 +1,18 @@
 name: Merging Pipeline
-
-on: 
+on:
   push:
     branches:
       - master
   pull_request:
-    branches: [master]
-    types: [opened, synchorize]
-
-jobs: 
+    branches:
+      - master
+    types:
+      - opened
+      - synchorize
+jobs:
   a_test_job:
     runs-on: ubuntu-20.04
-    steps: 
+    steps:
       - uses: actions/checkout@v2
       - name: github context
         env:
@@ -26,13 +27,14 @@ jobs:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
   check_frontend:
-    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '), '#skip_checks') == false }}
+    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '),
+      '#skip_checks') == false }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
       - name: npm install, run eslint, build and test
         working-directory: ./tvt-sanasto-frontend
         run: |
@@ -40,7 +42,7 @@ jobs:
           npm run eslint
           npm run build
           CI=true npm test
-      name: The job has failed
+      - name: The job has failed
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
         with: 
@@ -48,17 +50,20 @@ jobs:
           details: check_frontend failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag:
-    if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#skip_tag') == false }}
-    needs: [check_frontend]
+    if: ${{ github.event_name == 'push' &&
+      contains(join(toJson(github.event.commits.*.message), ' '), '#skip_tag')
+      == false }}
+    needs:
+      - check_frontend
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.36.0
-        env: 
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: "patch"
+          DEFAULT_BUMP: patch
           WITH_V: true
