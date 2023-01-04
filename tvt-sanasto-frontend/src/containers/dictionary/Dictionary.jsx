@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from '@mui/material'
 
 import './dictionary.css'
@@ -10,8 +10,25 @@ function CompBasicCategory() {
   const [category, setGategory] = useState('comp_basic')
   const [search, setSearch] = useState('')
   const [word, setWord] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   let selectedWords
+
+  useEffect(() => {
+    if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+      setIsLoading(false)
+    }
+    const interval = setInterval(() => {
+      if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+        setIsLoading(false)
+      }
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  if(isLoading){
+    return(<div>Loading...</div>)
+  }
 
   if (category === 'comp_basic') {
     selectedWords = JSON.parse(localStorage.getItem('basic-comp'))

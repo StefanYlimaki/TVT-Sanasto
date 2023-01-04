@@ -7,7 +7,7 @@ const color = '#453C67'
 
 function WordList({ words, setSearch, setWord }) {
   return (
-    <div>
+    <div className='wordlist'>
       {words.length === 1
         ? <SingleWord word={words[0]} />
         : (

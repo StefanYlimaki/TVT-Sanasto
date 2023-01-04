@@ -39,7 +39,7 @@ jobs:
           npm install
           npm run eslint
           npm run build
-          npm run test
+          CI=true npm test
       name: The job has failed
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}

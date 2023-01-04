@@ -72,9 +72,10 @@
     border-right-style: solid;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     .tvt__games-selection_options {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
     .tvt__games-selection_option-single {
