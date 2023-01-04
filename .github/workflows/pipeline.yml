@@ -9,22 +9,22 @@ on:
     types: [opened, synchorize]
 
 jobs: 
-  a_test_job:
-    runs-on: ubuntu-20.04
-    steps: 
-      - uses: actions/checkout@v2
-      - name: github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: commits
-        env:
-          COMMITS: ${{ toJson(github.event.commits) }}
-        run: echo "$COMMITS"
-      - name: commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-        run: echo "$COMMIT_MESSAGES"
+  #a_test_job:
+  #  runs-on: ubuntu-20.04
+  #  steps: 
+  #    - uses: actions/checkout@v2
+  #    - name: github context
+  #      env:
+  #        GITHUB_CONTEXT: ${{ toJson(github) }}
+  #      run: echo "$GITHUB_CONTEXT"
+  #    - name: commits
+  #      env:
+  #        COMMITS: ${{ toJson(github.event.commits) }}
+  #      run: echo "$COMMITS"
+  #    - name: commit messages
+  #      env:
+  #        COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+  #     run: echo "$COMMIT_MESSAGES"
   check_frontend:
     if: ${{ contains(join(toJson(github.event.commits.*.message), ' '), '#skip_checks') == false }}
     runs-on: ubuntu-20.04
@@ -33,12 +33,20 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: npm install, run eslint and build
+      - name: npm install, run eslint, build and test
         working-directory: ./tvt-sanasto-frontend
         run: |
           npm install
           npm run eslint
           npm run build
+          npm run test
+      name: The job has failed
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with: 
+          severity: error
+          details: check_frontend failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag:
     if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#skip_tag') == false }}
     needs: [check_frontend]
