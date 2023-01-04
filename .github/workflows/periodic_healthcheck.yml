@@ -25,3 +25,17 @@ jobs:
           retry-delay: 5s # Optional, only applicable to max-attempts > 1
           # Retry all errors, including 404. This option might trigger curl upgrade.
           retry-all: false # Optional, defaults to "false"
+      - name: Catch Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with: 
+          severity: error
+          details: Periodic Health Check failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: The Deploy was successful
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ success() }}
+        with: 
+          severity: info
+          details: Periodic Health Check succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}

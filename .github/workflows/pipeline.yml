@@ -40,6 +40,13 @@ jobs:
           npm run eslint
           npm run build
           CI=true npm test
+      - name: Catch Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with: 
+          severity: error
+          details: check_frontend failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag:
     if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message), ' '), '#tag') == true }}
     needs: [check_frontend]
