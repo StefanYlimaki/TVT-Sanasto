@@ -41,7 +41,7 @@ const App = () => {
         <Footer />
       </div>
     </Container>
-  )    
+  )
 }
 
 export default App
