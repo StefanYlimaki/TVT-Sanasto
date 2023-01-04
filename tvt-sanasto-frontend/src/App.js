@@ -16,7 +16,7 @@ import Footer from './containers/footer/Footer'
 const App = () => {
 
   useEffect(() => {
-    fetchDictionaryData()
+    fetchDictionaryData()      ;
   }, [])
 
   return (
@@ -41,6 +41,10 @@ const App = () => {
         </Routes>
         <Footer />
       </div>
+
+
+
+
     </Container>
   )
 }
