@@ -42,6 +42,13 @@ jobs:
           npm run eslint
           npm run build
           CI=true npm test
+          npm run cypress:open
+      - name: e2e tests
+        uses: cypress-io/github-action@v4
+        with: 
+          build: npm run build
+          start: npm run start
+          wait-on: http://localhost:8080
       - name: Catch Failure
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
