@@ -21,9 +21,9 @@
 | 30.12.2022 | 4 | Uuden pelin myötä tulleiden uusien bugien fixausta. Yhdistä sana ja käännös -pelissä peliraporttitaulukko ei sopinut mobiililaitteille, joten asian tutkimisen ja opiskelemisen myötä tein mobiililaitteille kokonaan oman näkymän. Lisäksi pieniä fixejä.
 | 02.01.2023 | 7 | Kysytyn sanan kielen valitsemisen ominaisuus lisäys peliin "yhdistä sana ja käännös". Korjasin bugin, jossa sovellus kaatui, mikäli API-kutsu ei ollut palauttanut sanasto-dataa, kun sanakirja sivu tai peli-sivu avattiin. Nyt sovellus näyttää loading-ruutua, niin kauan kuin on tarpeellista. Opiskelin testaamista ja lisäsin testejä kolmelle komponentille.
 | 04.01.2023 | 6 | Konfiguroin projektin CI/CD:ta. Aloitin e2e testien teon cypressillä.
-| 05.01.2023 | 3 | Lisäsin e2e-testejä. Muutin pipelinen ajamaan myös e2e-testit.
+| 05.01.2023 | 6 | Lisäsin e2e-testejä. Muutin pipelinen ajamaan myös e2e-testit. Optimoin e2e-testejä, koska ne veivät liian kauan aikaa. Optimoinnilla testin ajoaika 50 sekuntia --> 25 sekuntia. Lisäksi kommentoin e2e-testit ja selkeytin pipelineä.
 
-97/175 tuntia käytetty
+100/175 tuntia käytetty
 
 TODO:
 Testien lisääminen sekä komponentti että e2e
