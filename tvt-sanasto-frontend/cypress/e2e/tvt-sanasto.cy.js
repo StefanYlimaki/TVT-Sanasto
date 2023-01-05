@@ -1,4 +1,4 @@
-/*describe('TVT-sanasto app, frontpage', function() {
+describe('TVT-sanasto app, frontpage', function() {
 
   beforeEach(function() {
     cy.visit('https://tvt-sanasto-frontend.vercel.app/')
@@ -31,7 +31,7 @@ describe('TVT-sanasto app, dictionary', function() {
 
   beforeEach(function() {
     cy.visit('https://tvt-sanasto-frontend.vercel.app/dictionary')
-    cy.wait(4000)
+    cy.wait(10000)
   })
 
   it('Clicking on a word, show the word definition. And by empytying the search, we see all the words', function() {
@@ -51,13 +51,13 @@ describe('TVT-sanasto app, dictionary', function() {
     cy.contains('Laite tai järjestelmä joka tallentaa tietoa tietokoneessa tai digitaalisissa laitteissa käytettäväksi. Muisti viittaa usein tietokoneen päämuistiin (RAM; *Random Access Memory*) jossa tietoa säilytetään käsittelyn ajan.')
   })
 
-})*/
+})
 
 describe('TVT-sanasto app, games', function() {
 
   beforeEach(function() {
     cy.visit('https://tvt-sanasto-frontend.vercel.app/games')
-    cy.wait(4000)
+    cy.wait(10000)
   })
 
   it('Match Word and Definition -game works', function() {
