@@ -42,6 +42,7 @@ jobs:
           npm run eslint
           npm run build
           CI=true npm test
+          npm run test:e2e
       - name: Catch Failure
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
