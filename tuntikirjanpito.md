@@ -23,6 +23,7 @@
 | 04.01.2023 | 6 | Konfiguroin projektin CI/CD:ta. Aloitin e2e testien teon cypressillä.
 | 05.01.2023 | 6 | Lisäsin e2e-testejä. Muutin pipelinen ajamaan myös e2e-testit. Optimoin e2e-testejä, koska ne veivät liian kauan aikaa. Optimoinnilla testin ajoaika 50 sekuntia --> 25 sekuntia. Lisäksi kommentoin e2e-testit ja selkeytin pipelineä.
 
+
 100/175 tuntia käytetty
 
 TODO:
