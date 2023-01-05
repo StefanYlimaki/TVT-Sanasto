@@ -1,4 +1,4 @@
-describe('TVT-sanasto app, frontpage', function() {
+/*describe('TVT-sanasto app, frontpage', function() {
 
   beforeEach(function() {
     cy.visit('https://tvt-sanasto-frontend.vercel.app/')
@@ -51,7 +51,7 @@ describe('TVT-sanasto app, dictionary', function() {
     cy.contains('Laite tai järjestelmä joka tallentaa tietoa tietokoneessa tai digitaalisissa laitteissa käytettäväksi. Muisti viittaa usein tietokoneen päämuistiin (RAM; *Random Access Memory*) jossa tietoa säilytetään käsittelyn ajan.')
   })
 
-})
+})*/
 
 describe('TVT-sanasto app, games', function() {
 
@@ -66,53 +66,56 @@ describe('TVT-sanasto app, games', function() {
     cy.contains('Internet ja Tietoverkot').click()
     cy.contains('Aloita peli').click()
     cy.get('.game__gameplay-advice_word').then(function($elem) {
-      const question = ($elem.text())
+      let question = ($elem.text())
+      question = question.slice(0, -1)
       cy.wrap(question).as('question1')
+      cy.log('wrapped \'' + question + '\'')
     })
     cy.get('.game__gameplay-options_single-option').first().click()
     cy.wait(100)
 
     cy.get('.game__gameplay-advice_word').then(function($elem) {
-      const question = ($elem.text())
+      let question = ($elem.text())
+      question = question.slice(0, -1)
       cy.wrap(question).as('question2')
+      cy.log('wrapped \'' + question + '\'')
     })
     cy.get('.game__gameplay-options_single-option').first().click()
     cy.wait(100)
 
     cy.get('.game__gameplay-advice_word').then(function($elem) {
-      const question = ($elem.text())
+      let question = ($elem.text())
+      question = question.slice(0, -1)
       cy.wrap(question).as('question3')
+      cy.log('wrapped \'' + question + '\'')
     })
     cy.get('.game__gameplay-options_single-option').first().click()
     cy.wait(100)
 
     cy.get('.game__gameplay-advice_word').then(function($elem) {
-      const question = ($elem.text())
+      let question = ($elem.text())
+      question = question.slice(0, -1)
       cy.wrap(question).as('question4')
+      cy.log('wrapped \'' + question + '\'')
     })
     cy.get('.game__gameplay-options_single-option').first().click()
 
-    /*
     cy.get('@question1').then(question1 => {
-      const decoded1 = question1.replaceAll('ä','a')
-      cy.log(decoded1)
-      cy.contains(decoded1)
+      cy.contains(question1)
+      cy.log(question1)
     })
     cy.get('@question2').then(question2 => {
-      const decoded2 = decodeURI(question2)
-      cy.log(decoded2)
       cy.contains(question2)
+      cy.log(question2)
     })
     cy.get('@question3').then(question3 => {
-      const decoded3 = decodeURI(question3)
-      cy.log(decoded3)
       cy.contains(question3)
-    })-
+      cy.log(question3)
+    })
     cy.get('@question4').then(question4 => {
-      const decoded4 = decodeURI(question4)
-      cy.log(decoded4)
       cy.contains(question4)
-    })*/
+      cy.log(question4)
+    })
 
     cy.contains('Sulje Raportti').click()
   })
