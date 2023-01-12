@@ -4,6 +4,7 @@ import { Button, Slider } from '@mui/material'
 import shuffleArray from '../../../../utils/shuffleArray'
 import './gameplay.css'
 import Scoreboard from '../scoreboard/Scoreboard'
+import { ColorRing } from 'react-loader-spinner'
 
 function Gameplay({
   category,
@@ -147,7 +148,15 @@ function Gameplay({
   return (
     <div className="game__gameplay">
       { gameIsLoading
-        ? ( <div>game loading...</div> )
+        ? ( <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+        /> )
         : ( <div>
           { gameHasEnded
             ? (<div><Scoreboard
