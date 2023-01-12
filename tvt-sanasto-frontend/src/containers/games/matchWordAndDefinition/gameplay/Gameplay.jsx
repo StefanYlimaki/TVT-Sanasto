@@ -148,7 +148,7 @@ function Gameplay({
 
   return (
     <div>
-      { !gameIsLoading
+      { gameIsLoading
         ? (
           <div className='games1__loading-screen'>
             <ColorRing className = 'games1__loading-screen__colorRing'
