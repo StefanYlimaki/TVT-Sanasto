@@ -7,7 +7,7 @@ import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } 
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect'
+import { BrowserView, MobileView } from 'react-device-detect'
 
 const Scoreboard = ({
   setGameRunning,

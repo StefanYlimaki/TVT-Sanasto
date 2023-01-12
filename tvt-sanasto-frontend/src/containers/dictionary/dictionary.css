@@ -1,3 +1,16 @@
+.dictionary__loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--font-family);
+  font-size: 20px;
+}
+
+.dictionary__loading-screen__spacer {
+  height: 1.5rem;
+}
+
 .category {
   padding-top: 2rem;
 }

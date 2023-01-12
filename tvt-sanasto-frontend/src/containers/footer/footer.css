@@ -1,9 +1,10 @@
 .footer {
-    padding-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: auto;
+    padding-top: 5rem;
 }
 .footer__section {
     display: flex;

@@ -1,3 +1,14 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.Footer {
+  margin-top: auto;
+}
+
 body {
   background-color: var(--color-bg);
 }
