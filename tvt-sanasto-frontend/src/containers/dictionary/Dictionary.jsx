@@ -1,4 +1,5 @@
-
+import { ColorRing } from 'react-loader-spinner'
+import MovingComponent from 'react-moving-text'
 import React, { useState, useEffect } from 'react'
 import { Button } from '@mui/material'
 
@@ -27,7 +28,29 @@ function CompBasicCategory() {
   }, [])
 
   if(isLoading){
-    return(<div>Loading...</div>)
+    return(
+      <div className='dictionary__loading-screen'>
+        <ColorRing className = 'dictionary__loading-screen__colorRing'
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+        />
+        <div className='dictionary__loading-screen__spacer'></div>
+        <MovingComponent className = 'dictionary__loading-screen__movingComponent'
+          type="bounce"
+          duration="1400ms"
+          delay="0s"
+          direction="normal"
+          timing="ease"
+          iteration="infinite"
+          fillMode="none">
+          Luetaan sanakirjaa...
+        </MovingComponent>
+      </div>)
   }
 
   if (category === 'comp_basic') {

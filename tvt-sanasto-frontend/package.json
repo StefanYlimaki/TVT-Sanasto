@@ -17,6 +17,7 @@
     "react-dom-confetti": "^0.2.0",
     "react-icons": "^4.7.1",
     "react-loader-spinner": "^5.3.4",
+    "react-moving-text": "^0.0.7",
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
