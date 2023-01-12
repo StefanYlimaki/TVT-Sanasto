@@ -1,7 +1,12 @@
 
 import React, { useState, useEffect } from 'react'
+import { Checkbox } from '@mui/material'
+
+
 import './gameSettings.css'
-import { Checkbox, FormControlLabel, FormGroup, Slider } from '@mui/material'
+import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
+import GameLengthSlider from '../../../../elements/GameLengthSlider'
+import AmountOfOptionsSlider from '../../../../elements/AmountOfOptionsSlider'
 
 const GameSettings = ({
   setCategory,
@@ -16,8 +21,8 @@ const GameSettings = ({
 
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [finnish, setFinnish] = useState(true)
-  const [english, setEnglish] = useState(true)
+  const [finnishChecked, setFinnishChecked] = useState(true)
+  const [englishChecked, setEnglishChecked] = useState(true)
 
   useEffect(() => {
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
@@ -32,42 +37,10 @@ const GameSettings = ({
   }, [])
 
   if(isLoading){
-    return(<div>Loading...</div>)
+    return(
+      <LoadingScreen />
+    )
   }
-
-  const marksForAmountOfRounds = [
-    {
-      value: 4,
-      label: '4',
-    },
-    {
-      value: 10,
-      label: '10',
-    },
-    {
-      value: 20,
-      label: '20',
-    },
-  ]
-
-  const MarksForAmountOfOptions = [
-    {
-      value: 2,
-      label: '2',
-    },
-    {
-      value: 4,
-      label: '4',
-    },
-    {
-      value: 6,
-      label: '6',
-    },
-    {
-      value: 8,
-      label: '8',
-    },
-  ]
 
   const handleRoundsSliderChange = (event) => {
     setGameLength(event.target.value)
@@ -80,11 +53,11 @@ const GameSettings = ({
   const getLanguages = () => {
     let array = new Array()
 
-    if(finnish){
+    if(finnishChecked){
       array.push('finnish')
     }
 
-    if(english){
+    if(englishChecked){
       array.push('english')
     }
 
@@ -104,12 +77,12 @@ const GameSettings = ({
     }
   }
 
-  const handleFinnishChange = (event) => {
-    setFinnish(event.target.checked)
+  const handleFinnishCheckboxChange = (event) => {
+    setFinnishChecked(event.target.checked)
   }
 
-  const handleEnglishChange = (event) => {
-    setEnglish(event.target.checked)
+  const handleEnglishCheckboxChange = (event) => {
+    setEnglishChecked(event.target.checked)
   }
 
   return(
@@ -119,36 +92,20 @@ const GameSettings = ({
           <p>Kysymykset kielellä:</p>
         </div>
         <div className='game__setting-languages__checkbox'>
-          <p>Suomi <Checkbox checked={finnish} onChange={handleFinnishChange} /></p>
-          <p>Englanti <Checkbox checked={english} onChange={handleEnglishChange} /></p>
+          <p>Suomi <Checkbox checked = { finnishChecked } onChange = { handleFinnishCheckboxChange } /></p>
+          <p>Englanti <Checkbox checked = { englishChecked } onChange = { handleEnglishCheckboxChange } /></p>
         </div>
       </div>
       <div className="game__setting-gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
         <div className="game__setting-gamelength_slider">
-          <Slider
-            defaultValue={10}
-            min={4}
-            max={20}
-            valueLabelDisplay="auto"
-            marks={marksForAmountOfRounds}
-            value={gameLength}
-            onChange={handleRoundsSliderChange}
-          />
+          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }/>
         </div>
       </div>
       <div className="game__setting-gamelength">
         <p>Valitse vaihtoehtojen lukumäärä:</p>
         <div className="game__setting-gamelength_slider">
-          <Slider
-            defaultValue={4}
-            min={2}
-            max={8}
-            valueLabelDisplay="auto"
-            marks={MarksForAmountOfOptions}
-            value={amountOfOptions}
-            onChange={handleOptionsSliderChange}
-          />
+          <AmountOfOptionsSlider handleChange = { handleOptionsSliderChange } value = { amountOfOptions } />
         </div>
       </div>
       <div className="game__settings-category">

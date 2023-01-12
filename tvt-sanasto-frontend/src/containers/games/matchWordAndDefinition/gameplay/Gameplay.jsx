@@ -5,6 +5,8 @@ import shuffleArray from '../../../../utils/shuffleArray'
 import './gameplay.css'
 import Scoreboard from '../scoreboard/Scoreboard'
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
+import LengthOfOptionSlider from '../../../../elements/LengthOfOptionSlider'
+import GameplayArea from '../gameplayArea/GameplayArea'
 
 function Gameplay({
   category,
@@ -145,6 +147,10 @@ function Gameplay({
     return shortenedText.substring(0, lastIndex + 1)
   }
 
+  const handleOptionLengthSliderChange = (event) => {
+    setDefinitionLength(event.target.value)
+  }
+
   return (
     <div>
       { gameIsLoading
@@ -159,70 +165,20 @@ function Gameplay({
               rounds = { gameLenght }
               raport = { generateGameRaport() }
             /></div>)
-            : (<div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div className="game__gameplay-stats_and-text_length">
-                <div className="game__gameplay-stats_and-text_length-stats">
-                  <div>
-                    Kierros&nbsp;
-                    {round}
-                    /
-                    {gameLenght}
-                  </div>
-                  <div>
-                    Pisteet&nbsp;
-                    {points}
-                    /
-                    {round - 1}
-                  </div>
-                </div>
-                <div className="game__gameplay-stats_and-text_length-text_length">
-                  {' '}
-                  Säädä vastausvaihtoehtojen pituutta
-                  <Slider
-                    defaultValue={300}
-                    min={200}
-                    max={800}
-                    step={100}
-                    valueLabelDisplay="auto"
-                    value={definitionLength}
-                    onChange={(event, value) => setDefinitionLength(value)}
-                  />
-                </div>
-              </div>
-
-              <div className="game__gameplay-advice">
-                <div className="game__gameplay-advice_text">
-                  Mikä seuraavista selityksistä sopii sanalle:
-                </div>
-                {randomWord !== null ? (
-                  <div className="game__gameplay-advice_word">
-                    {randomWord.finnish}
-                    {' '}
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div className="game__gameplay-options">
-                {optionWords !== null ? (
-                  <div className="game__gameplay-options_single">
-                    {optionWords.map((w) => (
-                      <div
-                        key={w.definition}
-                        className="game__gameplay-options_single-option"
-                        onClick={() => handleClickOnOption(w)}
-                      >
-                        <p>{getShortenedText(getFilteredDefinition(w))}</p>
-
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <Button onClick={() => endGame()}>Lopeta peli</Button>
-            </div>)
+            : (
+              <GameplayArea
+                round = { round }
+                gameLenght = { gameLenght }
+                points = { points }
+                handleOptionLengthSliderChange = { handleOptionLengthSliderChange }
+                definitionLength = { definitionLength }
+                randomWord = { randomWord }
+                optionWords = { optionWords }
+                handleClickOnOption = { handleClickOnOption }
+                getShortenedText = { getShortenedText }
+                getFilteredDefinition = { getFilteredDefinition }
+                endGame = { endGame }
+              />)
           }
         </div>
         )}

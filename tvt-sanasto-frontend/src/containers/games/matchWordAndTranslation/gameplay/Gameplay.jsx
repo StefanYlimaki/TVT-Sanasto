@@ -5,6 +5,7 @@ import Scoreboard from '../scoreboard/Scoreboard'
 import shuffleArray from '../../../../utils/shuffleArray'
 import './gameplay.css'
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
+import GameplayArea from '../gameplayArea/GameplayArea'
 
 const Gameplay = ({
   category,
@@ -157,7 +158,6 @@ const Gameplay = ({
     }
   }
 
-
   return (
     <div>
       { gameIsLoading
@@ -172,57 +172,18 @@ const Gameplay = ({
               rounds = { gameLenght }
               raport = { generateGameRaport() }
             />)
-            : (<div className="game_gameplay-main">
-              <div className="game__gameplay-stats_and-text_length">
-                <div className="game__gameplay-stats_and-text_length-stats">
-                  <div>
-                    Kierros&nbsp;
-                    {round}
-                    /
-                    {gameLenght}
-                  </div>
-                  <div>
-                    Pisteet&nbsp;
-                    {points}
-                    /
-                    {round - 1}
-                  </div>
-                </div>
-              </div>
-
-              <div className="game__gameplay-advice">
-                <div className="game__gameplay-advice_text">
-                  Mikä seuraavista käännöksistä sopii sanalle:
-                </div>
-                {randomWord !== null ? (
-                  <div className="game__gameplay-advice_word">
-                    { getWordToBeGuessed(randomWord) }
-                    {' '}
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div className="game__gameplay-options">
-                {optionWords !== null ? (
-                  <div className="game__gameplay-options_single">
-                    {optionWords.map((w) => (
-                      <div
-                        key={w.english}
-                        className="game__gameplay-options_single-option"
-                        onClick={() => handleClickOnOption(w)}
-                      >
-                        <p>{getWordToBeOption(w)}</p>
-
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <Button variant="contained" onClick={() => endGame()}>Lopeta peli</Button>
-            </div>)
+            : (
+              <GameplayArea
+                round = { round }
+                gameLenght = { gameLenght }
+                points = { points }
+                randomWord = { randomWord }
+                optionWords = { optionWords }
+                getWordToBeGuessed = { getWordToBeGuessed }
+                handleClickOnOption = { handleClickOnOption }
+                getWordToBeOption = { getWordToBeOption }
+                endGame = { endGame }
+              />)
           }
         </div>
         )}

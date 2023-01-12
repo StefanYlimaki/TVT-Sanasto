@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+
 import './gameSettings.css'
-import { Slider } from '@mui/material'
+import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
+import GameLengthSlider from '../../../../elements/GameLengthSlider'
 
 function GameSettings({
   setCategory,
@@ -25,23 +27,10 @@ function GameSettings({
   }, [])
 
   if(isLoading){
-    return(<div>Loading...</div>)
+    return(
+      <LoadingScreen />
+    )
   }
-
-  const marks = [
-    {
-      value: 4,
-      label: '4',
-    },
-    {
-      value: 10,
-      label: '10',
-    },
-    {
-      value: 20,
-      label: '20',
-    },
-  ]
 
   const handleSliderChange = (event) => {
     setGameLength(event.target.value)
@@ -64,15 +53,7 @@ function GameSettings({
       <div className="game__setting-gamelength">
         <p>Valitse kierrosten määrä:</p>
         <div className="game__setting-gamelength_slider">
-          <Slider
-            defaultValue={10}
-            min={4}
-            max={20}
-            valueLabelDisplay="auto"
-            marks={marks}
-            value={gameLength}
-            onChange={handleSliderChange}
-          />
+          <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength } />
         </div>
       </div>
       <div className="game__settings-category">
