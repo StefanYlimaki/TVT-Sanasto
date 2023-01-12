@@ -25,50 +25,50 @@ describe('TVT-sanasto app, games', function() {
     cy.contains('Aloita peli').click()
 
     // Get asked word, then store it as a variable question1.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwad__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question1')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwad__gameplay-options_single-option').first().click()
     // Wait for 0.1 seconds, to wait for the new round.
     cy.wait(100)
 
     // Get asked word, then store it as a variable question2.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwad__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question2')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwad__gameplay-options_single-option').first().click()
     // Wait for 0.1 seconds, to wait for the new round.
     cy.wait(100)
 
     // Get asked word, then store it as a variable question3.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwad__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question3')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwad__gameplay-options_single-option').first().click()
     // Wait for 0.1 seconds, to wait for the new round.
     cy.wait(100)
 
     // Get asked word, then store it as a variable question4.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwad__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question4')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwad__gameplay-options_single-option').first().click()
 
     // Testing whether the asked words are shown in the "end-of-game" raport
     cy.get('@question1').then(question1 => {
@@ -109,50 +109,50 @@ describe('TVT-sanasto app, games', function() {
     cy.contains('Aloita peli').click()
 
     // Get asked word, then store it as a variable question1.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwat__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question1')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwat__gameplay-options_single-option').first().click()
     // Wait for 0.1 seconds, to wait for the new round.
     cy.wait(100)
 
     // Get asked word, then store it as a variable question2.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwat__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question2')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwat__gameplay-options_single-option').first().click()
     // Wait for 0.1 seconds, to wait for the new round.
     cy.wait(100)
 
     // Get asked word, then store it as a variable question3.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwat__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question3')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwat__gameplay-options_single-option').first().click()
     // Wait for 0.1 seconds, to wait for the new round.
     cy.wait(100)
 
     // Get asked word, then store it as a variable question4.
-    cy.get('.game__gameplay-advice_word').then(function($elem) {
+    cy.get('.mwat__gameplay-advice_word').then(function($elem) {
       let question = ($elem.text())
       question = question.slice(0, -1)
       cy.wrap(question).as('question4')
       cy.log('wrapped \'' + question + '\'')
     })
     // Click on one of the options.
-    cy.get('.game__gameplay-options_single-option').first().click()
+    cy.get('.mwat__gameplay-options_single-option').first().click()
 
     // Testing whether the asked words are shown in the "end-of-game" raport
     cy.get('@question1').then(question1 => {
