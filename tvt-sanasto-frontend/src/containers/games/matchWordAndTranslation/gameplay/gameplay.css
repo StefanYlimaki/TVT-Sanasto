@@ -19,16 +19,3 @@
     display: flex;
     justify-content: center;
 }
-
-.games2__loading-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: var(--font-family);
-    font-size: 20px;
-  }
-  
-  .games2__loading-screen__spacer {
-    height: 1.5rem;
-  }

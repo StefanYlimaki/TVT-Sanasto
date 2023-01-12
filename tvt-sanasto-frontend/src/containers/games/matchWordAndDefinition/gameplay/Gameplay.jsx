@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Slider } from '@mui/material'
-import MovingComponent from 'react-moving-text'
 
 import shuffleArray from '../../../../utils/shuffleArray'
 import './gameplay.css'
 import Scoreboard from '../scoreboard/Scoreboard'
-import { ColorRing } from 'react-loader-spinner'
+import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
 
 function Gameplay({
   category,
@@ -150,28 +149,8 @@ function Gameplay({
     <div>
       { gameIsLoading
         ? (
-          <div className='games1__loading-screen'>
-            <ColorRing className = 'games1__loading-screen__colorRing'
-              visible={true}
-              height="80"
-              width="80"
-              ariaLabel="blocks-loading"
-              wrapperStyle={{}}
-              wrapperClass="blocks-wrapper"
-              colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-            />
-            <div className='games1__loading-screen__spacer'></div>
-            <MovingComponent className = 'games1__loading-screen__movingComponent'
-              type="bounce"
-              duration="1400ms"
-              delay="0s"
-              direction="normal"
-              timing="ease"
-              iteration="infinite"
-              fillMode="none">
-              Luetaan sanakirjaa...
-            </MovingComponent>
-          </div>)
+          <LoadingScreen />
+        )
         : ( <div>
           { gameHasEnded
             ? (<div><Scoreboard
