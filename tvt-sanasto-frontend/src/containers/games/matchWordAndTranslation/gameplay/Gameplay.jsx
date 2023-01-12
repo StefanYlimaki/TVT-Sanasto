@@ -1,3 +1,4 @@
+import { ColorRing } from 'react-loader-spinner'
 import { Button } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import Scoreboard from '../scoreboard/Scoreboard'
@@ -159,7 +160,15 @@ const Gameplay = ({
   return (
     <div>
       { gameIsLoading
-        ? ( <div>game loading...</div> )
+        ? ( <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+        /> )
         : ( <div className='game__gameplay'>
           { gameHasEnded
             ? (<Scoreboard
