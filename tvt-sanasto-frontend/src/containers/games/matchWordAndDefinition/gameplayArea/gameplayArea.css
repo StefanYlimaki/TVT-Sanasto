@@ -1,0 +1,82 @@
+.mwad__gameplay-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--font-family);
+    width: 100%;
+}
+
+.mwad__stats-and__text-length {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+
+.mwad__gameplay-stats__and-text__length-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.mwad__gameplay-advice {
+    display: flex;
+    color: var(--color-text);
+    justify-content: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+}
+
+.mwad__gameplay-advice_text {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+}
+
+.mwad__gameplay-advice_word {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding-top: 2rem;
+}
+
+.mwad__gameplay-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mwad__gameplay-options_single {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mwad__gameplay-options_single p {
+    border-style: solid;
+    border-radius: 10px;
+    font-size: large;
+    padding: 1rem;
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    cursor: pointer;
+}
+
+.mwad__gameplay-options_single-option {
+    padding: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.mwad__gameplay-options_single-option p:hover {
+    border-radius: 20px;
+    background-color: yellowgreen
+}
+
+.mwad__gameplay-main Button {
+    margin-top: 2rem;
+    align-self: center;
+    width: 80%
+}

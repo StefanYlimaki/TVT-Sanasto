@@ -3,32 +3,3 @@
     flex-direction: column;
     width: 100%;
 }
-
-.game_gameplay-main {
-    display: flex;
-    flex-direction: column;
-    width: 100%
-}
-
-.game_gameplay-main Button {
-    align-self: center;
-    width: 80%
-}
-
-.game__gameplay-options {
-    display: flex;
-    justify-content: center;
-}
-
-.games2__loading-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: var(--font-family);
-    font-size: 20px;
-  }
-  
-  .games2__loading-screen__spacer {
-    height: 1.5rem;
-  }
