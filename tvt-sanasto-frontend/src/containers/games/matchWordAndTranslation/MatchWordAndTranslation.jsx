@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import './matchWordAndTranslation.css'
 
-import GameSettings from './gameSettings/GameSettings'
-import Gameplay from './gameplay/Gameplay'
+import GameSettings from './gameSettings/MWAT__GameSettings'
+import Gameplay from './gameplay/MWAT__Gameplay'
 import ErrorMessage from '../../../components/errorMessage/ErrorMessage'
+
+import './matchWordAndTranslation.css'
 
 const MatchWordAndTranslation = () => {
   const [category, setCategory] = useState('')

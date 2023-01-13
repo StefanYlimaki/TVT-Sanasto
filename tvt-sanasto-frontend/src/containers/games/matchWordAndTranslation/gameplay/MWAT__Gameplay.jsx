@@ -1,11 +1,10 @@
-import { Button } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 
-import Scoreboard from '../scoreboard/Scoreboard'
 import shuffleArray from '../../../../utils/shuffleArray'
-import './gameplay.css'
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
-import GameplayArea from '../gameplayArea/GameplayArea'
+import GameplayArea from '../gameplayArea/MWAT__GameplayArea'
+import Scoreboard from '../scoreboard/MWAT__Scoreboard'
+import './MWAT__gameplay.css'
 
 const Gameplay = ({
   category,

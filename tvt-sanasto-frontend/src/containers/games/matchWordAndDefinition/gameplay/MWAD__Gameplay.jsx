@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Slider } from '@mui/material'
 
 import shuffleArray from '../../../../utils/shuffleArray'
-import './gameplay.css'
-import Scoreboard from '../scoreboard/Scoreboard'
+import Scoreboard from '../scoreboard/MWAD__Scoreboard'
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
-import LengthOfOptionSlider from '../../../../elements/LengthOfOptionSlider'
-import GameplayArea from '../gameplayArea/GameplayArea'
+import GameplayArea from '../gameplayArea/MWAD__GameplayArea'
+import './MWAD__gameplay.css'
 
 function Gameplay({
   category,
   gameLenght,
   setGameRunning
 }) {
-
 
   let words = []
   if (category === 'basic-comp') {

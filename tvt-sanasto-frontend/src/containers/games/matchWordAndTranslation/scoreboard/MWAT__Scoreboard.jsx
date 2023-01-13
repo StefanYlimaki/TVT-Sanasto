@@ -1,13 +1,13 @@
 import React from 'react'
-import './scoreboard.css'
+
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
-
+import { BrowserView, MobileView } from 'react-device-detect'
 import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material/'
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
-import { BrowserView, MobileView } from 'react-device-detect'
+import './MWAT__scoreboard.css'
 
 const Scoreboard = ({
   setGameRunning,

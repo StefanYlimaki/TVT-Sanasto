@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import './gameplayArea.css'
+import './MWAT__gameplayArea.css'
 
 const GameplayArea = ({
   round,
