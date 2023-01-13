@@ -23,14 +23,15 @@
 | 04.01.2023 | 6 | Konfiguroin projektin CI/CD:ta. Aloitin e2e testien teon cypressillä.
 | 05.01.2023 | 6 | Lisäsin e2e-testejä. Muutin pipelinen ajamaan myös e2e-testit. Optimoin e2e-testejä, koska ne veivät liian kauan aikaa. Optimoinnilla testin ajoaika 50 sekuntia --> 25 sekuntia. Lisäksi kommentoin e2e-testit ja selkeytin pipelineä.
 | 12.01.2023 | 6 | Lisäsin latausnäkymän, kun sanastoja ladataan. Refaktoroin pelien koodia eriyttämällä osia pienempiin komponentteihin ja elementteihin. Parantelin tyylien selkeyttä, ja korjasin rikki menneet e2e testit.
-| 13.01.2023 | 3 | Muutin tiedostorakennetta paremman selkeyden vuoksi, ja koska VSCode ei käsittänyt saman nimisiä tiedostoja erillisinä. Refaktoroin scoreboardien koodia, ja kommentoin scoreboardien MWAD -pelin koodia.
+| 13.01.2023 | 5 | Muutin tiedostorakennetta paremman selkeyden vuoksi, ja koska VSCode ei käsittänyt saman nimisiä tiedostoja erillisinä. Refaktoroin scoreboardien koodia, ja kommentoin scoreboardien MWAD -pelin koodia. Aloitin API:n optimoinnin, mutta kävi "works on my machine" ongelma, kun olin deployannut verceliin, jonka jälkeen e2e testit eivät menneet läpi, kun ne riippuvat API:sta. Palautin aiemman API:n aktiiviseksi, ja aloitin ongelman korjaustyön, johon minulla on jo ratkaisu, mutta jää valitettavasti tuonnemmalle. Verkossa kuitenkin toimiva versio.
 
-109/175 tuntia käytetty
+111/175 tuntia käytetty
 
 TODO:
 Testien lisääminen sekä komponentti että e2e
 Refaktorointia
 Tyylien lisäämistä
 Käyttäjätestausta
+API:n fixauksen korjaus
 
 
