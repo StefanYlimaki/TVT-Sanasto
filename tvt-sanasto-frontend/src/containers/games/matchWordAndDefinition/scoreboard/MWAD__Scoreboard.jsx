@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import './scoreboard.css'
+
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
-
 import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material/'
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
-
+import './MWAD__scoreboard.css'
 
 function Scoreboard({
   setGameRunning,

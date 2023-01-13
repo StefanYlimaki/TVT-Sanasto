@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './matchWordAndDefinition.css'
 
-import GameSettings from './gameSettings/GameSettings'
-import Gameplay from './gameplay/Gameplay'
+import GameSettings from './gameSettings/MWAD__GameSettings'
+import Gameplay from './gameplay/MWAD__Gameplay'
 import ErrorMessage from '../../../components/errorMessage/ErrorMessage'
 
 function MatchWordAndDefinition() {

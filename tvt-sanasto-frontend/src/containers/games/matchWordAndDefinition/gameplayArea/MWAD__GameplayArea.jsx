@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from '@mui/material'
 
-import './gameplayArea.css'
 import LengthOfOptionSlider from '../../../../elements/LengthOfOptionSlider'
+import './MWAD__gameplayArea.css'
 
 const GameplayArea = ({
   round,

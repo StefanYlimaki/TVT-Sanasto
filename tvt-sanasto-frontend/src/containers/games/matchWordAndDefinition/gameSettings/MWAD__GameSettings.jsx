@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-import './gameSettings.css'
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
 import GameLengthSlider from '../../../../elements/GameLengthSlider'
+import './MWAD__gameSettings.css'
 
 function GameSettings({
   setCategory,

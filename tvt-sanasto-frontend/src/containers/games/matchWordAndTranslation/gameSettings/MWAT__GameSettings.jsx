@@ -1,12 +1,10 @@
-
 import React, { useState, useEffect } from 'react'
 import { Checkbox } from '@mui/material'
 
-
-import './gameSettings.css'
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
 import GameLengthSlider from '../../../../elements/GameLengthSlider'
 import AmountOfOptionsSlider from '../../../../elements/AmountOfOptionsSlider'
+import './MWAT__gameSettings.css'
 
 const GameSettings = ({
   setCategory,
