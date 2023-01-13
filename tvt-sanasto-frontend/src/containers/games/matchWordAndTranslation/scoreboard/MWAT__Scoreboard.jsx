@@ -7,6 +7,8 @@ import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } 
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
+import { checkIfCorrect } from '../../../../utils/checkIfCorrect'
+
 import './MWAT__scoreboard.css'
 
 const Scoreboard = ({
@@ -16,8 +18,9 @@ const Scoreboard = ({
   const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
   let won = false
-
+  const raportRounds = []
   let category
+
   if(category_id === 'basic-comp'){
     category = 'Tietotekniikan Perustermistöä'
   } else if(category_id === 'internet-basic'){
@@ -29,15 +32,6 @@ const Scoreboard = ({
   if(points === rounds){
     won = true
   }
-
-  const checkIfCorrect = (round) => {
-    if(round.answer.id === round.question.id){
-      return true
-    }
-    return false
-  }
-
-  const raportRounds = []
 
   for(let i = 0; i < rounds; i++){
     let round = {
