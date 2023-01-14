@@ -52,7 +52,7 @@ const handleRequest = (category, req, res) => {
 }
 
 router.get("/:id", async (req, res) => {
-  if (req.params.id === "comp-basic") {
+  if (req.params.id === "basic-comp") {
     handleRequest('comp-basic', req, res)
   } else if (req.params.id === "internet-basic") {
     handleRequest('internet-basic', req, res)
