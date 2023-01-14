@@ -36,9 +36,9 @@ const handleRequest = (category, req, res) => {
       const now = new Date().getTime();
       const updatedAt = JSONArray[i].updatedAt;
       if (now - updatedAt > 172800000) {
-        if(category === "comp-basic"){
+        if(category === "comp-basic") {
           handleRefetch("https://gitlab.com/sanasto/comp-basic/-/raw/main/comp-basic.json", category)
-        } else if (category === "internet-basic"){
+        } else if (category === "internet-basic") {
           handleRefetch("https://gitlab.com/sanasto/internet-basic/-/raw/main/networks-basic.json", category)
         }
       }
