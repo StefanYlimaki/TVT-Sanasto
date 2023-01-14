@@ -1,79 +1,61 @@
 const router = require("express").Router();
 const fetchJSONData = require("../utils/helpers");
 const fs = require("fs");
+const path = require('path');
+const { readFileSync } = require('fs');
 
-const handleFecthJSONDataCall = async (url, category) => {
+const handleRefetch = async (url, category) => {
   await fetchJSONData(url).then((response) => {
-    fs.writeFileSync(`./data/${category}.json`, JSON.stringify(response))
+    const dictionaryDataFile = path.join(process.cwd(), 'data', `${category}.json`);
+    fs.writeFileSync(dictionaryDataFile, JSON.stringify(response))
 
-    fs.readFile("./data/updatedAt.json", function (err, data) {
-      if (err) {
-        return console.error(err);
-      }
-
-      const JSONArray = JSON.parse(data.toString());
-      let updatedUpdatedAt = JSONArray 
-
-      for (let i = 0; i < JSONArray.length; i++) {
-        if (JSONArray[i].name === category) {
-          const now = new Date().getTime();
-          updatedUpdatedAt[i].updatedAt = now;
-          break;
-        }
-      }
-      fs.writeFileSync(`./data/updatedAt.json`, JSON.stringify(updatedUpdatedAt))
-    })
-  })
-}
-
-const handleRefetch = (category) => {
-  if(category === "comp-basic"){
-    handleFecthJSONDataCall("https://gitlab.com/sanasto/comp-basic/-/raw/main/comp-basic.json", category)
-  } else if (category === "networks-basic"){
-    handleFecthJSONDataCall("https://gitlab.com/sanasto/internet-basic/-/raw/main/networks-basic.json", category)
-  }
-}
-
-const handleRequest = (category, req, res) => {
-  fs.readFile("./data/updatedAt.json", function (err, data) {
-    if (err) {
-      return console.error(err);
-    }
-
-    const JSONArray = JSON.parse(data.toString());
-    let refetchData = false;
+    const dataLogsFile = path.join(process.cwd(), 'data', 'dataLogs.json');
+    const stringifiedFile = readFileSync(dataLogsFile, 'utf8');
+    const JSONArray = JSON.parse(stringifiedFile);
+    const updatedJSONArray = JSONArray
 
     for (let i = 0; i < JSONArray.length; i++) {
       if (JSONArray[i].name === category) {
         const now = new Date().getTime();
-        const updatedAt = JSONArray[i].updatedAt;
-        if (now - updatedAt > 172800000) {
-          refetchData = true;
+        updatedJSONArray[i].updatedAt = now;
+        break;
+      }
+    }
+
+    fs.writeFileSync(dataLogsFile, JSON.stringify(updatedJSONArray))
+  })
+}
+
+const handleRequest = (category, req, res) => {
+  const dataLogsFile = path.join(process.cwd(), 'data', 'dataLogs.json');
+  const stringifiedFile = readFileSync(dataLogsFile, 'utf8');
+  const JSONArray = JSON.parse(stringifiedFile);
+
+  for (let i = 0; i < JSONArray.length; i++) {
+    if (JSONArray[i].name === category) {
+      const now = new Date().getTime();
+      const updatedAt = JSONArray[i].updatedAt;
+      if (now - updatedAt > 172800000) {
+        if(category === "comp-basic"){
+          handleRefetch("https://gitlab.com/sanasto/comp-basic/-/raw/main/comp-basic.json", category)
+        } else if (category === "internet-basic"){
+          handleRefetch("https://gitlab.com/sanasto/internet-basic/-/raw/main/networks-basic.json", category)
         }
       }
     }
-    
-    if (refetchData) {
-      console.log("initiated refetch on", category);
-      handleRefetch(category)
-    }
+  }
 
-    fs.readFile(`./data/${category}.json`, function (err, data) {
-      if (err) {
-        return console.error(err);
-      }
-      const JSONData = JSON.parse(data.toString());
-      res.send(JSONData);
-    });
-
-  });
+  const dictionaryDataFile = path.join(process.cwd(), 'data', `${category}.json`);
+  const stringified = readFileSync(dictionaryDataFile, 'utf8');
+  res.setHeader('Content-Type', 'application/json');
+  return res.end(stringified);
 }
 
 router.get("/:id", async (req, res) => {
-  if (req.params.id === "basic-comp") {
+  if (req.params.id === "comp-basic") {
     handleRequest('comp-basic', req, res)
   } else if (req.params.id === "internet-basic") {
-    handleRequest('networks-basic', req, res)
+    handleRequest('internet-basic', req, res)
   } else {
     res.send("malformatted id value in url");
   }
