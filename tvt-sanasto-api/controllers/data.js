@@ -1,18 +1,15 @@
 const router = require("express").Router();
+const Dictionary = require("../models/dictionary");
 const fetchJSONData = require("../utils/helpers");
 
 router.get("/:id", async (req, res) => {
   if (req.params.id === "basic-comp") {
-    await fetchJSONData(
-      "https://gitlab.com/sanasto/comp-basic/-/raw/main/comp-basic.json"
-    ).then((response) => {
-      res.send(response);
+    Dictionary.find({ name: "comp-basic" }).then((dictionary) => {
+      res.json(dictionary);
     });
   } else if (req.params.id === "internet-basic") {
-    await fetchJSONData(
-      "https://gitlab.com/sanasto/internet-basic/-/raw/main/networks-basic.json"
-    ).then((response) => {
-      res.send(response);
+    Dictionary.find({ name: "networks-basic" }).then((dictionary) => {
+      res.json(dictionary);
     });
   } else {
     res.send("malformatted id value in url");
