@@ -16,4 +16,12 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  await fetchJSONData(
+    "https://gitlab.com/sanasto/index/-/raw/main/index.json"
+  ).then((response) => {
+    res.send(response);
+  });
+});
+
 module.exports = router;
