@@ -26,9 +26,10 @@
 | 13.01.2023 | 5 | Muutin tiedostorakennetta paremman selkeyden vuoksi, ja koska VSCode ei käsittänyt saman nimisiä tiedostoja erillisinä. Refaktoroin scoreboardien koodia, ja kommentoin scoreboardien MWAD -pelin koodia. Aloitin API:n optimoinnin, mutta kävi "works on my machine" ongelma, kun olin deployannut verceliin, jonka jälkeen e2e testit eivät menneet läpi, kun ne riippuvat API:sta. Palautin aiemman API:n aktiiviseksi, ja aloitin ongelman korjaustyön, johon minulla on jo ratkaisu, mutta jää valitettavasti tuonnemmalle. Verkossa kuitenkin toimiva versio.
 | 14.01.2023 | 3 | Jatkoin backendin fixaustöitä 
 | 16.01.2023 | 3 | Jatkoin backendin fixaustöitä. Lopputulos: käytä tietokantaa tiedon tallettamiseen.
-| 17.01.2023 |  | Aloitin työskennellä MongoDB:n kanssa
+| 17.01.2023 | 3 | Aloitin työskennellä MongoDB:n kanssa
+| 20.01.2023 | 3 | Toimiva API versio, jossa käytetään mongodb:tä tietokantana.
 
-111/175 tuntia käytetty
+126/175 tuntia käytetty
 
 TODO:
 Testien lisääminen sekä komponentti että e2e
@@ -36,5 +37,3 @@ Refaktorointia
 Tyylien lisäämistä
 Käyttäjätestausta
 API:n fixauksen korjaus
-
-
