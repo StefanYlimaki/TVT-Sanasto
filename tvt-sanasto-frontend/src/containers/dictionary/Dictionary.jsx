@@ -32,14 +32,21 @@ function CompBasicCategory() {
     )
   }
 
-  if (category === 'comp_basic') {
-    selectedWords = JSON.parse(localStorage.getItem('basic-comp'))
-  } else {
-    selectedWords = JSON.parse(localStorage.getItem('internet-basic'))
+  let wordsToShow = []
+
+  if(!isLoading){
+    if (category === 'comp_basic') {
+      selectedWords = JSON.parse(localStorage.getItem('basic-comp'))
+    } else {
+      selectedWords = JSON.parse(localStorage.getItem('internet-basic'))
+    }
+    wordsToShow = selectedWords.filter((w) => w.english.toLowerCase().includes(search.toLowerCase())
+      || w.finnish.toLowerCase().includes(search.toLowerCase()))
   }
 
-  const wordsToShow = selectedWords.filter((w) => w.english.toLowerCase().includes(search.toLowerCase())
-      || w.finnish.toLowerCase().includes(search.toLowerCase()))
+
+
+
 
   return (
     <div className="category">
