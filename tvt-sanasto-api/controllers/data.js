@@ -5,14 +5,14 @@ const fetchJSONData = require("../utils/helpers");
 router.get("/:id", async (req, res) => {
   if (req.params.id === "basic-comp") {
     Dictionary.find({ name: "comp-basic" })
-      .then((dictionary) => {
-        res.json(dictionary);
+      .then((comp_basic) => {
+        res.json(comp_basic[0].words);
       })
       .catch((error) => console.log(error));
   } else if (req.params.id === "internet-basic") {
     Dictionary.find({ name: "networks-basic" })
-      .then((dictionary) => {
-        res.json(dictionary);
+      .then((networks_basic) => {
+        res.json(networks_basic[0].words);
       })
       .catch((error) => console.log(error));
   } else {
