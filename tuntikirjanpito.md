@@ -36,4 +36,3 @@ Testien lisääminen sekä komponentti että e2e
 Refaktorointia
 Tyylien lisäämistä
 Käyttäjätestausta
-API:n fixauksen korjaus
