@@ -4,7 +4,7 @@ describe('TVT-sanasto app, frontpage', function() {
 
   // Before each test, cypress navigates to the frontpage
   beforeEach(function() {
-    cy.visit('https://tvt-sanasto-frontend.vercel.app/')
+    cy.visit('http://localhost:3000/')
   })
 
   it('Front page can be opened', function() {
