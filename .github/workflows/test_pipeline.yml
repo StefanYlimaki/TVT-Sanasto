@@ -11,9 +11,5 @@ jobs:
           node-version: "16"
       - name: Run and test the App
         working-directory: ./tvt-sanasto-frontend
-        run: |
-          npm install
-          npm run eslint -- --fix
-          npm start
-          npm run test:e2e
+        run: npm run ci
 
