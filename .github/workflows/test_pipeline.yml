@@ -1,0 +1,18 @@
+name: Test Pipeline
+on: workflow_dispatch
+jobs:
+  run the application:
+    timeout-minutes: 10
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: npm install
+        working-directory: ./tvt-sanasto-frontend
+        run: npm install
+      - name: npm start
+        working-directory: ./tvt-sanasto-frontend
+        run: npm start
+
