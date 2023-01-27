@@ -32,7 +32,9 @@
     "eslint": "eslint ./src/**/**.{js,jsx}",
     "eslinte2e": "eslint ./cypress/e2e/**.{js,jsx}",
     "cypress:open": "cypress open",
-    "test:e2e": "cypress run"
+    "test:e2e": "cypress run",
+    "start-server": "npm start",
+    "ci": "start-server-and-test start-server http://localhost:3000 test:e2e"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +63,8 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "start-server-and-test": "^1.15.3",
+    "http-server": "^14.1.1"
   }
 }
