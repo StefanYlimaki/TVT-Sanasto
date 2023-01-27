@@ -40,6 +40,7 @@ jobs:
         run: npm install
       - name: eslint
         working-directory: ./tvt-sanasto-frontend
+        run: npm run eslint -- --fix
         run: npm run eslint
       - name: build
         working-directory: ./tvt-sanasto-frontend
