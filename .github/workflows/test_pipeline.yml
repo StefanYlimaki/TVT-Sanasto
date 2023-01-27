@@ -1,7 +1,7 @@
 name: Test Pipeline
 on: workflow_dispatch
 jobs:
-  run the application:
+  test_build:
     timeout-minutes: 10
     runs-on: ubuntu-20.04
     steps:
