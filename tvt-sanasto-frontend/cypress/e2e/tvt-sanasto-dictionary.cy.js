@@ -5,6 +5,7 @@ describe('TVT-sanasto app, dictionary', function () {
     /*************** PRE-TEST ***************/
     // Navigate to the dictionary page
     cy.visit('http://localhost:3000/dictionary')
+    cy.wait(4000)
     // Cypress waits 4 seconds for the dictionaries to load.
 
     /*************** FIRST TASK ***************/
