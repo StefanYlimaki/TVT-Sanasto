@@ -9,6 +9,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
+      - name: npm install and eslint
+        working-directory: ./tvt-sanasto-frontend
+        run: |
+          npm install
+          npm run eslint -- --fix
       - name: Run and test the App
         working-directory: ./tvt-sanasto-frontend
         run: npm run ci
