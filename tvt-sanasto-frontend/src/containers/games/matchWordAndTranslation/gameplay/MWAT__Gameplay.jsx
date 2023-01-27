@@ -190,5 +190,4 @@ const Gameplay = ({
   )
 }
 
-
 export default Gameplay
