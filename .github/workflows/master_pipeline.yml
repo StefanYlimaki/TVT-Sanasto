@@ -55,12 +55,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-          
+
       - name: Install Dependencies
         working-directory: ./tvt-sanasto-frontend
         run: npm install
 
       - name: Run the App and the E2E-tests
+        working-directory: ./tvt-sanasto-frontend
         run: npm run ci
 
   tag:
