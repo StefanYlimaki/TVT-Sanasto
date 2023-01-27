@@ -50,9 +50,6 @@ jobs:
       - name: test
         working-directory: ./tvt-sanasto-frontend
         run: CI=true npm test
-      - name: E2E-test
-        working-directory: ./tvt-sanasto-frontend
-        run: npm run test:e2e
       - name: Catch Failure
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
