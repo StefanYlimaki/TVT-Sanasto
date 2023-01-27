@@ -1,0 +1,74 @@
+name: Master Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint_test_build:
+    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '),
+      '#skip_checks') == false }}
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Setup Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install Dependencies
+        working-directory: ./tvt-sanasto-frontend
+        run: npm install
+
+      - name: Run Eslint
+        working-directory: ./tvt-sanasto-frontend
+        run: npm run eslint
+
+      - name: Build
+        working-directory: ./tvt-sanasto-frontend
+        run: npm run build
+
+      - name: Test
+        working-directory: ./tvt-sanasto-frontend
+        run: CI=true npm test 
+        
+      - name: Catch Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with: 
+          severity: error
+          details: Merging Pipeline failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+  e2e_test:
+    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '),
+      '#skip_checks') == false }}
+    needs: [lint_test_build]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Install Dependencies
+        working-directory: ./tvt-sanasto-frontend
+        run: npm install
+
+      - name: Run the App and the E2E-tests
+        working-directory: ./tvt-sanasto-frontend
+        run: npm run ci
+
+  tag:
+    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '), '#tag') == true }}
+    needs: [e2e_test]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+          WITH_V: true
+  

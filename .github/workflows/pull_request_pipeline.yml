@@ -1,0 +1,48 @@
+name: Pull Request Pipeline
+
+on: 
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchorize
+
+jobs:
+  lint_test_build:
+    if: ${{ contains(join(toJson(github.event.commits.*.message), ' '),
+      '#skip_checks') == false }}
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Setup Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install Dependencies
+        working-directory: ./tvt-sanasto-frontend
+        run: npm install
+
+      - name: Run Eslint
+        working-directory: ./tvt-sanasto-frontend
+        run: npm run eslint
+
+      - name: Build
+        working-directory: ./tvt-sanasto-frontend
+        run: npm run build
+
+      - name: Test
+        working-directory: ./tvt-sanasto-frontend
+        run: CI=true npm test 
+        
+      - name: Catch Failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with: 
+          severity: error
+          details: Pull Request Pipeline failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
