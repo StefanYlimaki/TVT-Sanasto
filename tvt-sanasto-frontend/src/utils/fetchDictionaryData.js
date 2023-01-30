@@ -3,20 +3,17 @@ import axios from 'axios'
 const fetchDictionaryData = () => {
   localStorage.clear()
   console.log(localStorage.length)
-  axios
-    .get('https://tvt-sanasto-api.vercel.app/api/data/')
-    .then((response) => {
-      console.log(response)
-      response.data.map((d) => {
-        axios
-          .get(`https://tvt-sanasto-api.vercel.app/api/data/${d.id}`)
-          .then((response) => {
-            console.log('storing to localstorage, name:', d.id)
-            localStorage.setItem(d.id, JSON.stringify(response.data))
-          })
+  const dictionaries = ['basic-comp', 'internet-basic']
+
+  dictionaries.map((d) => {
+    console.log(d)
+    axios
+      .get(`https://tvt-sanasto-api.vercel.app/api/data/${d}`)
+      .then((response) => {
+        console.log('storing to localstorage, name:', d)
+        localStorage.setItem(d, JSON.stringify(response.data))
       })
-    })
-    .catch((error) => console.log(error))
+  })
 }
 
 export default fetchDictionaryData
