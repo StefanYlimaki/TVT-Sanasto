@@ -28,9 +28,10 @@
 | 16.01.2023 | 3 | Jatkoin backendin fixaustöitä. Lopputulos: käytä tietokantaa tiedon tallettamiseen.
 | 17.01.2023 | 3 | Aloitin työskennellä MongoDB:n kanssa
 | 20.01.2023 | 3 | Toimiva API versio, jossa käytetään mongodb:tä tietokantana.
-| 27.01.2023 | 4 | e2e-testit, ajetaan nyt paikallisesti hostattua sovellusta vasten, eikä verkossa olevaa versiota vanhaa vasten, joka ei ole päivitetty uudella koodilla. Pipelinejen fixausta.
-
-130/175 tuntia käytetty
+| 27.01.2023 | 4 | e2e-testit, ajetaan nyt paikallisesti hostattua sovellusta vasten, eikä verkossa olevaa versiota vanhaa vasten, joka ei ole päivitetty uudella koodilla. Pipelinejen 
+fixausta.
+| 30.01.2023 | 3 | Muutin frontendin api-kutsut menevät suoraan endpointtiin joka hakee datan tietokannasta ==> nopeampi sovellus. Aloitin tekemään sovelluksesta paremman mobiililaitteille.
+133/175 tuntia käytetty
 
 TODO:
 Testien lisääminen sekä komponentti että e2e
