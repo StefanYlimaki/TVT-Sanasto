@@ -80,3 +80,23 @@
     align-self: center;
     width: 80%
 }
+
+
+@media screen and (max-width: 1000px) {
+    .mwad__gameplay-advice_text {
+      padding-top: 1rem;
+      font-size: 20px;
+    }
+    .mwad__gameplay-advice_word {
+      font-size: 20px;
+    }
+    .mwad__gameplay-options_single-option p {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .mwad__gameplay-options_single {
+      flex-direction: column;
+    }
+  }
