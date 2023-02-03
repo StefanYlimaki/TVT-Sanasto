@@ -31,7 +31,9 @@
 | 27.01.2023 | 4 | e2e-testit, ajetaan nyt paikallisesti hostattua sovellusta vasten, eikä verkossa olevaa versiota vanhaa vasten, joka ei ole päivitetty uudella koodilla. Pipelinejen 
 fixausta.
 | 30.01.2023 | 3 | Muutin frontendin api-kutsut menevät suoraan endpointtiin joka hakee datan tietokannasta ==> nopeampi sovellus. Aloitin tekemään sovelluksesta paremman mobiililaitteille.
-133/175 tuntia käytetty
+| 03.02.2023 | 3 | Selvitin ja korjasin bugin, jossa sovellus satunnaisesti kaatui pelin jälkeen kun raporttia yritettiin renderöidä. Optimoin sovelluksen toisen pelin toimimaan hyvin mobiililaitteilla
+
+136/175 tuntia käytetty
 
 TODO:
 Testien lisääminen sekä komponentti että e2e
