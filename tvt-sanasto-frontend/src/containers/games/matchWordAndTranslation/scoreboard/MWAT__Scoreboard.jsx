@@ -15,6 +15,8 @@ const Scoreboard = ({
   setGameRunning,
   raport
 }) => {
+  console.log(raport)
+
   const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
   let won = false
@@ -43,6 +45,8 @@ const Scoreboard = ({
     }
     raportRounds.push(round)
   }
+
+  console.log(raportRounds)
 
 
   const getPromptedWord = (round) => {
@@ -82,40 +86,40 @@ const Scoreboard = ({
           }
           {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
         </div>
-        <div className='scoreboard__raport'>
-          <TableContainer className='scoreboard__raport-table' component={Paper}>
+        <div className='browser__scoreboard-raport'>
+          <TableContainer className='browser__scoreboard-raport__table' component={Paper}>
             <Table>
               <TableBody>
-                <TableRow className='tableRow' style={{ backgroundColor: '#7CFC00' }}>
-                  <TableCell className='tablecell'>
-                    <p><strong>Oikein/ Väärin</strong></p>
+                <TableRow className='browser__tableRow'>
+                  <TableCell className='browser__tablecell'>
+                    <p><strong>Oikein / Väärin</strong></p>
                   </TableCell>
-                  <TableCell className='tablecell'>
+                  <TableCell className='browser__tablecell'>
                     <p><strong>Kysytty Sana</strong></p>
                   </TableCell>
-                  <TableCell className='tablecell'>
+                  <TableCell className='browser__tablecell'>
                     <p><strong>Vastauksesi</strong></p>
                   </TableCell>
-                  <TableCell className='tablecell'>
+                  <TableCell className='browser__tablecell'>
                     <p><strong>Oikea Vastaus</strong></p>
                   </TableCell>
                 </TableRow>
                 {
                   raportRounds.map((round) => (
-                    <TableRow key={round.question.id} style={{ backgroundColor: '#F0F8FF' }}>
-                      <TableCell className='tablecell'>
+                    <TableRow key={round.question.id} className='browser__tablerow' style={{ backgroundColor: '#F0F8FF' }}>
+                      <TableCell className='browser__tablecell'>
                         { checkIfCorrect(round)
                           ? <CheckIcon />
                           : <ClearIcon />
                         }
                       </TableCell>
-                      <TableCell className='tablecell'>
+                      <TableCell className='browser__tablecell'>
                         <p>{ getPromptedWord(round) }</p>
                       </TableCell>
-                      <TableCell className='tablecell'>
+                      <TableCell className='browser__tablecell'>
                         <p>{ getAnsweredWord(round) }</p>
                       </TableCell>
-                      <TableCell className='tablecell'>
+                      <TableCell className='browser__tablecell'>
                         <p>{ getCorrectAnswer(round) }</p>
                       </TableCell>
                     </TableRow>
@@ -143,15 +147,15 @@ const Scoreboard = ({
 
         {
           raportRounds.map((round) => (
-            <div className='mobile__raport' key={round.question.id}>
-              <TableContainer className='mobile__raport-tableContainter' component={ Paper }>
-                <Table className='mobile__raport-table' >
-                  <TableBody className='mobile__raport-tablebody' >
-                    <TableRow className='mobile__raport-tablerow'>
-                      <TableCell className='mobile__raport-header__tablecell'>
+            <div className='mobile__scoreboard-raport' key={round.question.id}>
+              <TableContainer className='mobile__scoreboard-raport__table' component={ Paper }>
+                <Table className='mobile__table'>
+                  <TableBody className='mobile__tablebody'>
+                    <TableRow className='mobile__tablerow'>
+                      <TableCell className='mobile__tablecell-header'>
                         <p><strong>Oikein/Väärin</strong></p>
                       </TableCell>
-                      <TableCell className='mobile__raport-content__tablecell'>
+                      <TableCell className='mobile__tablecell-content'>
                         { checkIfCorrect(round)
                           ? <CheckIcon />
                           : <ClearIcon />
@@ -159,28 +163,28 @@ const Scoreboard = ({
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className='mobile__raport-header__tablecell'>
+                      <TableCell className='mobile__tablecell-header'>
                         <p><strong>Kysytty Sana</strong></p>
                       </TableCell>
-                      <TableCell className='mobile__raport-content__tablecell'>
-                        <p>{ round.question.finnish }</p>
+                      <TableCell className='mobile__tablecell-content'>
+                        <p>{ getPromptedWord(round) }</p>
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className='mobile__raport-header__tablecell'>
+                      <TableCell className='mobile__tablecell-header'>
                         <p><strong>Vastauksesi</strong></p>
                       </TableCell>
-                      <TableCell className='mobile__raport-content__tablecell'>
-                        <p>{ round.answer.english }</p>
+                      <TableCell className='mobile__tablecell-content'>
+                        <p>{ getAnsweredWord(round) }</p>
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className='mobile__raport-header__tablecell'>
+                      <TableCell className='mobile__tablecell-header'>
                         <p><strong>Oikea Vastaus</strong></p>
                       </TableCell>
-                      <TableCell className='mobile__raport-content__tablecell'>
+                      <TableCell className='mobile__tablecell-content'>
                         <div>
-                          <p>{ round.correctAnswer }</p>
+                          <p>{ getCorrectAnswer(round) }</p>
                         </div>
                       </TableCell>
                     </TableRow>

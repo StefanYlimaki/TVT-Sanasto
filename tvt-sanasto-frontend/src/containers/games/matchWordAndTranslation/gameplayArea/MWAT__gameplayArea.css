@@ -62,10 +62,6 @@
 
 .mwat__gameplay-options_single-option {
     padding: 0rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
 }
 
 .mwat__gameplay-options_single-option p:hover {
@@ -82,4 +78,30 @@
 .mwat__gameplay-options {
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-width: 750px) {
+    .mwat__gameplay-options_single-option {
+        padding: 0rem 0.2rem;
+    }
+    .mwat__gameplay-advice_text {
+        font-size: 20px;
+    }
+    .mwat__gameplay-advice_word {
+        padding-top: 0.5rem;
+        font-size: 20px;
+
+    }
+    .mwat__gameplay-options_single-option p {
+        padding: 0.5rem;
+        border-width: 2px;
+        font-size: 16px;
+
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mwat__gameplay-options_single {
+        flex-direction: column;
+    }
 }

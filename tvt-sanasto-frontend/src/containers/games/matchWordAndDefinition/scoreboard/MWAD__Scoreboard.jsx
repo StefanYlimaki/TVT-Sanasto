@@ -91,33 +91,33 @@ function Scoreboard({
         {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
       </div>
       <div className='scoreboard__raport'>
-        <TableContainer component={Paper}>
+        <TableContainer className='scoreboard__raport-table' component={Paper}>
           <Table>
             <TableBody>
-              <TableRow style={{ backgroundColor: '#7CFC00' }}>
-                <TableCell>
+              <TableRow className='tableRow' style={{ backgroundColor: '#7CFC00' }}>
+                <TableCell className='tablecell'>
                   <strong>Oikein/Väärin</strong>
                 </TableCell>
-                <TableCell>
+                <TableCell className='tablecell'>
                   <strong>Kysytty Sana</strong>
                 </TableCell>
-                <TableCell>
+                <TableCell className='tablecell'>
                   <strong>Oikea Vastaus</strong>
                 </TableCell>
               </TableRow>
               {
                 raportRounds.map((round) => (
-                  <TableRow key={round.question.id} style={{ backgroundColor: '#F0F8FF' }}>
-                    <TableCell>
+                  <TableRow key={round.question.id} className='tableRow' style={{ backgroundColor: '#F0F8FF' }}>
+                    <TableCell className='tablecell'>
                       { checkIfCorrect(round)
                         ? <CheckIcon />
                         : <ClearIcon />
                       }
                     </TableCell>
-                    <TableCell>
+                    <TableCell className='tablecell'>
                       { round.question.finnish }
                     </TableCell>
-                    <TableCell>
+                    <TableCell className='tablecell'>
                       { showFullLength[round.index]
                         ?
                         <div>
