@@ -35,7 +35,7 @@ fixausta.
 | 06.02.2023 | 4 | Refactoroiden tyylijä lisäämällä värejä index.css tiedostoon ja tyylittämällä koko sovelluksen. Joitain muutoksia myös muihin kuin vain väreihin, kuten mobiilikäyttäjien huomiointi.
 
 
-136/175 tuntia käytetty
+140/175 tuntia käytetty
 
 TODO:
 Loppuosa sovelluksen tyylit sekä mobiili compatibiilty.
