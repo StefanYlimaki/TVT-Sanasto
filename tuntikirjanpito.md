@@ -32,10 +32,13 @@
 fixausta.
 | 30.01.2023 | 3 | Muutin frontendin api-kutsut menevät suoraan endpointtiin joka hakee datan tietokannasta ==> nopeampi sovellus. Aloitin tekemään sovelluksesta paremman mobiililaitteille.
 | 03.02.2023 | 3 | Selvitin ja korjasin bugin, jossa sovellus satunnaisesti kaatui pelin jälkeen kun raporttia yritettiin renderöidä. Optimoin sovelluksen toisen pelin toimimaan hyvin mobiililaitteilla
+| 06.02.2023 | 4 | Refactoroiden tyylijä lisäämällä värejä index.css tiedostoon ja tyylittämällä koko sovelluksen. Joitain muutoksia myös muihin kuin vain väreihin, kuten mobiilikäyttäjien huomiointi.
 
-136/175 tuntia käytetty
+
+140/175 tuntia käytetty
 
 TODO:
+Loppuosa sovelluksen tyylit sekä mobiili compatibiilty.
 Testien lisääminen sekä komponentti että e2e
 Refaktorointia
 Tyylien lisäämistä
