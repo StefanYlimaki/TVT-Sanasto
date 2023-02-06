@@ -42,6 +42,10 @@
     font-size: 20px;
 }
 
+.singleword__sources-single a {
+    color: var(--color-links);
+}
+
 @media screen and (max-width: 600px) {
     .singleword__sources p {
         font-size: 18px;

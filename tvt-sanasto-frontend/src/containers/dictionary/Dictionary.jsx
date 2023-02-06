@@ -49,11 +49,11 @@ function CompBasicCategory() {
 
 
   return (
-    <div className="category">
-      <div className="category__input">
-        <div className="category__input-text">Suomi - Englanti - Suomi</div>
-        <div className="category__input-box">
-          <div className="category__input-box_search">
+    <div className="dictionary">
+      <div className="dictionary__header">Suomi - Englanti - Suomi</div>
+      <div className="dictionary__category">
+        <div className="dictionary__category-input__container">
+          <div className="dictionary__category-input__container-search">
             <input
               placeholder="Hae sanaa englanniksi tai suomeksi"
               type="text"
@@ -61,7 +61,7 @@ function CompBasicCategory() {
               onChange={(e) => { setWord(null); setSearch(e.target.value) }}
             />
           </div>
-          <div className="catogory__input-box_select">
+          <div className="dictionary__category-input__container-select">
             <select
               value={category}
               onChange={(e) => { setGategory(e.target.value); setWord(null); setSearch('') }}
@@ -74,7 +74,7 @@ function CompBasicCategory() {
         <div>
           {search !== '' || word
             ? (
-              <div className="category__input-box_button">
+              <div className="dictionary__category-input__container-button">
                 <Button variant="outlined" onClick={() => { setWord(null); setSearch('') }}>Tyhjennä haku</Button>
               </div>
             )
@@ -84,7 +84,6 @@ function CompBasicCategory() {
       { word
         ? <SingleWord word={word} />
         : <WordList words={wordsToShow} setSearch={setSearch} setWord={setWord} />}
-
     </div>
   )
 }

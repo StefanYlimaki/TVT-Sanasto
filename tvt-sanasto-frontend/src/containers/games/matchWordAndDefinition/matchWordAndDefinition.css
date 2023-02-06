@@ -4,7 +4,7 @@
     font-size: 20px;
 }
 
-.game {
+.MWAD__game {
     display: flex;
     flex-direction: column;
     background-color: #D6E4E5;

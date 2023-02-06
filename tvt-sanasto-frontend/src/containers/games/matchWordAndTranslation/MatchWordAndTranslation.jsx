@@ -15,7 +15,7 @@ const MatchWordAndTranslation = () => {
   const [languages, setLanguages] = useState([])
 
   return (
-    <div className='game'>
+    <div className='MWAT__game'>
       <ErrorMessage message={ errorMessage }/>
       { gameRunning === 'false'
         ? (<GameSettings

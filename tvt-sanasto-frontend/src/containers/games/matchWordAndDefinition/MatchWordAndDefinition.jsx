@@ -21,7 +21,7 @@ function MatchWordAndDefinition() {
   const [gameLength, setGameLength] = useState(10)
 
   return (
-    <div>
+    <div className='MWAD__game'>
       {/* This is a placeholder for the errormessage. If error message is defined, it is rendered. */}
       <ErrorMessage message={ errorMessage }/>
       {/* If game is not running, game settings -view is rendered. If the game is running the gameplay -view is rendered */}

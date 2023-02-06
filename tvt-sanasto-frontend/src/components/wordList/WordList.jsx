@@ -3,7 +3,7 @@ import { List, ListItem, ListItemText } from '@mui/material'
 import SingleWord from '../singleWord/SingleWord'
 import './wordList.css'
 
-const color = '#453C67'
+const textColor = '#ADEFD1FF'
 
 function WordList({ words, setSearch, setWord }) {
   return (
@@ -16,8 +16,8 @@ function WordList({ words, setSearch, setWord }) {
               <ListItem className="category__list-item" key={word.id}>
                 <ListItemText
                   onClick={() => { setWord(word); setSearch(word.english); window.scrollTo(0, 0) }}
-                  primaryTypographyProps={{ fontSize: 18, color: { color } }}
-                  secondaryTypographyProps={{ fontSize: 14, color: { color } }}
+                  primaryTypographyProps={{ fontSize: 20, color: textColor, fontFamily: 'Manrope' }}
+                  secondaryTypographyProps={{ fontSize: 14, color: textColor, fontFamily: 'Manrope' }}
                   className="category__list-item_text"
                   key={word.id}
                   primary={word.english}
