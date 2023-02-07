@@ -3,7 +3,14 @@
     flex-direction: column;
     justify-content: center;
     font-family: var(--font-family);
-    width: 100%;
+    background-color: var(--color-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    border-style: solid;
+    border-width: 6px;
+    border-color: var(--color-text);
 }
 
 .mwad__stats-and__text-length {
@@ -15,6 +22,11 @@
 .mwad__gameplay-stats__and-text__length-stats {
     display: flex;
     flex-direction: column;
+    color: var(--color-text);
+}
+
+.game__gameplay-stats_and-text_length-text_length {
+    color: var(--color-text);
 }
 
 .mwad__gameplay-advice {
@@ -24,19 +36,24 @@
     justify-content: space-between;
     width: 100%;
     flex-direction: column;
+    padding-top: 3rem;
 }
 
 .mwad__gameplay-advice_text {
     font-size: 26px;
     display: flex;
     justify-content: center;
+    color: var(--color-text);
+    border-radius: 5px;
 }
 
 .mwad__gameplay-advice_word {
     display: flex;
     justify-content: center;
     font-size: 30px;
-    padding-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--color-text)
 }
 
 .mwad__gameplay-options {
@@ -51,7 +68,7 @@
     justify-content: space-between;
 }
 
-.mwad__gameplay-options_single p {
+.mwad__gameplay-options_single-option p {
     border-style: solid;
     border-radius: 10px;
     font-size: large;
@@ -60,6 +77,7 @@
     color: var(--color-text);
     background-color: var(--color-bg);
     cursor: pointer;
+    transition: all 0.3s
 }
 
 .mwad__gameplay-options_single-option {
@@ -72,13 +90,26 @@
 
 .mwad__gameplay-options_single-option p:hover {
     border-radius: 20px;
-    background-color: yellowgreen
+    background-color: var(--color-text);
+    color: var(--color-bg)
 }
 
 .mwad__gameplay-main Button {
     margin-top: 2rem;
     align-self: center;
-    width: 80%
+    width: 80%;
+    border-style: solid;
+    border-color: var(--color-text);
+    border-width: 2px;
+    color: var(--color-text);
+    transition: all 0.3s;
+}
+
+.mwad__gameplay-main Button:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-radius: 10px;
+    border-color: red;
 }
 
 

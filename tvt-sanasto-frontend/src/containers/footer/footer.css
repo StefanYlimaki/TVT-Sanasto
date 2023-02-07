@@ -51,6 +51,7 @@
     .footer__section {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
     .footer__section-contact {
         align-items: center;

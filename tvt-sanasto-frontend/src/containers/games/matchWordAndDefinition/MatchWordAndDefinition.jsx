@@ -26,18 +26,18 @@ function MatchWordAndDefinition() {
       <ErrorMessage message={ errorMessage }/>
       {/* If game is not running, game settings -view is rendered. If the game is running the gameplay -view is rendered */}
       { gameRunning === 'false'
-        ? (<div><GameSettings
+        ? (<GameSettings
           setCategory = { setCategory }
           gameLength = { gameLength }
           setGameLength = { setGameLength }
           setErrorMessage = { setErrorMessage }
           setGameRunning = { setGameRunning }
-        /></div>)
-        : (<div><Gameplay
+        />)
+        : (<Gameplay
           category = { category }
           gameLenght = { gameLength }
           setGameRunning = { setGameRunning }
-        /></div>)
+        />)
       }
     </div>)
 }
