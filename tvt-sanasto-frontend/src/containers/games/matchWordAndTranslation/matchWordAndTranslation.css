@@ -1,9 +1,5 @@
-.MWAT__game {
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    padding: 0.4rem;
-    background-color: #ffffff
+.MWAT__game-error {
+    font-family: var(--font-family);
+    color: red;
+    font-size: 20px;
 }

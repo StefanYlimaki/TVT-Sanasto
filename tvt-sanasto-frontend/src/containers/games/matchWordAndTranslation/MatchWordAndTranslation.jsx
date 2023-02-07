@@ -16,7 +16,7 @@ const MatchWordAndTranslation = () => {
 
   return (
     <div className='MWAT__game'>
-      <ErrorMessage message={ errorMessage }/>
+      <div className='MWAT__game-error'><ErrorMessage message={ errorMessage }/></div>
       { gameRunning === 'false'
         ? (<GameSettings
           setCategory = { setCategory }

@@ -1,4 +1,4 @@
-.game__settings {
+.MWAD__game-settings {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,12 +27,12 @@
   }
   
 
-.game__setting-gamelength {
+.MWAD__game-settings__gamelength {
     padding: 4rem, 0rem;
     display: flex;
 }
 
-.game__setting-gamelength p {
+.MWAD__game-settings__gamelength p {
     color: var(--color-text);
     padding: 2rem 2rem;
     width: 300px;
@@ -41,19 +41,20 @@
     font-family: var(--font-family);
 }
 
-.game__setting-gamelength_slider {
+.MWAD__game-settings__gamelength-slider {
     padding-left: 2rem;
     display: flex;
     width: 30%;
     align-items: center;
 }
 
-.game__settings-category {
+.MWAD__game-settings__category {
     padding: 4rem, 0rem;
     display: flex;
+    flex-direction: row;
 }
 
-.game__settings-category p {
+.MWAD__game-settings__category p {
     color: var(--color-text);
     padding: 2rem 2rem;
     width: 300px;
@@ -62,21 +63,14 @@
     font-family: var(--font-family);
 }
 
-.game__settings-category {
-    padding: 4rem, 0rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.game__settings-category_buttons {
+.MWAD__game-settings__category-buttons {
     display: flex;
     width: 40%;
     align-items: center;
     justify-content: space-between;
 }
 
-.game__settings-category_buttons button {
+.MWAD__game-settings__category-buttons button {
   font-family: var(--font-family);
   display: flex;
   align-items: center;
@@ -93,39 +87,29 @@
   transition: all 0.3s;
 }
 
-.game__settings-category_buttons button:hover {
+.MWAD__game-settings__category-buttons button:hover {
     background-color: var(--color-text);
     color: var(--color-bg);
     border-radius: 50px;
 }
 
-.game__settings-category_buttons button:focus {
+.MWAD__game-settings__category-buttons button:focus {
  background-color: var(--color-text);
  color: var(--color-bg);
  border-radius: 50px;
  font-weight: 800;
 }
 
-.game__setting-start_game {
-    display: flex;
-    flex-direction: column;
+.MWAD__game-settings__start-game {
     padding-top: 2rem;
-    justify-content: flex-end;
     height: 75px;
 }
 
-.game__settings-start_game {
-    display: flex;
-    padding-top: 2rem;
-}
-
-.game__settings-start_game button {
-    margin-right: 1rem;
-    margin-left: 1rem;
+.MWAD__game-settings__start-game button {
+    padding: 1rem;
     font-family: var(--font-family);
     color: var(--color-text);
     background-color: var(--color-bg);
-    padding: 1rem;
     display: flex;
     justify-content: center;
     font-size: 26px;
@@ -135,48 +119,45 @@
     transition: all 0.3s;
 }
 
-.game__settings-start_game button:hover {
+.MWAD__game-settings__start-game button:hover {
     border-radius: 20px; 
     background-color: var(--color-text);
     color: var(--color-bg);
 }
 
 @media screen and (max-width: 750px){
-    .game__setting-gamelength {
+    .MWAD__game-settings__gamelength {
         flex-direction: column;
         padding: none;
-    }
-
-    .game__setting-gamelength p {
         display: flex;
         justify-content: flex-start;
         font-size: 16px;
     }
 
-    .game__setting-gamelength_slider {
+    .MWAD__game-settings__gamelength-slider {
         padding-bottom: 1rem;
         padding-right: 1rem;
         align-self: center;
         width: 90%;
     }
 
-    .game__settings-category {
+    .MWAD__game-settings__category {
         flex-direction: column;
         padding: none;
     }
 
-    .game__settings-category p {
+    .MWAD__game-settings__category p {
         display: flex;
         font-size: 16px;
         justify-content: flex-start;
     }
 
-    .game__settings-category_buttons{
+    .MWAD__game-settings__category-buttons{
         width: 100%;
         justify-content: space-around;
     }
     
-    .game__settings-category_buttons button{
+    .MWAD__game-settings__category-buttons button{
         padding: 0rem 4rem;
         height: 6rem;
         width: 6rem;
@@ -185,17 +166,17 @@
 }
 
 @media screen and (max-width: 400px){
-    .game__setting-gamelength p {
+    .MWAD__game-settings__gamelength p {
         font-size: 12px;
         padding-left: 0rem;
     }
 
-    .game__settings-category p {
+    .MWAD__game-settings__category p {
         font-size: 12px;
         padding-left: 0rem;
     }
     
-    .game__settings-category_buttons button{
+    .MWAD__game-settings__category-buttons button{
         font-size: 10px;
         padding: 0rem 2rem;
         height: 4rem;

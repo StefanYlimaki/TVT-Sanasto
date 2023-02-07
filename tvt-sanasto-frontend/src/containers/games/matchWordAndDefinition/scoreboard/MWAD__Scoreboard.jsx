@@ -124,12 +124,12 @@ const Scoreboard = ({
                       : <ClearIcon color='error'/>
                     }
                   </TableCell>
-                  <TableCell className='MWAD__tablecell-conteiner'>
+                  <TableCell className='MWAD__tablecell-container'>
                     <div className='MWAD__tablecell-container__content'>
                       <p>{ round.question.finnish }</p>
                     </div>
                   </TableCell>
-                  <TableCell className='MWAD__tablecell-conteiner'>
+                  <TableCell className='MWAD__tablecell-container'>
                     { showFullLength[round.index]
                       ?
                       <div className='MWAD__tablecell-container__content'>
