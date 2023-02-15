@@ -1,13 +1,6 @@
-.game__error {
+.MWAD__game-error {
     font-family: var(--font-family);
     color: red;
     font-size: 20px;
 }
 
-.game {
-    display: flex;
-    flex-direction: column;
-    background-color: #D6E4E5;
-    border-radius: 10px;
-    padding: 1rem;
-}

@@ -8,3 +8,7 @@
         font-size: 18px;
     }
 }
+.developer a {
+    color: var(--color-links);
+    font-family: var(--font-family);
+}

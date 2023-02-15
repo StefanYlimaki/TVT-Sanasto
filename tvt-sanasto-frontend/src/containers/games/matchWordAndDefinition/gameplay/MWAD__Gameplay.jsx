@@ -156,12 +156,12 @@ function Gameplay({
         )
         : ( <div>
           { gameHasEnded
-            ? (<div><Scoreboard
+            ? (<Scoreboard
               setGameRunning = { setGameRunning }
               points = { points }
               rounds = { gameLenght }
               raport = { generateGameRaport() }
-            /></div>)
+            />)
             : (
               <GameplayArea
                 round = { round }

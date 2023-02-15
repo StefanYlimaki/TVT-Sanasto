@@ -21,23 +21,23 @@ function MatchWordAndDefinition() {
   const [gameLength, setGameLength] = useState(10)
 
   return (
-    <div>
+    <div className='MWAD__game'>
+      <div className='MWAD__game-error'><ErrorMessage message={ errorMessage }/></div>
       {/* This is a placeholder for the errormessage. If error message is defined, it is rendered. */}
-      <ErrorMessage message={ errorMessage }/>
       {/* If game is not running, game settings -view is rendered. If the game is running the gameplay -view is rendered */}
       { gameRunning === 'false'
-        ? (<div><GameSettings
+        ? (<GameSettings
           setCategory = { setCategory }
           gameLength = { gameLength }
           setGameLength = { setGameLength }
           setErrorMessage = { setErrorMessage }
           setGameRunning = { setGameRunning }
-        /></div>)
-        : (<div><Gameplay
+        />)
+        : (<Gameplay
           category = { category }
           gameLenght = { gameLength }
           setGameRunning = { setGameRunning }
-        /></div>)
+        />)
       }
     </div>)
 }

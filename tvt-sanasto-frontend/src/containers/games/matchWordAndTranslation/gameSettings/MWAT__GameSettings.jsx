@@ -84,31 +84,31 @@ const GameSettings = ({
   }
 
   return(
-    <div className="game__settings">
-      <div className='game__setting-languages'>
-        <div className='game__setting-languages__text'>
+    <div className="MWAT__game-settings">
+      <div className='MWAT__game-settings__languages'>
+        <div className='MWAT__game-settings__languages-text'>
           <p>Kysymykset kielellä:</p>
         </div>
-        <div className='game__setting-languages__checkbox'>
+        <div className='MWAT__game-settings__languages-checkbox'>
           <p>Suomi <Checkbox checked = { finnishChecked } onChange = { handleFinnishCheckboxChange } /></p>
           <p>Englanti <Checkbox checked = { englishChecked } onChange = { handleEnglishCheckboxChange } /></p>
         </div>
       </div>
-      <div className="game__setting-gamelength">
+      <div className="MWAT__game-settings__gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
-        <div className="game__setting-gamelength_slider">
+        <div className="MWAT__game-settings__gamelength-slider">
           <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }/>
         </div>
       </div>
-      <div className="game__setting-gamelength">
+      <div className="MWAT__game-settings__gamelength">
         <p>Valitse vaihtoehtojen lukumäärä:</p>
-        <div className="game__setting-gamelength_slider">
+        <div className="MWAT__game-settings__gamelength-slider">
           <AmountOfOptionsSlider handleChange = { handleOptionsSliderChange } value = { amountOfOptions } />
         </div>
       </div>
-      <div className="game__settings-category">
+      <div className="MWAT__game-settings__category">
         <p>Valitse kategoria:</p>
-        <div className="game__settings-category_buttons">
+        <div className="MWAT__game-settings__category-buttons">
           <button
             onClick={() => {
               setSelectedCategory('basic-comp')
@@ -125,7 +125,7 @@ const GameSettings = ({
           </button>
         </div>
       </div>
-      <div className="game__settings-start_game">
+      <div className="MWAT__game-settings__start-game">
         <button onClick={handleStartGameClick}>Aloita peli</button>
       </div>
     </div>

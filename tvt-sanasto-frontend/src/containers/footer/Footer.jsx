@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer__section">
         <div className="footer__section-contact">
           <h3>Ongelmista sovelluksen käytössä voi ilmoittaa:</h3>
-          <div><a href="mailto:tvt.sanasto@gmail.com">tvt.sanasto@gmail.com</a></div>
+          <div className='footer__section-contact__email'><a href="mailto:tvt.sanasto@gmail.com">tvt.sanasto@gmail.com</a></div>
         </div>
         <div className="footer__section-sources">
           <h3>Sovelluksen sanastojen lähteet:</h3>

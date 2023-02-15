@@ -34,7 +34,7 @@ const GameplayArea = ({
             {round - 1}
           </div>
         </div>
-        <div className="game__gameplay-stats_and-text_length-text_length">
+        <div className="mwad__gameplay-text__length">
           {' '}
                   Säädä vastausvaihtoehtojen pituutta
           <LengthOfOptionSlider handleChange = { handleOptionLengthSliderChange } value = { definitionLength }/>

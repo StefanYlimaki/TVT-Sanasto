@@ -16,8 +16,8 @@ function Navbar() {
           <img src={logo} alt="logo" onClick={() => navigate('/')}/>
         </div>
         <div className="tvt__navbar-links_container">
-          <button onClick={() => navigate('/dictionary')}>Sanakirja</button>
-          <button onClick={() => navigate('/games')}>Pelit </button>
+          <button style={{ color: 'white' }} onClick={() => navigate('/dictionary')}>Sanakirja</button>
+          <button style={{ color: 'white' }} onClick={() => navigate('/games')}>Pelit </button>
         </div>
       </div>
       <div className="tvt__navbar-menu">
@@ -25,7 +25,7 @@ function Navbar() {
           ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
         {toggleMenu && (
-          <div className="tvt__navbar-menu_container scale-up-center">
+          <div className="tvt__navbar-menu_container" style={{ backgroundColor: '#00203FFF', width: '50%' }}>
             <div className="tvt__navbar-menu_container-links">
               <button onClick={() => { navigate('/dictionary'); setToggleMenu(false) }}>Sanakirja</button>
               <button onClick={() => { navigate('/games'); setToggleMenu(false) }}>Pelit </button>
