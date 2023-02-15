@@ -1,5 +1,7 @@
 .game__gameplay {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--font-family);
+  width: 100%;
 }

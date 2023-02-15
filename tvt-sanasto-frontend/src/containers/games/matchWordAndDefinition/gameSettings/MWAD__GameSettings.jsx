@@ -49,16 +49,16 @@ function GameSettings({
   }
 
   return (
-    <div className="game__settings">
-      <div className="game__setting-gamelength">
+    <div className="MWAD__game-settings">
+      <div className="MWAD__game-settings__gamelength">
         <p>Valitse kierrosten määrä:</p>
-        <div className="game__setting-gamelength_slider">
+        <div className="MWAD__game-settings__gamelength-slider">
           <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength } />
         </div>
       </div>
-      <div className="game__settings-category">
+      <div className="MWAD__game-settings__category">
         <p>Valitse kategoria:</p>
-        <div className="game__settings-category_buttons">
+        <div className="MWAD__game-settings__category-buttons">
           <button
             onClick={() => {
               setSelectedCategory('basic-comp')
@@ -75,7 +75,7 @@ function GameSettings({
           </button>
         </div>
       </div>
-      <div className="game__settings-start_game">
+      <div className="MWAD__game-settings__start-game">
         <button onClick={handleStartGameClick}>Aloita peli</button>
       </div>
     </div>

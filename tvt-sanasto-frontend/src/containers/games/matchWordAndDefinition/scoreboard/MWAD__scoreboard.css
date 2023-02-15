@@ -1,36 +1,149 @@
-.scoreboard {
+.MWAD__scoreboard {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    border-style: solid;
+    border-width: 6px;
+    border-color: var(--color-text);
+}
+
+.MWAD__scoreboard-textual__feedback {
+    color: var(--color-text);
+    padding-bottom: 2rem;
+    font-family: var(--font-family);
+}
+
+.MWAD__scoreboard-raport {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+.MWAD__scoreboard-raport__table-container {
+    font-family: var(--font-family);
+    border-radius: 10px;
+}
+
+.MWAD__tableRow-header {
+    background-color: var(--color-text);
+    border-radius: 10px;
+}
+
+.MWAD__tablecell-header p {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    font-family: var(--font-family);
+    font-size: 14px;
+}
+
+.MWAD__tableRow-content {
+    background-color: var(--color-bg);
+}
+
+.MWAD__tablecell-container__content {
+    font-family: var(--font-family);
+    color: var(--color-text)
+}
+
+.MWAD__closebutton {
     width: 100%;
 }
 
-.scoreboard__raport {
+.MWAD__closebutton Button {
     display: flex;
-    justify-content: center;
     align-items: center;
-    align-self: center;
+    justify-content: center;
+    width: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color-text);
+    height: 50px;
+    transition: all 0.3s;
 }
 
-.tablecell p {
-    font-size: 16px;
+.MWAD__closebutton Button:hover {
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    border-color: var(--color-bg);
+    border-style: ridge;
 }
 
-@media screen and (max-width: 550px) {
-    .tablecell p {
+@media screen and (max-width: 625px) {
+    .MWAD__tablecell-container__content p {
         font-size: 12px;
     }
 }
 
-@media screen and (max-width: 400px) {
-    .tablecell p {
-        font-size: 10px;
+@media screen and (max-width: 550px) {
+
+    .MWAD__closebutton Button {
+        height: 40px;
+        font-size: 12px;
+    }
+    .MWAD__scoreboard {
+        padding: 0.2rem;
     }
 
-    .mobile__raport-content__tablecell p,
-    .mobile__raport-header__tablecell p{
+    .MWAD__scoreboard-textual__feedback {
+        padding-bottom: 0.5rem;
+    }
+
+    .MWAD__tablecell-container__content p {
+        font-size: 10px;
+    }
+    .MWAD__tablecell-container__content Button {
+        font-size: 10px;
+    }
+    .MWAD__scoreboard-textual__feedback {
+        font-size: 14px;
+    }
+    .MWAD__tablecell-header p {
         font-size: 10px;
     }
 }
+
+@media screen and (max-width: 420px) {
+.MWAD__tablecell-container__content p {
+    font-size: 8px;
+}
+.MWAD__tablecell-container__content Button {
+    font-size: 8px;
+}
+.MWAD__scoreboard-textual__feedback {
+    font-size: 10px;
+}
+.MWAD__tablecell-header p {
+    font-size: 8px;
+}
+}
+
+
+@media screen and (max-width: 370px) {
+    .MWAD__closebutton Button {
+        height: 30px;
+        font-size: 10px;
+    }
+    .MWAD__tablecell-container__content p {
+        font-size: 6px;
+    }
+    .MWAD__tablecell-container__content Button {
+        font-size: 6px;
+    }
+    .MWAD__scoreboard-textual__feedback {
+        font-size: 8px;
+    }
+    .MWAD__tablecell-header p {
+        font-size: 6px;
+    }
+    }
+
 
 .mobile__raport-content__tablecell {
     background-color: #F0F8FF;

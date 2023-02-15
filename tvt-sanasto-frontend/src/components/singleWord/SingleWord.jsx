@@ -19,8 +19,8 @@ function SingleWord({ word }) {
       <div className="singleword__definition">{ word.definition }</div>
       <div className="singleword__sources">
         <p>Lähteet:</p>
-        <div><a href={word.finnishLink}>{ word.finnishLink }</a></div>
-        <div><a href={word.englishLink}>{ word.englishLink }</a></div>
+        <div className='singleword__sources-single'><a href={word.finnishLink}>{ word.finnishLink }</a></div>
+        <div className='singleword__sources-single'><a href={word.englishLink}>{ word.englishLink }</a></div>
       </div>
     </div>
   )
