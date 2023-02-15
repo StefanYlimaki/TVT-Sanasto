@@ -34,9 +34,10 @@ fixausta.
 | 03.02.2023 | 3 | Selvitin ja korjasin bugin, jossa sovellus satunnaisesti kaatui pelin jälkeen kun raporttia yritettiin renderöidä. Optimoin sovelluksen toisen pelin toimimaan hyvin mobiililaitteilla
 | 06.02.2023 | 4 | Refactoroiden tyylijä lisäämällä värejä index.css tiedostoon ja tyylittämällä koko sovelluksen. Joitain muutoksia myös muihin kuin vain väreihin, kuten mobiilikäyttäjien huomiointi.
 | 07.02.2023 | 6 | Lisäsin tyylejä sovellukseen ja refaktroin MWAD pelin tyylit sekä mobiilaitetuen täysin. Aloitin toisenkin pelin stailaamista ja refactorointia sekä tekemisen paremmaksi mobiililaitteilla.
+| 15.02.2023 | 3 | Viimeistelin viimeisimmän päivityksen ja ajoin sen productioniin.
 
 
-146/175 tuntia käytetty
+149/175 tuntia käytetty
 
 TODO:
 Loppuosa sovelluksen tyylit sekä mobiili compatibiilty.
