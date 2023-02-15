@@ -21,7 +21,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./tvt-sanasto-frontend
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Run Eslint
         working-directory: ./tvt-sanasto-frontend
@@ -58,7 +58,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./tvt-sanasto-frontend
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Run the App and the E2E-tests
         working-directory: ./tvt-sanasto-frontend
