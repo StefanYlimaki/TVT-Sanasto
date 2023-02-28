@@ -102,7 +102,7 @@ const Scoreboard = ({
       <div className='MWAD__scoreboard-raport'>
         <TableContainer className='MWAD__scoreboard-raport__table-container' classes={{ root: classes.customTableContainer }}>
           <Table stickyHeader>
-            <TableHead className='MWAD__tablehead'>
+            <TableHead>
               <TableRow className='MWAD__tableRow-header'>
                 <TableCell className='MWAD__tablecell-header' style={{  backgroundColor: '#ADEFD1FF' }}>
                   <p><strong>Oikein/Väärin</strong></p>

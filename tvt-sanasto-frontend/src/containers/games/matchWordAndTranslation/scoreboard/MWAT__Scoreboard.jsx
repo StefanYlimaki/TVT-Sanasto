@@ -12,7 +12,6 @@ import { checkIfCorrect } from '../../../../utils/checkIfCorrect'
 
 import './MWAT__scoreboard.css'
 
-
 const useStyles = makeStyles({
   customTableContainer: {
     overflowX: 'initial',
@@ -96,7 +95,7 @@ const Scoreboard = ({
           <TableContainer className='MWAT__scoreboard-raport__table-container' classes={{ root: classes.customTableContainer }}>
             <Table stickyHeader>
               <TableHead>
-                <TableRow className='MWAT__tablecell-header'>
+                <TableRow className='MWAT__tablerow-header'>
                   <TableCell className='MWAT__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
                     <p><strong>Oikein / Väärin</strong></p>
                   </TableCell>
@@ -161,7 +160,7 @@ const Scoreboard = ({
         {
           raportRounds.map((round) => (
             <div className='mobile__scoreboard-raport' key={round.question.id}>
-              <TableContainer className='mobile__scoreboard-raport__table' component={ Paper }>
+              <TableContainer className='mobile__scoreboard-raport__table' classes={{ root: classes.customTableContainer }}>
                 <Table className='mobile__table'>
                   <TableBody className='mobile__tablebody'>
                     <TableRow className='mobile__tablerow'>

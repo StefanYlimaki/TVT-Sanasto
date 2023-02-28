@@ -163,7 +163,7 @@ const Gameplay = ({
         ? (
           <LoadingScreen />
         )
-        : ( <div className='game__gameplay'>
+        : ( <div>
           { gameHasEnded
             ? (<Scoreboard
               setGameRunning = { setGameRunning }
