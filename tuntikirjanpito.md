@@ -40,9 +40,8 @@ fixausta.
 
 152/175 tuntia käytetty
 
+tunnit tarkistus laskettu 28.02.2023
+
 TODO:
-Loppuosa sovelluksen tyylit sekä mobiili compatibiilty.
-Testien lisääminen sekä komponentti että e2e
 Refaktorointia
-Tyylien lisäämistä
 Käyttäjätestausta
