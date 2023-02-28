@@ -144,7 +144,7 @@ const Scoreboard = ({
       </BrowserView>
       { /* MOBILE DEVICES */}
       <MobileView>
-        <div className='scoreboard__textual-feedback'>
+        <div className='mobile__scoreboard-textual__feedback'>
           { won
             ? (
               <div>
@@ -160,8 +160,8 @@ const Scoreboard = ({
         {
           raportRounds.map((round) => (
             <div className='mobile__scoreboard-raport' key={round.question.id}>
-              <TableContainer className='mobile__scoreboard-raport__table' classes={{ root: classes.customTableContainer }}>
-                <Table className='mobile__table'>
+              <TableContainer className='mobile__scoreboard-raport__table' classes={{ root: classes.customTableContainer }} >
+                <Table>
                   <TableBody className='mobile__tablebody'>
                     <TableRow className='mobile__tablerow'>
                       <TableCell className='mobile__tablecell-header'>
@@ -169,8 +169,8 @@ const Scoreboard = ({
                       </TableCell>
                       <TableCell className='mobile__tablecell-content'>
                         { checkIfCorrect(round)
-                          ? <CheckIcon />
-                          : <ClearIcon />
+                          ? <CheckIcon color='success'/>
+                          : <ClearIcon color='error' />
                         }
                       </TableCell>
                     </TableRow>
