@@ -109,7 +109,7 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 454px) {
 .MWAD__tablecell-container__content p {
     font-size: 8px;
 }
@@ -125,7 +125,7 @@
 }
 
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 398px) {
     .MWAD__closebutton Button {
         height: 30px;
         font-size: 10px;
