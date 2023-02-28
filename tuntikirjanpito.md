@@ -35,9 +35,10 @@ fixausta.
 | 06.02.2023 | 4 | Refactoroiden tyylijä lisäämällä värejä index.css tiedostoon ja tyylittämällä koko sovelluksen. Joitain muutoksia myös muihin kuin vain väreihin, kuten mobiilikäyttäjien huomiointi.
 | 07.02.2023 | 6 | Lisäsin tyylejä sovellukseen ja refaktroin MWAD pelin tyylit sekä mobiilaitetuen täysin. Aloitin toisenkin pelin stailaamista ja refactorointia sekä tekemisen paremmaksi mobiililaitteilla.
 | 15.02.2023 | 3 | Viimeistelin viimeisimmän päivityksen ja ajoin sen productioniin.
+| 28.02.2023 | 3 | Viimeistelin mwat-pelin scoreboard näkymän mobiililaitteen version. Lisäksi useita pienempiä bugifixauksia, kuten näkymien leveyden säätämistä dynaamisesti näytön leveyteen, ja näytönraja-arvojen, joiden perusteella muokkatun css:n valitaan, säätämistä, siten että elementit sulautuvat toisiinsa paremmin näytön koon vaihtuessa. Koodin puhdistamista.
 
 
-149/175 tuntia käytetty
+152/175 tuntia käytetty
 
 TODO:
 Loppuosa sovelluksen tyylit sekä mobiili compatibiilty.
