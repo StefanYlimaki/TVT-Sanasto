@@ -3,10 +3,15 @@ import './singleWord.css'
 import flag_united_kingdom from '../../assets/photos/flag_of_united_kingdom.jpg'
 import flag_finland from '../../assets/photos/flag_of_finland.png'
 
+/**
+ * SingleWord -component is responsible for rendering a element in which the information of the word is being displayed
+ * @param { word } object the word to show information of
+ * @returns singleWord -component
+ */
+
 function SingleWord({ word }) {
   return (
     <div className="singleword">
-
       <div className="singleword__finnish">
         <img src={flag_finland} alt="flag of Finland" />
         { ` ${word.finnish}` }
