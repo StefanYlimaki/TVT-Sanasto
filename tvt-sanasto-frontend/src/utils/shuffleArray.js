@@ -1,3 +1,5 @@
+// This function is responsible for shuffling a array of any size
+
 const shuffleArray = (array) => {
   const arrayToShuffle = array
   for (let i = arrayToShuffle.length - 1; i > 0; i -= 1) {

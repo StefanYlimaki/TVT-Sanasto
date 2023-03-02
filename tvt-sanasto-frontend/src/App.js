@@ -10,9 +10,17 @@ import MatchWordAndDefinition from './containers/games/matchWordAndDefinition/Ma
 import MatchWordAndTranslation from './containers/games/matchWordAndTranslation/MatchWordAndTranslation'
 import './app.css'
 import NavBar from './components/navbar/NavBar'
-import Footer from './containers/footer/Footer'
+import Footer from './components/footer/Footer'
+
+/**
+ * App component is responsible for:
+ * calling the dictionary data
+ * establishing the navigation structute used in the application
+ */
 
 const App = () => {
+
+  // call to start dictionary data fetching as soon as the application is opened.
   useEffect(() => {
     fetchDictionaryData()
   }, [])

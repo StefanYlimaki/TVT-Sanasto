@@ -4,6 +4,30 @@ import { Slider } from '@mui/material'
 import '../index.css'
 import { makeStyles } from '@material-ui/core/styles'
 
+
+/**
+ * Responsible for returning a slider for controlling the amount of rounds to be played.
+ * @param { handleChange } function Function to call, onChange -function of slider triggers
+ * @param { value } integer value of slider
+ * @returns Slider to set amount of rounds in a game
+ */
+const GameLengthSlider = ({ handleChange, value }) => {
+  const classes = useStyles()
+
+  return (
+    <Slider
+      defaultValue = { 10 }
+      min = { 4 }
+      max = { 20 }
+      valueLabelDisplay = "auto"
+      marks = { marks }
+      value = { value }
+      onChange = { handleChange }
+      classes = {{ markLabel: classes.mark }}
+    />
+  )
+}
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 300,
@@ -30,23 +54,5 @@ const marks = [
     label: '20',
   },
 ]
-
-const GameLengthSlider = ({ handleChange, value }) => {
-
-  const classes = useStyles()
-
-  return (
-    <Slider
-      defaultValue = { 10 }
-      min = { 4 }
-      max = { 20 }
-      valueLabelDisplay = "auto"
-      marks = { marks }
-      value = { value }
-      onChange = { handleChange }
-      classes = {{ markLabel: classes.mark }}
-    />
-  )
-}
 
 export default GameLengthSlider

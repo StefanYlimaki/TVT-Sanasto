@@ -6,6 +6,18 @@ import GameLengthSlider from '../../../../elements/GameLengthSlider'
 import AmountOfOptionsSlider from '../../../../elements/AmountOfOptionsSlider'
 import './MWAT__gameSettings.css'
 
+/**
+ * MWAT_GameSettings component is responsible for rendering a settings screen for the MWAT-game.
+ * @param { setCategory } function Function to set a category for the game.
+ * @param { gameLength } integer Value that represents the desired amount of rounds to be played.
+ * @param { setGameLength } function Function to change a value described above.
+ * @param { setErrorMessage } function Function to set an error message.
+ * @param { setGameRunning } function Function to set game running (will cause the gameplay to be rendered, instead of game settings).
+ * @param { amountOfOptions } integer Value that represents the desired amount of answer options to be displayed in each round.
+ * @param { setAmountOfOptions } function Function to change a value desribed above.
+ * @param { setLanguages } function Function to set the language of question words (can contain multiple languges)
+ * @returns Game Settings screen
+ */
 const GameSettings = ({
   setCategory,
   gameLength,
@@ -17,10 +29,10 @@ const GameSettings = ({
   setLanguages
 }) => {
 
-  const [selectedCategory, setSelectedCategory] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [finnishChecked, setFinnishChecked] = useState(true)
-  const [englishChecked, setEnglishChecked] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState(null) // Used to keep track of the category selected.
+  const [isLoading, setIsLoading] = useState(true) // If words aren't loaded, game settings screen can't be rendered.
+  const [finnishChecked, setFinnishChecked] = useState(true) // keeps track of whether finnish as a question word language is checked
+  const [englishChecked, setEnglishChecked] = useState(true) // keeps track of whether english as a question word language is checked
 
   useEffect(() => {
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
