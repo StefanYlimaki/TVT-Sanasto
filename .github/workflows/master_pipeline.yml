@@ -61,6 +61,8 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Run the App and the E2E-tests
+        env:
+          REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
         working-directory: ./tvt-sanasto-frontend
         run: npm run ci
 
