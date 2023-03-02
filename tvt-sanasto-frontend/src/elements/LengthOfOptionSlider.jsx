@@ -1,8 +1,10 @@
 import React from 'react'
 import { Slider } from '@mui/material'
 
+/**
+ * Responsible for returning an slider to control the lenght of text
+ */
 const LengthOfOptionSlider = ({ handleChange, value }) => {
-
   return (
     <Slider
       defaultValue = { 300 }

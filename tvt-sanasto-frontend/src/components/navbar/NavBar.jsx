@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/photos/tvt-sanasto-logo.jpg'
 import './navbar.css'
 
+/**
+ * NavBar component is responsible for the navigation bar.
+ * Navigation Bar is shown in all screens and should fit for the screen used.
+ * @returns NavBar component
+ */
+
 function Navbar() {
   const navigate = useNavigate()
   const [toggleMenu, setToggleMenu] = useState(false)

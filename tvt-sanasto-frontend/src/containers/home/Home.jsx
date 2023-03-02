@@ -1,6 +1,10 @@
 import React from 'react'
 import './home.css'
 
+/**
+ * Home component is responsible for rendering the Home page content
+ * @returns Home screen
+ */
 function Home() {
   return (
     <div className="tvt__home">
