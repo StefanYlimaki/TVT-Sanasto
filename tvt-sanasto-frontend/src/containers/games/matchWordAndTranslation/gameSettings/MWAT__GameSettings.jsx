@@ -109,7 +109,7 @@ const GameSettings = ({
       <div className="MWAT__game-settings__gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
         <div className="MWAT__game-settings__gamelength-slider">
-          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }/>
+          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }  min = {4} max = { 20 } />
         </div>
       </div>
       <div className="MWAT__game-settings__gamelength">

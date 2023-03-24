@@ -53,7 +53,7 @@ function GameSettings({
       <div className="MWAD__game-settings__gamelength">
         <p>Valitse kierrosten määrä:</p>
         <div className="MWAD__game-settings__gamelength-slider">
-          <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength } />
+          <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength }  min = {4} max = { 20 }  />
         </div>
       </div>
       <div className="MWAD__game-settings__category">
