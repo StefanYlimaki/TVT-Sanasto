@@ -37,8 +37,9 @@ fixausta.
 | 15.02.2023 | 3 | Viimeistelin viimeisimmän päivityksen ja ajoin sen productioniin.
 | 28.02.2023 | 3 | Viimeistelin mwat-pelin scoreboard näkymän mobiililaitteen version. Lisäksi useita pienempiä bugifixauksia, kuten näkymien leveyden säätämistä dynaamisesti näytön leveyteen, ja näytönraja-arvojen, joiden perusteella muokkatun css:n valitaan, säätämistä, siten että elementit sulautuvat toisiinsa paremmin näytön koon vaihtuessa. Koodin puhdistamista.
 | 02.03.2023 | 4 | Kommentoin ja refactoroin koodia.
+| 03.04.2023 | 4 | Aloitin hirsipuupelin lisäämisen. Peli toimii, mutta se ei ole valmis.
 
-156/175 tuntia käytetty
+160/175 tuntia käytetty
 
 tunnit tarkistus laskettu 28.02.2023
 
