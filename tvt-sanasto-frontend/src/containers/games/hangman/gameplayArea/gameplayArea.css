@@ -1,0 +1,179 @@
+.hangman__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    border-style: solid;
+    border-width: 6px;
+    border-color: var(--color-text);
+}
+
+.hangman__stats-and__text-length {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+
+.hangman__gameplay-stats__and-text__length-stats {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+}
+
+.hangman__wordToBeGuessed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text);
+    font-size: 30px;
+}
+
+.mwad__gameplay-text__length {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-left: 3rem;
+    padding-right: 3rem;
+    align-items: center;
+    color: var(--color-text);
+    padding-left: 2rem;
+}
+
+.mwad__gameplay-advice {
+    display: flex;
+    color: var(--color-text);
+    justify-content: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 3rem;
+}
+
+.mwad__gameplay-advice_text {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    color: var(--color-text);
+    border-radius: 5px;
+}
+
+.mwad__gameplay-advice_word {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--color-text)
+}
+
+.mwad__gameplay-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mwad__gameplay-options_single {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mwad__gameplay-options_single-option p {
+    border-style: solid;
+    border-radius: 10px;
+    font-size: large;
+    padding: 1rem;
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    cursor: pointer;
+    transition: all 0.3s
+}
+
+.mwad__gameplay-options_single-option {
+    padding: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.mwad__gameplay-options_single-option p:hover {
+    border-radius: 20px;
+    background-color: var(--color-text);
+    color: var(--color-bg)
+}
+
+.mwad__gameplay-main Button {
+    margin-top: 2rem;
+    align-self: center;
+    width: 80%;
+    border-style: solid;
+    border-color: var(--color-text);
+    border-width: 2px;
+    color: var(--color-text);
+    transition: all 0.3s;
+}
+
+.mwad__gameplay-main Button:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-radius: 10px;
+    border-color: red;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .mwad__gameplay-advice_text {
+      padding-top: 1rem;
+      font-size: 20px;
+    }
+    .mwad__gameplay-advice_word {
+      font-size: 20px;
+    }
+    .mwad__gameplay-options_single-option p {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .mwad__gameplay-options_single {
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .mwad__stats-and__text-length {
+        flex-direction: column;
+        font-size: 16px;
+    }
+
+    .mwad__gameplay-text__length {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        padding-top: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .mwad__gameplay-options_single {
+      flex-direction: column;
+    }
+
+    .mwad__stats-and__text-length {
+        flex-direction: column;
+        font-size: 14px;
+    }
+
+    .mwad__gameplay-text__length {
+        padding-top: 1rem;
+        font-size: 14px;
+    }
+  }
