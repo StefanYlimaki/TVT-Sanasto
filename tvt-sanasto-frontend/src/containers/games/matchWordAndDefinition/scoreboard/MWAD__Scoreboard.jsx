@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
-import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material/'
+import { Table, TableBody, TableHead, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material/'
+import { makeStyles } from '@material-ui/styles'
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
@@ -10,10 +11,18 @@ import { checkIfCorrect } from '../../../../utils/checkIfCorrect'
 
 import './MWAD__scoreboard.css'
 
-function Scoreboard({
+const useStyles = makeStyles({
+  customTableContainer: {
+    overflowX: 'initial',
+  }
+})
+
+const Scoreboard = ({
   setGameRunning, // This is a function to stop the game running. It's called when a user clicks on "close raport" in the scoreboard view.
   raport // This is an objest which contains information such as game length, points, questions and answers about the played game.
-}) {
+}) => {
+
+  const classes = useStyles()
 
   const { points, rounds, category_id } = raport // Let's get the points, rounds and category to be own variables.
 
@@ -77,12 +86,12 @@ function Scoreboard({
   }
 
   return (
-    <div className='scoreboard'>
-      <div className='scoreboard__textual-feedback'>
+    <div className='MWAD__scoreboard'>
+      <div className='MWAD__scoreboard-textual__feedback'>
         { won
           ? (
             <div>
-            Mahtavaa!
+        Mahtavaa!
               <Confetti width={width} height={height} />
             </div>
           )
@@ -90,61 +99,62 @@ function Scoreboard({
         }
         {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
       </div>
-      <div className='scoreboard__raport'>
-        <TableContainer className='scoreboard__raport-table' component={Paper}>
-          <Table>
-            <TableBody>
-              <TableRow className='tableRow' style={{ backgroundColor: '#7CFC00' }}>
-                <TableCell className='tablecell'>
-                  <strong>Oikein/Väärin</strong>
+      <div className='MWAD__scoreboard-raport'>
+        <TableContainer className='MWAD__scoreboard-raport__table-container' classes={{ root: classes.customTableContainer }}>
+          <Table stickyHeader>
+            <TableHead>
+              <TableRow className='MWAD__tableRow-header'>
+                <TableCell className='MWAD__tablecell-header' style={{  backgroundColor: '#ADEFD1FF' }}>
+                  <p><strong>Oikein/Väärin</strong></p>
                 </TableCell>
-                <TableCell className='tablecell'>
-                  <strong>Kysytty Sana</strong>
+                <TableCell className='MWAD__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
+                  <p><strong>Kysytty Sana</strong></p>
                 </TableCell>
-                <TableCell className='tablecell'>
-                  <strong>Oikea Vastaus</strong>
+                <TableCell className='MWAD__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
+                  <p><strong>Oikea Vastaus</strong></p>
                 </TableCell>
               </TableRow>
-              {
-                raportRounds.map((round) => (
-                  <TableRow key={round.question.id} className='tableRow' style={{ backgroundColor: '#F0F8FF' }}>
-                    <TableCell className='tablecell'>
-                      { checkIfCorrect(round)
-                        ? <CheckIcon />
-                        : <ClearIcon />
-                      }
-                    </TableCell>
-                    <TableCell className='tablecell'>
-                      { round.question.finnish }
-                    </TableCell>
-                    <TableCell className='tablecell'>
-                      { showFullLength[round.index]
-                        ?
-                        <div>
-                          <p>{ round.question.definition }</p>
-                          <Button size="small" onClick={ () => toggleShowFullLength(round) }>Piilota koko vastaus</Button>
-                        </div>
-                        :
-                        <div>
-                          <p>{ getShortenedDefinition(round.question.definition) }</p>
-                          <Button size="small" onClick={ () => toggleShowFullLength(round) }>Näytä koko vastaus</Button>
-                        </div>
-                      }
-                    </TableCell>
-                  </TableRow>
-                ))
+            </TableHead>
+            <TableBody>
+              { raportRounds.map((round) => (
+                <TableRow key={round.question.id} className='MWAD__tableRow-content'>
+                  <TableCell className='MWAD__tablecell-content'>
+                    { checkIfCorrect(round)
+                      ? <CheckIcon color='success'/>
+                      : <ClearIcon color='error'/>
+                    }
+                  </TableCell>
+                  <TableCell className='MWAD__tablecell-container'>
+                    <div className='MWAD__tablecell-container__content'>
+                      <p>{ round.question.finnish }</p>
+                    </div>
+                  </TableCell>
+                  <TableCell className='MWAD__tablecell-container'>
+                    { showFullLength[round.index]
+                      ?
+                      <div className='MWAD__tablecell-container__content'>
+                        <p>{ round.question.definition }</p>
+                        <Button size="small" onClick={ () => toggleShowFullLength(round) }>Piilota koko vastaus</Button>
+                      </div>
+                      :
+                      <div className='MWAD__tablecell-container__content'>
+                        <p>{ getShortenedDefinition(round.question.definition) }</p>
+                        <Button size="small" onClick={ () => toggleShowFullLength(round) }>Näytä koko vastaus</Button>
+                      </div>
+                    }
+                  </TableCell>
+                </TableRow>
+              ))
               }
             </TableBody>
           </Table>
         </TableContainer>
       </div>
-
-      <Button variant="contained" onClick={() => { setGameRunning('false') } }>
-        Sulje Raportti
-      </Button>
+      <div className='MWAD__closebutton'>
+        <Button color='warning' onClick={() => { setGameRunning('false') } }>Sulje raportti</Button>
+      </div>
     </div>
   )
 }
-
 
 export default Scoreboard

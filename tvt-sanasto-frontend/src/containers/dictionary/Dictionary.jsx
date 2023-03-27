@@ -6,14 +6,22 @@ import WordList from '../../components/wordList/WordList'
 import SingleWord from '../../components/singleWord/SingleWord'
 import LoadingScreen from '../../components/loadingScreen/LoadingScreen'
 
+/**
+ * Dictionary component is responsible for the dictionary screen
+ * @returns Dictionary screen
+ */
+
 function CompBasicCategory() {
-  const [category, setGategory] = useState('comp_basic')
-  const [search, setSearch] = useState('')
-  const [word, setWord] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [category, setGategory] = useState('comp_basic') // Keeps track of selected category, defaults to "comp_basic"
+  const [search, setSearch] = useState('') // Keeps track of search text
+  const [word, setWord] = useState(null) // Used for saving a single word. When a word is set, only the word is shown (not the list of words).
+  const [isLoading, setIsLoading] = useState(true) // Is set to "false" when dictionary data is loaded. After which the screen can be rendered.
 
-  let selectedWords
+  let selectedWords // Initialising a variable to which the words of selected category will be saved.
 
+  // Using useEffect function to check whether dictionary data is loaded to local storage.
+  // After initial check, keep checking the local storage every second, until dictionary data is loaded to local storage.
+  // After dictionary is loaded, set isLoading -state to "false"
   useEffect(() => {
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
       setIsLoading(false)
@@ -26,34 +34,32 @@ function CompBasicCategory() {
     return () => clearInterval(interval)
   }, [])
 
+  // If isLoading -state is true, return loading screen
   if(isLoading){
     return(
       <LoadingScreen />
     )
   }
 
-  let wordsToShow = []
+  let wordsToShow = [] // Initialising a variable to which the words to be showed will be saved.
 
   if(!isLoading){
-    if (category === 'comp_basic') {
-      selectedWords = JSON.parse(localStorage.getItem('basic-comp'))
+    if (category === 'comp_basic') { // If category selected is "comp_basic"
+      selectedWords = JSON.parse(localStorage.getItem('basic-comp')) // Set selectedWords to equal words from the category "comp-basic"
     } else {
-      selectedWords = JSON.parse(localStorage.getItem('internet-basic'))
+      selectedWords = JSON.parse(localStorage.getItem('internet-basic')) // Otherwise set selectedWords to equal words from the category "internet-basic"
     }
+    // Setting words to show to contain all the words which contain the search term language and case insensitively.
     wordsToShow = selectedWords.filter((w) => w.english.toLowerCase().includes(search.toLowerCase())
       || w.finnish.toLowerCase().includes(search.toLowerCase()))
   }
 
-
-
-
-
   return (
-    <div className="category">
-      <div className="category__input">
-        <div className="category__input-text">Suomi - Englanti - Suomi</div>
-        <div className="category__input-box">
-          <div className="category__input-box_search">
+    <div className="dictionary">
+      <div className="dictionary__header">Suomi - Englanti - Suomi</div>
+      <div className="dictionary__category">
+        <div className="dictionary__category-input__container">
+          <div className="dictionary__category-input__container-search">
             <input
               placeholder="Hae sanaa englanniksi tai suomeksi"
               type="text"
@@ -61,7 +67,7 @@ function CompBasicCategory() {
               onChange={(e) => { setWord(null); setSearch(e.target.value) }}
             />
           </div>
-          <div className="catogory__input-box_select">
+          <div className="dictionary__category-input__container-select">
             <select
               value={category}
               onChange={(e) => { setGategory(e.target.value); setWord(null); setSearch('') }}
@@ -74,7 +80,7 @@ function CompBasicCategory() {
         <div>
           {search !== '' || word
             ? (
-              <div className="category__input-box_button">
+              <div className="dictionary__category-input__container-button">
                 <Button variant="outlined" onClick={() => { setWord(null); setSearch('') }}>Tyhjennä haku</Button>
               </div>
             )
@@ -84,7 +90,6 @@ function CompBasicCategory() {
       { word
         ? <SingleWord word={word} />
         : <WordList words={wordsToShow} setSearch={setSearch} setWord={setWord} />}
-
     </div>
   )
 }

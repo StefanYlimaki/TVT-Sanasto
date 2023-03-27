@@ -1,16 +1,16 @@
 import axios from 'axios'
 
+/**
+ * This function is responsible for fetching dictionaries from the given backend url
+ */
 const fetchDictionaryData = () => {
   localStorage.clear()
-  console.log(localStorage.length)
   const dictionaries = ['basic-comp', 'internet-basic']
 
   dictionaries.map((d) => {
-    console.log(d)
     axios
-      .get(`https://tvt-sanasto-api.vercel.app/api/data/${d}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}${d}`)
       .then((response) => {
-        console.log('storing to localstorage, name:', d)
         localStorage.setItem(d, JSON.stringify(response.data))
       })
   })

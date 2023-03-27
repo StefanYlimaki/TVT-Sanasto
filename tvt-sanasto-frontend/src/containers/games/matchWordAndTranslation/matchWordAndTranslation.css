@@ -1,0 +1,5 @@
+.MWAT__game-error {
+    font-family: var(--font-family);
+    color: red;
+    font-size: 20px;
+}

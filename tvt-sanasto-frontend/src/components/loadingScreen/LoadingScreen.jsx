@@ -4,6 +4,11 @@ import './loadingScreen.css'
 import MovingComponent from 'react-moving-text'
 import { ColorRing } from 'react-loader-spinner'
 
+/**
+ * LoadingScreen -component is responsible for showing loading animation.
+ * @returns Loading Screen
+ */
+
 const LoadingScreen = () => {
   return (
     <div className='loadingScreen'>

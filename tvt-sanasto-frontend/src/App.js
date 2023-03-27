@@ -8,11 +8,20 @@ import Home from './containers/home/Home'
 import Games from './containers/games/Games'
 import MatchWordAndDefinition from './containers/games/matchWordAndDefinition/MatchWordAndDefinition'
 import MatchWordAndTranslation from './containers/games/matchWordAndTranslation/MatchWordAndTranslation'
+import Hangman from './containers/games/hangman/Hangman'
 import './app.css'
 import NavBar from './components/navbar/NavBar'
-import Footer from './containers/footer/Footer'
+import Footer from './components/footer/Footer'
+
+/**
+ * App component is responsible for:
+ * calling the dictionary data
+ * establishing the navigation structute used in the application
+ */
 
 const App = () => {
+
+  // call to start dictionary data fetching as soon as the application is opened.
   useEffect(() => {
     fetchDictionaryData()
   }, [])
@@ -35,6 +44,10 @@ const App = () => {
           <Route
             path="/games/match_word_and_translation"
             element={<MatchWordAndTranslation />}
+          />
+          <Route
+            path="/games/hangman"
+            element={<Hangman />}
           />
         </Routes>
         <Footer />

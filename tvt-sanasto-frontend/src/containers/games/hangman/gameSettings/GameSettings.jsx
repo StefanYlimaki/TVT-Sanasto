@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
 import GameLengthSlider from '../../../../elements/GameLengthSlider'
-import './MWAD__gameSettings.css'
 
 function GameSettings({
   setCategory,
@@ -53,7 +52,7 @@ function GameSettings({
       <div className="MWAD__game-settings__gamelength">
         <p>Valitse kierrosten määrä:</p>
         <div className="MWAD__game-settings__gamelength-slider">
-          <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength }  min = {4} max = { 20 }  />
+          <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength } min = {1} max = { 4 } />
         </div>
       </div>
       <div className="MWAD__game-settings__category">

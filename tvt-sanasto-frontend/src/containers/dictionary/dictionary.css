@@ -1,17 +1,5 @@
-.dictionary__loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: var(--font-family);
-  font-size: 20px;
-}
 
-.dictionary__loading-screen__spacer {
-  height: 1.5rem;
-}
-
-.category {
+.dictionary {
   padding-top: 2rem;
 }
 
@@ -19,7 +7,7 @@
   cursor: pointer;
 }
 
-.category__input-text {
+.dictionary__header {
   color: var(--color-search-bar);
   font-family: var(--font-family);
   font-size: 30px;
@@ -55,21 +43,21 @@ select {
   padding-left: 10px;
 }
 
-.category__input-box_button {
+.dictionary__category-input__container-button {
   padding-top: 1rem;
 }
 
-.category__input-box {
+.dictionary__category-input__container {
   display: flex;
   justify-content: stretch;
 }
 
-.category__input-box_search {
+.dictionary__category-input__container-search {
   flex: 1;
   display: flex;
 }
 
-.category__input-box_search input {
+.dictionary__category-input__container-search input {
   flex: 1;
   display: flex;
   width: 100%;
@@ -77,7 +65,7 @@ select {
   flex-shrink: 0;
 }
 
-.catogory__input-box_select select {
+.dictionary__category-input__container-select select {
   flex: 1;
   display: flex;
   flex-shrink: 0;
@@ -86,40 +74,38 @@ select {
 }
 
 @media screen and (max-width: 800px) {
-  .category__input-box {
+
+  .dictionary__category-input__container-search input {
+    width: 100%;
+  }
+
+  .dictionary__category-input__container {
     flex-direction: column;
   }
-  .catogory__input-box_select {
+  .dictionary__category-input__container-select {
     justify-content: flex-start;
   }
 
-  .catogory__input-box_select select {
+  .dictionary__category-input__container-select select {
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
   }
 
-  .category__input-text {
+  .dictionary__header {
     font-size: 20px;
-  }
-
-  .category__input-box_search input {
-    max-width: 400px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .category__input-box_search input {
-    max-height: 30px;
-  }
 
-  .catogory__input-box_select select {
+  .dictionary__category-input__container-select select {
     font-size: 14px;
     max-height: 30px;
   }
 
-  .category__input-box_search input {
+  .dictionary__category-input__container-search input {
     width: 100%;
-    max-width: 300px;
     font-size: 14px;
+    max-height: 30px;
   }
 }

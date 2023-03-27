@@ -3,7 +3,8 @@ import React from 'react'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 import { BrowserView, MobileView } from 'react-device-detect'
-import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material/'
+import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button, TableHead } from '@mui/material/'
+import { makeStyles } from '@material-ui/styles'
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
@@ -11,11 +12,18 @@ import { checkIfCorrect } from '../../../../utils/checkIfCorrect'
 
 import './MWAT__scoreboard.css'
 
+const useStyles = makeStyles({
+  customTableContainer: {
+    overflowX: 'initial',
+  }
+})
+
 const Scoreboard = ({
   setGameRunning,
   raport
 }) => {
-  console.log(raport)
+
+  const classes = useStyles()
 
   const { points, rounds, category_id } = raport
   const { width, height } = useWindowSize()
@@ -46,9 +54,6 @@ const Scoreboard = ({
     raportRounds.push(round)
   }
 
-  console.log(raportRounds)
-
-
   const getPromptedWord = (round) => {
     if(round.language === 'finnish'){
       return round.question.finnish
@@ -71,10 +76,10 @@ const Scoreboard = ({
   }
 
   return (
-    <div className='scoreboard'>
+    <div className='MWAT__scoreboard'>
       { /* BROWSERS */}
       <BrowserView>
-        <div className='scoreboard__textual-feedback'>
+        <div className='MWAT__scoreboard-textual__feedback'>
           { won
             ? (
               <div>
@@ -86,44 +91,51 @@ const Scoreboard = ({
           }
           {`Sait ${points}/${rounds} pistettä kategoriassa ${category}`}
         </div>
-        <div className='browser__scoreboard-raport'>
-          <TableContainer className='browser__scoreboard-raport__table' component={Paper}>
-            <Table>
-              <TableBody>
-                <TableRow className='browser__tableRow'>
-                  <TableCell className='browser__tablecell'>
+        <div className='MWAT__scoreboard-raport'>
+          <TableContainer className='MWAT__scoreboard-raport__table-container' classes={{ root: classes.customTableContainer }}>
+            <Table stickyHeader>
+              <TableHead>
+                <TableRow className='MWAT__tablerow-header'>
+                  <TableCell className='MWAT__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
                     <p><strong>Oikein / Väärin</strong></p>
                   </TableCell>
-                  <TableCell className='browser__tablecell'>
+                  <TableCell className='MWAT__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
                     <p><strong>Kysytty Sana</strong></p>
                   </TableCell>
-                  <TableCell className='browser__tablecell'>
+                  <TableCell className='MWAT__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
                     <p><strong>Vastauksesi</strong></p>
                   </TableCell>
-                  <TableCell className='browser__tablecell'>
+                  <TableCell className='MWAT__tablecell-header' style={{ backgroundColor: '#ADEFD1FF' }}>
                     <p><strong>Oikea Vastaus</strong></p>
                   </TableCell>
                 </TableRow>
-                {
-                  raportRounds.map((round) => (
-                    <TableRow key={round.question.id} className='browser__tablerow' style={{ backgroundColor: '#F0F8FF' }}>
-                      <TableCell className='browser__tablecell'>
-                        { checkIfCorrect(round)
-                          ? <CheckIcon />
-                          : <ClearIcon />
-                        }
-                      </TableCell>
-                      <TableCell className='browser__tablecell'>
+              </TableHead>
+              <TableBody>
+                { raportRounds.map((round) => (
+                  <TableRow key={round.question.id} className='MWAT__tableRow-content'>
+                    <TableCell className='MWAT__tablecell-content'>
+                      { checkIfCorrect(round)
+                        ? <CheckIcon color='success'/>
+                        : <ClearIcon color='error'/>
+                      }
+                    </TableCell>
+                    <TableCell className='MWAT__tablecell-container'>
+                      <div className='MWAT__tablecell-container__content'>
                         <p>{ getPromptedWord(round) }</p>
-                      </TableCell>
-                      <TableCell className='browser__tablecell'>
+                      </div>
+                    </TableCell>
+                    <TableCell className='MWAT__tablecell-container'>
+                      <div className='MWAT__tablecell-container__content'>
                         <p>{ getAnsweredWord(round) }</p>
-                      </TableCell>
-                      <TableCell className='browser__tablecell'>
+                      </div>
+                    </TableCell>
+                    <TableCell className='MWAT__tablecell-container'>
+                      <div className='MWAT__tablecell-container__content'>
                         <p>{ getCorrectAnswer(round) }</p>
-                      </TableCell>
-                    </TableRow>
-                  ))
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
                 }
               </TableBody>
             </Table>
@@ -132,7 +144,7 @@ const Scoreboard = ({
       </BrowserView>
       { /* MOBILE DEVICES */}
       <MobileView>
-        <div className='scoreboard__textual-feedback'>
+        <div className='mobile__scoreboard-textual__feedback'>
           { won
             ? (
               <div>
@@ -148,8 +160,8 @@ const Scoreboard = ({
         {
           raportRounds.map((round) => (
             <div className='mobile__scoreboard-raport' key={round.question.id}>
-              <TableContainer className='mobile__scoreboard-raport__table' component={ Paper }>
-                <Table className='mobile__table'>
+              <TableContainer className='mobile__scoreboard-raport__table' classes={{ root: classes.customTableContainer }} >
+                <Table>
                   <TableBody className='mobile__tablebody'>
                     <TableRow className='mobile__tablerow'>
                       <TableCell className='mobile__tablecell-header'>
@@ -157,8 +169,8 @@ const Scoreboard = ({
                       </TableCell>
                       <TableCell className='mobile__tablecell-content'>
                         { checkIfCorrect(round)
-                          ? <CheckIcon />
-                          : <ClearIcon />
+                          ? <CheckIcon color='success'/>
+                          : <ClearIcon color='error' />
                         }
                       </TableCell>
                     </TableRow>
@@ -196,10 +208,10 @@ const Scoreboard = ({
 
         }
       </MobileView>
-      <div style={{ height: '20px' }}></div>
-      <Button variant="contained" onClick={() => { setGameRunning('false') } }>
-        Sulje Raportti
-      </Button>
+
+      <div className='MWAT__closebutton'>
+        <Button color='warning' onClick={() => { setGameRunning('false') } }>Sulje raportti</Button>
+      </div>
     </div>
   )
 

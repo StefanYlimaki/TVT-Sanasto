@@ -6,6 +6,18 @@ import GameLengthSlider from '../../../../elements/GameLengthSlider'
 import AmountOfOptionsSlider from '../../../../elements/AmountOfOptionsSlider'
 import './MWAT__gameSettings.css'
 
+/**
+ * MWAT_GameSettings component is responsible for rendering a settings screen for the MWAT-game.
+ * @param { setCategory } function Function to set a category for the game.
+ * @param { gameLength } integer Value that represents the desired amount of rounds to be played.
+ * @param { setGameLength } function Function to change a value described above.
+ * @param { setErrorMessage } function Function to set an error message.
+ * @param { setGameRunning } function Function to set game running (will cause the gameplay to be rendered, instead of game settings).
+ * @param { amountOfOptions } integer Value that represents the desired amount of answer options to be displayed in each round.
+ * @param { setAmountOfOptions } function Function to change a value desribed above.
+ * @param { setLanguages } function Function to set the language of question words (can contain multiple languges)
+ * @returns Game Settings screen
+ */
 const GameSettings = ({
   setCategory,
   gameLength,
@@ -17,10 +29,10 @@ const GameSettings = ({
   setLanguages
 }) => {
 
-  const [selectedCategory, setSelectedCategory] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [finnishChecked, setFinnishChecked] = useState(true)
-  const [englishChecked, setEnglishChecked] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState(null) // Used to keep track of the category selected.
+  const [isLoading, setIsLoading] = useState(true) // If words aren't loaded, game settings screen can't be rendered.
+  const [finnishChecked, setFinnishChecked] = useState(true) // keeps track of whether finnish as a question word language is checked
+  const [englishChecked, setEnglishChecked] = useState(true) // keeps track of whether english as a question word language is checked
 
   useEffect(() => {
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
@@ -84,31 +96,31 @@ const GameSettings = ({
   }
 
   return(
-    <div className="game__settings">
-      <div className='game__setting-languages'>
-        <div className='game__setting-languages__text'>
+    <div className="MWAT__game-settings">
+      <div className='MWAT__game-settings__languages'>
+        <div className='MWAT__game-settings__languages-text'>
           <p>Kysymykset kielellä:</p>
         </div>
-        <div className='game__setting-languages__checkbox'>
+        <div className='MWAT__game-settings__languages-checkbox'>
           <p>Suomi <Checkbox checked = { finnishChecked } onChange = { handleFinnishCheckboxChange } /></p>
           <p>Englanti <Checkbox checked = { englishChecked } onChange = { handleEnglishCheckboxChange } /></p>
         </div>
       </div>
-      <div className="game__setting-gamelength">
+      <div className="MWAT__game-settings__gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
-        <div className="game__setting-gamelength_slider">
-          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }/>
+        <div className="MWAT__game-settings__gamelength-slider">
+          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }  min = {4} max = { 20 } />
         </div>
       </div>
-      <div className="game__setting-gamelength">
+      <div className="MWAT__game-settings__gamelength">
         <p>Valitse vaihtoehtojen lukumäärä:</p>
-        <div className="game__setting-gamelength_slider">
+        <div className="MWAT__game-settings__gamelength-slider">
           <AmountOfOptionsSlider handleChange = { handleOptionsSliderChange } value = { amountOfOptions } />
         </div>
       </div>
-      <div className="game__settings-category">
+      <div className="MWAT__game-settings__category">
         <p>Valitse kategoria:</p>
-        <div className="game__settings-category_buttons">
+        <div className="MWAT__game-settings__category-buttons">
           <button
             onClick={() => {
               setSelectedCategory('basic-comp')
@@ -125,7 +137,7 @@ const GameSettings = ({
           </button>
         </div>
       </div>
-      <div className="game__settings-start_game">
+      <div className="MWAT__game-settings__start-game">
         <button onClick={handleStartGameClick}>Aloita peli</button>
       </div>
     </div>

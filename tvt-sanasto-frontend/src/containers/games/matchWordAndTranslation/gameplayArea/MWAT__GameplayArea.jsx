@@ -57,7 +57,7 @@ const GameplayArea = ({
           <></>
         )}
       </div>
-      <Button variant="contained" onClick={() => endGame()}>
+      <Button onClick={() => endGame()}>
         Lopeta peli
       </Button>
     </div>

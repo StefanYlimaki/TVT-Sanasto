@@ -85,7 +85,7 @@ describe('TVT-sanasto app, games', function () {
     })
 
     // Closing the "end-of-game" raport
-    cy.contains('Sulje Raportti').click()
+    cy.contains('Sulje raportti').click()
 
     /*************** SECOND TASK ***************/
 
@@ -168,6 +168,6 @@ describe('TVT-sanasto app, games', function () {
     })
 
     // Closing the "end-of-game" raport
-    cy.contains('Sulje Raportti').click()
+    cy.contains('Sulje raportti').click()
   })
 })

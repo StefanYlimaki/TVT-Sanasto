@@ -1,4 +1,4 @@
-.mwat__gameplay-main {
+.hangman__main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,19 +13,39 @@
     border-color: var(--color-text);
 }
 
-.mwat__stats-and__text-length {
+.hangman__stats-and__text-length {
     align-content: flex-start;
     display: flex;
     flex-direction: row;
 }
 
-.mwat__gameplay-stats__and-text__length-stats {
+.hangman__gameplay-stats__and-text__length-stats {
     display: flex;
     flex-direction: column;
     color: var(--color-text);
 }
 
-.mwat__gameplay-advice {
+.hangman__wordToBeGuessed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text);
+    font-size: 30px;
+}
+
+.mwad__gameplay-text__length {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-left: 3rem;
+    padding-right: 3rem;
+    align-items: center;
+    color: var(--color-text);
+    padding-left: 2rem;
+}
+
+.mwad__gameplay-advice {
     display: flex;
     color: var(--color-text);
     justify-content: flex-start;
@@ -35,7 +55,7 @@
     padding-top: 3rem;
 }
 
-.mwat__gameplay-advice_text {
+.mwad__gameplay-advice_text {
     font-size: 26px;
     display: flex;
     justify-content: center;
@@ -43,7 +63,7 @@
     border-radius: 5px;
 }
 
-.mwat__gameplay-advice_word {
+.mwad__gameplay-advice_word {
     display: flex;
     justify-content: center;
     font-size: 30px;
@@ -52,19 +72,19 @@
     color: var(--color-text)
 }
 
-.mwat__gameplay-options {
+.mwad__gameplay-options {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.mwat__gameplay-options_single {
+.mwad__gameplay-options_single {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.mwat__gameplay-options_single p {
+.mwad__gameplay-options_single-option p {
     border-style: solid;
     border-radius: 10px;
     font-size: large;
@@ -76,7 +96,7 @@
     transition: all 0.3s
 }
 
-.mwat__gameplay-options_single-option {
+.mwad__gameplay-options_single-option {
     padding: 0rem 1rem;
     display: flex;
     flex-direction: column;
@@ -84,13 +104,13 @@
     flex: 1;
 }
 
-.mwat__gameplay-options_single-option p:hover {
+.mwad__gameplay-options_single-option p:hover {
     border-radius: 20px;
     background-color: var(--color-text);
     color: var(--color-bg)
 }
 
-.mwat__gameplay-main Button {
+.mwad__gameplay-main Button {
     margin-top: 2rem;
     align-self: center;
     width: 80%;
@@ -101,44 +121,40 @@
     transition: all 0.3s;
 }
 
-.mwat__gameplay-main Button:hover {
+.mwad__gameplay-main Button:hover {
     background-color: var(--color-text);
     color: var(--color-bg);
     border-radius: 10px;
     border-color: red;
 }
 
-.mwat__gameplay-options {
-    display: flex;
-    justify-content: center;
-}
 
 @media screen and (max-width: 1000px) {
-    .mwat__gameplay-advice_text {
+    .mwad__gameplay-advice_text {
       padding-top: 1rem;
       font-size: 20px;
     }
-    .mwat__gameplay-advice_word {
+    .mwad__gameplay-advice_word {
       font-size: 20px;
     }
-    .mwat__gameplay-options_single-option p {
+    .mwad__gameplay-options_single-option p {
       font-size: 14px;
     }
   }
 
   @media screen and (max-width: 750px) {
-    .mwat__gameplay-options_single {
+    .mwad__gameplay-options_single {
       flex-direction: column;
     }
   }
   
   @media screen and (max-width: 600px) {
-    .mwat__stats-and__text-length {
+    .mwad__stats-and__text-length {
         flex-direction: column;
         font-size: 16px;
     }
 
-    .mwat__gameplay-text__length {
+    .mwad__gameplay-text__length {
         font-size: 16px;
         padding: 0;
         margin: 0;
@@ -147,16 +163,16 @@
   }
 
   @media screen and (max-width: 450px) {
-    .mwat__gameplay-options_single {
+    .mwad__gameplay-options_single {
       flex-direction: column;
     }
 
-    .mwat__stats-and__text-length {
+    .mwad__stats-and__text-length {
         flex-direction: column;
         font-size: 14px;
     }
 
-    .mwat__gameplay-text__length {
+    .mwad__gameplay-text__length {
         padding-top: 1rem;
         font-size: 14px;
     }

@@ -1,6 +1,10 @@
 import React from 'react'
 import './home.css'
 
+/**
+ * Home component is responsible for rendering the Home page content
+ * @returns Home screen
+ */
 function Home() {
   return (
     <div className="tvt__home">
@@ -16,7 +20,7 @@ function Home() {
         <br />
         <p>
           Sovelluksen verkkoversion on kehittänyt&nbsp;
-          <strong><a href="https://www.linkedin.com/in/stefan-ylim%C3%A4ki/">Stefan Ylimäki</a></strong>
+          <strong className='developer'><a href="https://www.linkedin.com/in/stefan-ylim%C3%A4ki/">Stefan Ylimäki</a></strong>
         </p>
       </div>
     </div>
