@@ -11,10 +11,10 @@ const GameplayArea = ({
   gameLenght,
   points,
   setGameHasEnded,
-  nextRound
+  nextRound,
+  guessesLeft,
+  setGuessesLeft
 }) => {
-
-  console.log(randomWord)
 
   const maskWord = (word) => {
     let maskedWord = word.toLowerCase()
@@ -45,7 +45,15 @@ const GameplayArea = ({
   }, [wordToBeGuessed])
 
   const onKeyPress = (button) => {
-    setGuessedLetters(guessedLetters.concat(button))
+    if(!guessedLetters.includes(button)){
+      setGuessedLetters(guessedLetters.concat(button))
+      if(!randomWord.includes(button)){
+        if(guessesLeft === 1){
+          setGameHasEnded(true)
+        }
+        setGuessesLeft(guessesLeft - 1)
+      }
+    }
   }
 
   function addSpace(str) {
@@ -59,25 +67,36 @@ const GameplayArea = ({
     return <div>{result}</div>
   }
 
+  const printGuessedLetters = () => {
+    return(<div>{`${guessedLetters.toString()}`}</div>)
+  }
+
   return (
     <div className='hangman__main'>
-      <div className="hangman__stats-and__text-length">
-        <div className="hangman__gameplay-stats__and-text__length-stats">
-          <div>
+      <div className='hangman__info-container'>
+        <div className="hangman__stats-and__text-length">
+          <div className="hangman__gameplay-stats__and-text__length-stats">
+            <div>
                     Kierros&nbsp;
-            {round}
+              {round}
                     /
-            {gameLenght}
-          </div>
-          <div>
+              {gameLenght}
+            </div>
+            <div>
                     Pisteet&nbsp;
-            {points}
+              {points}
                     /
-            {round - 1}
+              {round - 1}
+            </div>
           </div>
-          <div>Huom! Arvattava sana on englanniksi</div>
+        </div>
+        <div className='hangman__infocontainer-letters'>
+          <div>Voit erehtyä vielä {guessesLeft} kertaa</div>
+          <div>Arvatut kirjaimet</div>
+          <div>{printGuessedLetters()}</div>
         </div>
       </div>
+
       <div className='hangman__wordToBeGuessed'>
         {addSpace(wordToBeGuessed)}
       </div>

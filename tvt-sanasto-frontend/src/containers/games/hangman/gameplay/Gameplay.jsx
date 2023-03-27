@@ -9,10 +9,9 @@ function Gameplay({
   category,
   gameLenght,
   setGameRunning,
-  languages
+  languages,
+  amountOfGuesses
 }) {
-
-  console.log(languages)
 
   let words = []
   if (category === 'basic-comp') {
@@ -30,8 +29,7 @@ function Gameplay({
   const [gameIsLoading, setGameIsLoading] = useState(true)
 
   const [randomWord, setRandomWord] = useState()
-
-  const wordsToUse = []
+  const [guessesLeft, setGuessesLeft] = useState(amountOfGuesses)
 
   useEffect(() => {
     startGame()
@@ -45,8 +43,7 @@ function Gameplay({
     }
     setUsedWordIndexes(usedWordIndexes.concat(index))
 
-    if(languages.length === 2){
-      console.log(Math.round(Math.random()))
+    if(languages.length === 2 || languages.length === 0){
       if(Math.round(Math.random())){
         return words[index].english
       } else {
@@ -67,8 +64,7 @@ function Gameplay({
   const nextRound = () => {
     setPoints(points + 1)
     setRound(round + 1)
-
-    console.log(round, gameLenght)
+    setGuessesLeft(amountOfGuesses)
 
     if(round >= gameLenght){
       setGameHasEnded(true)
@@ -93,6 +89,8 @@ function Gameplay({
             />)
             : (
               <GameplayArea
+                guessesLeft = {guessesLeft}
+                setGuessesLeft = { setGuessesLeft }
                 round = { round }
                 gameLenght = { gameLenght }
                 points = { points }

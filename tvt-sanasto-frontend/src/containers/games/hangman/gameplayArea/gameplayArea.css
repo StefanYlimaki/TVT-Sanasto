@@ -13,6 +13,16 @@
     border-color: var(--color-text);
 }
 
+.hangman__info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hangman__infocontainer-letters {
+    color: var(--color-text)
+}
+
 .hangman__stats-and__text-length {
     align-content: flex-start;
     display: flex;

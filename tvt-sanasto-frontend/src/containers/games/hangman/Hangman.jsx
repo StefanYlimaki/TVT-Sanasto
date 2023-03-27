@@ -19,9 +19,10 @@ const Hangman = () => {
   const [category, setCategory] = useState('')
 
   // This variable stores the information about the chosen game length. It gets updatad, when a user slides game length slider in the game settings view.
-  const [gameLength, setGameLength] = useState(10)
+  const [gameLength, setGameLength] = useState(2)
 
   const [languages, setLanguages] = useState([]) // keeps track of in which languages the question words should be.
+  const [amountOfGuesses, setAmountOfGuesses] = useState(6)
 
   return (
     <div className='Hangman__game'>
@@ -36,12 +37,15 @@ const Hangman = () => {
           setErrorMessage = { setErrorMessage }
           setGameRunning = { setGameRunning }
           setLanguages = { setLanguages }
+          amountOfGuesses = { amountOfGuesses }
+          setAmountOfGuesses = { setAmountOfGuesses }
         />)
         : (<Gameplay
           category = { category }
           gameLenght = { gameLength }
           setGameRunning = { setGameRunning }
           languages = { languages }
+          amountOfGuesses = { amountOfGuesses }
         />)
       }
     </div>
