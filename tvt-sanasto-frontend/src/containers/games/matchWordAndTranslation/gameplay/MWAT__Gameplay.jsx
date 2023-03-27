@@ -79,7 +79,7 @@ const Gameplay = ({
       } else {
         setQuestionLanguage('finnish')
       }
-    } else if(languages.includes === 'finnish'){
+    } else if(languages.includes('finnish')){
       setQuestionLanguage('finnish')
     } else {
       setQuestionLanguage('english')

@@ -87,14 +87,6 @@ const GameSettings = ({
     }
   }
 
-  const handleFinnishCheckboxChange = (event) => {
-    setFinnishChecked(event.target.checked)
-  }
-
-  const handleEnglishCheckboxChange = (event) => {
-    setEnglishChecked(event.target.checked)
-  }
-
   return(
     <div className="MWAT__game-settings">
       <div className='MWAT__game-settings__languages'>
@@ -102,14 +94,14 @@ const GameSettings = ({
           <p>Kysymykset kielellä:</p>
         </div>
         <div className='MWAT__game-settings__languages-checkbox'>
-          <p>Suomi <Checkbox checked = { finnishChecked } onChange = { handleFinnishCheckboxChange } /></p>
-          <p>Englanti <Checkbox checked = { englishChecked } onChange = { handleEnglishCheckboxChange } /></p>
+          <p>Suomi <Checkbox checked = { finnishChecked } onChange = { (event) => setFinnishChecked(event.target.checked) } /></p>
+          <p>Englanti <Checkbox checked = { englishChecked } onChange = { (event) => setEnglishChecked(event.target.checked) } /></p>
         </div>
       </div>
       <div className="MWAT__game-settings__gamelength">
         <p>Valitse kierrosten lukumäärä:</p>
         <div className="MWAT__game-settings__gamelength-slider">
-          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }  min = {4} max = { 20 } />
+          <GameLengthSlider handleChange = { handleRoundsSliderChange } value = { gameLength }  min = {4} max = { 20 } defaultValue = { 10 } />
         </div>
       </div>
       <div className="MWAT__game-settings__gamelength">

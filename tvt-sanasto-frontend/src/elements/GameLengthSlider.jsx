@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles'
  * @param { value } integer value of slider
  * @returns Slider to set amount of rounds in a game
  */
-const GameLengthSlider = ({ handleChange, value, min, max }) => {
+const GameLengthSlider = ({ handleChange, value, min, max, defaultValue }) => {
 
   const getMarks = (min) => {
     if(min === 1){
@@ -55,7 +55,7 @@ const GameLengthSlider = ({ handleChange, value, min, max }) => {
 
   return (
     <Slider
-      defaultValue = { 10 }
+      defaultValue = { defaultValue }
       min = { min }
       max = { max }
       valueLabelDisplay = "auto"
