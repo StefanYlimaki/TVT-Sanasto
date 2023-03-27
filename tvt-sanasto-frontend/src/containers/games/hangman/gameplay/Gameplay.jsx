@@ -8,8 +8,11 @@ import GameplayArea from '../gameplayArea/GameplayArea'
 function Gameplay({
   category,
   gameLenght,
-  setGameRunning
+  setGameRunning,
+  languages
 }) {
+
+  console.log(languages)
 
   let words = []
   if (category === 'basic-comp') {
@@ -41,7 +44,19 @@ function Gameplay({
       index = Math.floor(Math.random() * words.length)
     }
     setUsedWordIndexes(usedWordIndexes.concat(index))
-    return words[index]
+
+    if(languages.length === 2){
+      console.log(Math.round(Math.random()))
+      if(Math.round(Math.random())){
+        return words[index].english
+      } else {
+        return words[index].finnish
+      }
+    } else if( languages.includes('finnish')) {
+      return words[index].finnish
+    } else {
+      return words[index].english
+    }
   }
 
   const startGame = () => {
@@ -59,10 +74,8 @@ function Gameplay({
       setGameHasEnded(true)
     }
 
-
-
     const word = getRandomWord()
-    setRandomWord(word.english)
+    setRandomWord(word)
   }
 
   return (

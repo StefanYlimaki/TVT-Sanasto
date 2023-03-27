@@ -52,12 +52,11 @@ const GameLengthSlider = ({ handleChange, value, min, max, defaultValue }) => {
   }
 
   const classes = useStyles()
-
   return (
     <Slider
-      defaultValue = { defaultValue }
       min = { min }
       max = { max }
+      defaultValue = { defaultValue }
       valueLabelDisplay = "auto"
       marks = { getMarks(min) }
       value = { value }
