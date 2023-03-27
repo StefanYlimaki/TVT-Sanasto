@@ -34,13 +34,16 @@ fixausta.
 | 03.02.2023 | 3 | Selvitin ja korjasin bugin, jossa sovellus satunnaisesti kaatui pelin jälkeen kun raporttia yritettiin renderöidä. Optimoin sovelluksen toisen pelin toimimaan hyvin mobiililaitteilla
 | 06.02.2023 | 4 | Refactoroiden tyylijä lisäämällä värejä index.css tiedostoon ja tyylittämällä koko sovelluksen. Joitain muutoksia myös muihin kuin vain väreihin, kuten mobiilikäyttäjien huomiointi.
 | 07.02.2023 | 6 | Lisäsin tyylejä sovellukseen ja refaktroin MWAD pelin tyylit sekä mobiilaitetuen täysin. Aloitin toisenkin pelin stailaamista ja refactorointia sekä tekemisen paremmaksi mobiililaitteilla.
+| 15.02.2023 | 3 | Viimeistelin viimeisimmän päivityksen ja ajoin sen productioniin.
+| 28.02.2023 | 3 | Viimeistelin mwat-pelin scoreboard näkymän mobiililaitteen version. Lisäksi useita pienempiä bugifixauksia, kuten näkymien leveyden säätämistä dynaamisesti näytön leveyteen, ja näytönraja-arvojen, joiden perusteella muokkatun css:n valitaan, säätämistä, siten että elementit sulautuvat toisiinsa paremmin näytön koon vaihtuessa. Koodin puhdistamista.
+| 02.03.2023 | 4 | Kommentoin ja refactoroin koodia.
+| 24.03.2023 | 4 | Aloitin hirsipuupelin lisäämisen. Peli toimii, mutta se ei ole valmis.
+| 27.03.2023 | 6 | Jatkoin hirsipuupelin tekoa. Nyt peliä voi pelata suomeksi/englanniksi, arvausten määrää ja pelin pituutta voi säätää, pelaaja näkee arvatut sanat, yhden sanan voi arvata vain kerran
 
+166/175 tuntia käytetty
 
-146/175 tuntia käytetty
+tunnit tarkistus laskettu 28.02.2023
 
 TODO:
-Loppuosa sovelluksen tyylit sekä mobiili compatibiilty.
-Testien lisääminen sekä komponentti että e2e
 Refaktorointia
-Tyylien lisäämistä
 Käyttäjätestausta
