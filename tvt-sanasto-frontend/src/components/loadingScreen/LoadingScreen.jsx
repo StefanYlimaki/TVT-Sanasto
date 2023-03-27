@@ -30,7 +30,7 @@ const LoadingScreen = () => {
         timing="ease"
         iteration="infinite"
         fillMode="none">
-        Luetaan sanakirjaa...
+        <p style={{ color: 'white' }}>Luetaan sanakirjaa...</p>
       </MovingComponent>
     </div>
   )
