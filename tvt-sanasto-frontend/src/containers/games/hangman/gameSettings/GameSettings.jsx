@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Checkbox } from '@mui/material'
 
 import LoadingScreen from '../../../../components/loadingScreen/LoadingScreen'
 import GameLengthSlider from '../../../../elements/GameLengthSlider'
@@ -8,10 +9,15 @@ function GameSettings({
   gameLength,
   setGameLength,
   setErrorMessage,
-  setGameRunning
+  setGameRunning,
+  setLanguages,
+  amountOfGuesses,
+  setAmountOfGuesses
 }) {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [finnishChecked, setFinnishChecked] = useState(true) // keeps track of whether finnish as a question word language is checked
+  const [englishChecked, setEnglishChecked] = useState(false) // keeps track of whether english as a question word language is checked
 
   useEffect(() => {
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
@@ -31,7 +37,26 @@ function GameSettings({
     )
   }
 
-  const handleSliderChange = (event) => {
+  const getLanguages = () => {
+    let array = new Array()
+
+    if(finnishChecked){
+      array.push('finnish')
+    }
+
+    if(englishChecked){
+      array.push('english')
+    }
+
+    return array
+  }
+
+  const handleAmountOfGuessesSliderChange = (event) => {
+    console.log('set amount of guesses to', event.target.value)
+    setAmountOfGuesses(event.target.value)
+  }
+
+  const handleGameLengthSliderChange = (event) => {
     setGameLength(event.target.value)
   }
 
@@ -39,6 +64,7 @@ function GameSettings({
     if (selectedCategory !== null) {
       setCategory(selectedCategory)
       setGameRunning('true')
+      setLanguages(getLanguages)
     } else {
       setErrorMessage('Valitse kategoria')
       setTimeout(() => {
@@ -49,10 +75,25 @@ function GameSettings({
 
   return (
     <div className="MWAD__game-settings">
+      <div className='MWAT__game-settings__languages'>
+        <div className='MWAT__game-settings__languages-text'>
+          <p>Kysymykset kielellä:</p>
+        </div>
+        <div className='MWAT__game-settings__languages-checkbox'>
+          <p>Suomi <Checkbox checked = { finnishChecked } onChange = { (event) => setFinnishChecked(event.target.checked) } /></p>
+          <p>Englanti <Checkbox checked = { englishChecked } onChange = { (event) => setEnglishChecked(event.target.checked) } /></p>
+        </div>
+      </div>
+      <div className="MWAD__game-settings__gamelength">
+        <p>Valitse arvausten määrä:</p>
+        <div className="MWAD__game-settings__gamelength-slider">
+          <GameLengthSlider handleChange = { handleAmountOfGuessesSliderChange } value = { amountOfGuesses } min = {1} max = {9}/>
+        </div>
+      </div>
       <div className="MWAD__game-settings__gamelength">
         <p>Valitse kierrosten määrä:</p>
         <div className="MWAD__game-settings__gamelength-slider">
-          <GameLengthSlider handleChange = { handleSliderChange } value = { gameLength } min = {1} max = { 4 } />
+          <GameLengthSlider handleChange = { handleGameLengthSliderChange } value = { gameLength } min = {1} max = {5}/>
         </div>
       </div>
       <div className="MWAD__game-settings__category">

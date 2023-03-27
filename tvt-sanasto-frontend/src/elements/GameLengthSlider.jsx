@@ -13,53 +13,30 @@ import { makeStyles } from '@material-ui/core/styles'
  */
 const GameLengthSlider = ({ handleChange, value, min, max }) => {
 
-  const getMarks = (min) => {
-    if(min === 1){
-      return [
-        {
-          value: 1,
-          label: '1',
-        },
-        {
-          value: 2,
-          label: '2',
-        },
-        {
-          value: 3,
-          label: '3',
-        },
-        {
-          value: 4,
-          label: '4',
-        }
-      ]
-    } else {
-      return [
-        {
-          value: 4,
-          label: '4',
-        },
-        {
-          value: 10,
-          label: '10',
-        },
-        {
-          value: 20,
-          label: '20',
-        },
-      ]
-    }
+  const getMarks = (min, max) => {
+    return [
+      {
+        value: min,
+        label: `${min}`
+      },
+      {
+        value: Math.floor(min + (max - min)/2),
+        label: `${Math.floor(min + (max - min)/2)}`
+      },
+      {
+        value: max,
+        label: `${max}`
+      }
+    ]
   }
 
   const classes = useStyles()
-
   return (
     <Slider
-      defaultValue = { 10 }
       min = { min }
       max = { max }
       valueLabelDisplay = "auto"
-      marks = { getMarks(min) }
+      marks = { getMarks(min, max) }
       value = { value }
       onChange = { handleChange }
       classes = {{ markLabel: classes.mark }}
