@@ -58,11 +58,13 @@ function Gameplay({
 
   const startGame = () => {
     setGameIsLoading(false)
-    nextRound()
+    nextRound(true)
   }
 
-  const nextRound = () => {
-    setPoints(points + 1)
+  const nextRound = (correctAnswer) => {
+    if(correctAnswer){
+      setPoints(points + 1)
+    }
     setRound(round + 1)
     setGuessesLeft(amountOfGuesses)
 
