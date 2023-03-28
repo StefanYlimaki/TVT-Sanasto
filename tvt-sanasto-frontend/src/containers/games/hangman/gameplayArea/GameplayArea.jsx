@@ -12,7 +12,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: '80%',
+  maxWidth: '250px',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -150,10 +151,8 @@ const GameplayArea = ({
         />
       </div>
       <Button onClick={() => setGameHasEnded(true)}>Lopeta peli</Button>
-      <Button onClick={() => setModalOpen(!modalOpen)}>Model</Button>
       <Modal
         open={modalOpen}
-        onClose={handleClose}
       >
         <Box sx={style}>
           {roundWon ? <img src={winner} /> : <img src={hangmanGif} alt="hangman_gif" width="250" />}
@@ -194,9 +193,3 @@ const GameplayArea = ({
 
 
 export default GameplayArea
-
-// { playerLost ? <><img src={hangmanGif} alt="hangman_gif" width="250" /></> : <></>}
-
-
-// src="https://giphy.com/embed/9xt1MUZqkneFiWrAAD"
-// https://giphy.com/gifs/winner-good-job-trophy-9xt1MUZqkneFiWrAAD
