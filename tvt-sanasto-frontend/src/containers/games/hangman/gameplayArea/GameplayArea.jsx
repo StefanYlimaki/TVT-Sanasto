@@ -3,7 +3,7 @@ import { Button, Input } from '@mui/material'
 import './gameplayArea.css'
 import Keyboard from 'react-simple-keyboard'
 import 'react-simple-keyboard/build/css/index.css'
-
+import './keyboard.css'
 
 const GameplayArea = ({
   randomWord,
@@ -32,6 +32,7 @@ const GameplayArea = ({
 
   const [guessedLetters, setGuessedLetters] = useState([])
   const [wordToBeGuessed, setWordToBeGuessed] = useState(maskWord(randomWord.toLowerCase()))
+  const [usedLetters, setUsedLetters] = useState()
 
   useEffect(() => {
     setWordToBeGuessed(maskWord(randomWord))
@@ -56,6 +57,10 @@ const GameplayArea = ({
     }
   }
 
+  const getUsedLetters = () => {
+    return guessedLetters.toString().replaceAll(',', ' ')
+  }
+
   function addSpace(str) {
     let parts = str.split(' ')
 
@@ -70,6 +75,7 @@ const GameplayArea = ({
   const printGuessedLetters = () => {
     return(<div>{`${guessedLetters.toString()}`}</div>)
   }
+
 
   return (
     <div className='hangman__main'>
@@ -102,7 +108,19 @@ const GameplayArea = ({
       </div>
       <div style={{ paddingTop: 20, paddingBottom: 20 }}>
         <Keyboard
-          layout={layoutObject}
+          layout={{
+            default: [
+              'q w e r t y u i o p å',
+              'a s d f g h j k l ö ä',
+              'z x c v b n m',
+            ]
+          }}
+          buttonTheme={[
+            {
+              class: 'used-letters',
+              buttons: `${getUsedLetters()}`
+            }
+          ]}
           onKeyPress={(button) => onKeyPress(button)}
         />
       </div>
@@ -111,19 +129,5 @@ const GameplayArea = ({
   )
 }
 
-const layoutObject = {
-  'default': [
-    'q w e r t y u i o p å',
-    'a s d f g h j k l ö ä',
-    'z x c v b n m',
-  ],
-  'shift': [
-    '~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}',
-    '{tab} Q W E R T Y U I O P { } |',
-    '{lock} A S D F G H J K L : " {enter}',
-    '{shift} Z X C V B N M &lt; &gt; ? {shift}',
-    '.com @ {space}'
-  ]
-}
 
 export default GameplayArea
