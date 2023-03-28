@@ -39,8 +39,9 @@ fixausta.
 | 02.03.2023 | 4 | Kommentoin ja refactoroin koodia.
 | 24.03.2023 | 4 | Aloitin hirsipuupelin lisäämisen. Peli toimii, mutta se ei ole valmis.
 | 27.03.2023 | 6 | Jatkoin hirsipuupelin tekoa. Nyt peliä voi pelata suomeksi/englanniksi, arvausten määrää ja pelin pituutta voi säätää, pelaaja näkee arvatut sanat, yhden sanan voi arvata vain kerran
+| 28.03.2023 | 5 | Jatkoin hirsipuupelin tekoa. Nyt peli näyttää oikean vastauksen kierroksen päätteeksi ja laskee pisteet oikein. Navigaatiota pelissa paranneltu. 
 
-166/175 tuntia käytetty
+171/175 tuntia käytetty
 
 tunnit tarkistus laskettu 28.02.2023
 
