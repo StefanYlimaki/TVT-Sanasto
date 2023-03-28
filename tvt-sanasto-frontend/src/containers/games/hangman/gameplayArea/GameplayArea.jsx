@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Input } from '@mui/material'
+import { Box, Button, Modal, Typography } from '@mui/material'
 import './gameplayArea.css'
 import Keyboard from 'react-simple-keyboard'
 import 'react-simple-keyboard/build/css/index.css'
+import './keyboard.css'
+import hangmanGif from '../../../../assets/photos/hangmanGif.gif'
+import winner from '../../../../assets/photos/winner.gif'
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '80%',
+  maxWidth: '250px',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+}
 
 const GameplayArea = ({
   randomWord,
@@ -16,6 +31,7 @@ const GameplayArea = ({
   setGuessesLeft
 }) => {
 
+  console.log(randomWord)
   const maskWord = (word) => {
     let maskedWord = word.toLowerCase()
     for(var i = 0; i < word.length; i++){
@@ -32,6 +48,7 @@ const GameplayArea = ({
 
   const [guessedLetters, setGuessedLetters] = useState([])
   const [wordToBeGuessed, setWordToBeGuessed] = useState(maskWord(randomWord.toLowerCase()))
+  const [roundWon, setRoundWon] = useState(false)
 
   useEffect(() => {
     setWordToBeGuessed(maskWord(randomWord))
@@ -39,8 +56,8 @@ const GameplayArea = ({
 
   useEffect(() => {
     if(wordToBeGuessed === randomWord.toLowerCase()){
-      setGuessedLetters([])
-      nextRound()
+      setRoundWon(true)
+      handleOpen()
     }
   }, [wordToBeGuessed])
 
@@ -49,11 +66,16 @@ const GameplayArea = ({
       setGuessedLetters(guessedLetters.concat(button))
       if(!randomWord.includes(button)){
         if(guessesLeft === 1){
-          setGameHasEnded(true)
+          handleOpen()
+          //setGameHasEnded(true)
         }
         setGuessesLeft(guessesLeft - 1)
       }
     }
+  }
+
+  const getUsedLetters = () => {
+    return guessedLetters.toString().replaceAll(',', ' ')
   }
 
   function addSpace(str) {
@@ -70,6 +92,16 @@ const GameplayArea = ({
   const printGuessedLetters = () => {
     return(<div>{`${guessedLetters.toString()}`}</div>)
   }
+
+  const handleOpen = () => {
+    setModalOpen(true)
+  }
+
+  const handleClose = () => {
+    setModalOpen(false)
+  }
+
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <div className='hangman__main'>
@@ -102,28 +134,62 @@ const GameplayArea = ({
       </div>
       <div style={{ paddingTop: 20, paddingBottom: 20 }}>
         <Keyboard
-          layout={layoutObject}
+          layout={{
+            default: [
+              'q w e r t y u i o p å',
+              'a s d f g h j k l ö ä',
+              'z x c v b n m',
+            ]
+          }}
+          buttonTheme={[
+            {
+              class: 'used-letters',
+              buttons: `${getUsedLetters()}`
+            }
+          ]}
           onKeyPress={(button) => onKeyPress(button)}
         />
       </div>
       <Button onClick={() => setGameHasEnded(true)}>Lopeta peli</Button>
+      <Modal
+        open={modalOpen}
+      >
+        <Box sx={style}>
+          {roundWon ? <img src={winner} /> : <img src={hangmanGif} alt="hangman_gif" width="250" />}
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {roundWon ? 'Oikein meni!' : 'Hirteen päädyit!'}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Sana oli { randomWord }
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Väärin menneitä arvauksia {6 - guessesLeft}
+          </Typography>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+            <Button  color='warning' onClick={() => {
+              if(roundWon){
+                nextRound(true)
+              } else {
+                nextRound(false)
+              }
+              setGameHasEnded(true)
+              setGameHasEnded(true)
+            }}>Lopeta peli</Button>
+            <Button variant='contained' color='success' onClick={() => {
+              setGuessedLetters([])
+              handleClose()
+              if(roundWon){
+                nextRound(true)
+              } else {
+                nextRound(false)
+              }
+            }}>Jatka</Button>
+          </div>
+        </Box>
+      </Modal>
     </div>
   )
 }
 
-const layoutObject = {
-  'default': [
-    'q w e r t y u i o p å',
-    'a s d f g h j k l ö ä',
-    'z x c v b n m',
-  ],
-  'shift': [
-    '~ ! @ # $ % ^ &amp; * ( ) _ + {bksp}',
-    '{tab} Q W E R T Y U I O P { } |',
-    '{lock} A S D F G H J K L : " {enter}',
-    '{shift} Z X C V B N M &lt; &gt; ? {shift}',
-    '.com @ {space}'
-  ]
-}
 
 export default GameplayArea
