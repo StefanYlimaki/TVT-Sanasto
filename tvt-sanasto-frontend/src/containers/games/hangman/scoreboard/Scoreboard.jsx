@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
-import { Table, TableBody, TableHead, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material/'
-import { makeStyles } from '@material-ui/styles'
-import CheckIcon from '@mui/icons-material/Check'
-import ClearIcon from '@mui/icons-material/Clear'
+import { Button } from '@mui/material/'
 
 const Scoreboard = ({
   setGameRunning,
@@ -13,6 +10,7 @@ const Scoreboard = ({
   rounds,
 }) => {
 
+  // Determine if the player won all the rounds
   let won
   if(points === rounds){
     won = true
@@ -22,6 +20,7 @@ const Scoreboard = ({
 
   const { width, height } = useWindowSize() // Getting the width and height of the user's devices viewport.
 
+  // This component reuses css from the game Match Word and Definition.
   return (
     <div className='MWAD__scoreboard'>
       <div className='MWAD__scoreboard-textual__feedback'>
