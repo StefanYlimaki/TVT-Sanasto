@@ -5,9 +5,10 @@
 
 # About this application
 
-### This is a application for Finnish students who want to learn the terminology of ICT-field. 
-### The application has a dictionary, with two category added so far.
-### The application also has games with which a student can learn the terminology of ICT-field in Finnish and in English.
+#### This is a application for Finnish students who want to learn the terminology of ICT-field. 
+#### The application has a dictionary, with two category added so far.
+#### The application also has games with which a student can learn the terminology of ICT-field in Finnish and in English.
+
 
 # Getting started with this Application
 This project's frontend is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
