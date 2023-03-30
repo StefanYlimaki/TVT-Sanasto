@@ -14,58 +14,66 @@ function GameSettings({
   amountOfGuesses,
   setAmountOfGuesses
 }) {
-  const [selectedCategory, setSelectedCategory] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState(null) // Keeps track os selected category of words.
+  const [isLoading, setIsLoading] = useState(true) // If the dictionary data hasn't yet been downloaded, isLoading is true and loading screen is shown.
   const [finnishChecked, setFinnishChecked] = useState(true) // keeps track of whether finnish as a question word language is checked
   const [englishChecked, setEnglishChecked] = useState(false) // keeps track of whether english as a question word language is checked
 
+  // Checking if dictionary data has been downloaded to user's browser's localstorage.
   useEffect(() => {
+    // If it is, set isLoading to false to render settings screen.
     if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
       setIsLoading(false)
+    } else { // Otherwise, set interval to check repeatedly is the data downloaded. When data is downloaded, clear interval and set isLoading to false.
+      const interval = setInterval(() => {
+        if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
+          if(isLoading === false){
+            clearInterval(interval)
+          }
+          setIsLoading(false)
+        }
+      }, 1000)
+      return () => clearInterval(interval)
     }
-    const interval = setInterval(() => {
-      if(localStorage.getItem('basic-comp') !== null && localStorage.getItem('internet-basic') !== null){
-        setIsLoading(false)
-      }
-    }, 1000)
-    return () => clearInterval(interval)
   }, [])
 
+  // If isLoading equals true => show loadingScreen
   if(isLoading){
     return(
       <LoadingScreen />
     )
   }
 
+  // Function for getting chosen languages in an array.
   const getLanguages = () => {
     let array = new Array()
-
     if(finnishChecked){
       array.push('finnish')
     }
-
     if(englishChecked){
       array.push('english')
     }
-
     return array
   }
 
+  // Function for handling the change in the amount of guesses slider.
   const handleAmountOfGuessesSliderChange = (event) => {
-    console.log('set amount of guesses to', event.target.value)
     setAmountOfGuesses(event.target.value)
   }
 
+  // Function for handling the change in the game length slider.
   const handleGameLengthSliderChange = (event) => {
     setGameLength(event.target.value)
   }
 
+  // Function for handling a click on start game button.
   const handleStartGameClick = () => {
+    // If category is selected => start the game
     if (selectedCategory !== null) {
       setCategory(selectedCategory)
       setGameRunning('true')
       setLanguages(getLanguages)
-    } else {
+    } else { // otherwise, show error message.
       setErrorMessage('Valitse kategoria')
       setTimeout(() => {
         setErrorMessage(null)
@@ -73,6 +81,7 @@ function GameSettings({
     }
   }
 
+  // This component reuses css from the game Match Word and Definition.
   return (
     <div className="MWAD__game-settings">
       <div className='MWAT__game-settings__languages'>

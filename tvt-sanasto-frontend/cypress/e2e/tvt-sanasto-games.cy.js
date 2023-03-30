@@ -7,6 +7,10 @@ describe('TVT-sanasto app, games', function () {
     cy.visit('http://localhost:3000/games')
     // Cypress waits 8 seconds for the dictionaries to load.
 
+
+
+
+
     /*************** FIRST TASK ***************/
     cy.log('TEST NRO: 1')
     cy.log('Test the Game "Match Word and Definition"')
@@ -86,6 +90,10 @@ describe('TVT-sanasto app, games', function () {
 
     // Closing the "end-of-game" raport
     cy.contains('Sulje raportti').click()
+
+
+
+
 
     /*************** SECOND TASK ***************/
 
@@ -169,5 +177,63 @@ describe('TVT-sanasto app, games', function () {
 
     // Closing the "end-of-game" raport
     cy.contains('Sulje raportti').click()
+
+
+
+
+
+    /*************** THIRD TASK ***************/
+
+    cy.log('TEST NRO: 3')
+    cy.log('Test the Game "Hangman')
+
+    // Navigate to the games page
+    cy.visit('http://localhost:3000/games')
+
+    cy.contains('Hirsipuupeli').click()
+    // Clicking on the amount of guesses slider at 9, to set amount of guesses to nine.
+    cy.contains('9').first().click()
+    // Selecting the category.
+    cy.contains('Internet ja Tietoverkot').click()
+    // Click on Start the Game
+    cy.contains('Aloita peli').click()
+
+    const letters = [ 'a', 'i', 't', 'n', 'e', 's', 'l', 'o', 'k', 'u', 'ä', 'm', 'v', 'r', 'j', 'h', 'y', 'p', 'd', 'ö', 'g','b', 'f', 'c', 'w', 'å', 'q', 'x', 'z' ]
+    let status = true
+
+    for(let i = 0; status === true; i++){
+      cy.get('body').then($body => {
+        if ($body.text().includes('arvauksia')) {
+          status = false
+        } else {
+          cy.get(`[data-skbtn^=${letters[i]}]`).click()
+        }
+      })
+      if(i > 27){
+        status = false
+      }
+    }
+
+    cy.contains('Jatka').click()
+
+    status = true
+
+    for(let i = 0; status === true; i++){
+      cy.get('body').then($body => {
+        if ($body.text().includes('arvauksia')) {
+          status = false
+        } else {
+          cy.get(`[data-skbtn^=${letters[i]}]`).click()
+        }
+      })
+      if(i > 27){
+        status = false
+      }
+    }
+
+    cy.contains('Jatka').click()
+    cy.contains('Sulje raportti').click()
   })
+
 })
+

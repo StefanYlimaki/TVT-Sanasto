@@ -22,7 +22,7 @@ const Hangman = () => {
   const [gameLength, setGameLength] = useState(2)
 
   const [languages, setLanguages] = useState([]) // keeps track of in which languages the question words should be.
-  const [amountOfGuesses, setAmountOfGuesses] = useState(6)
+  const [amountOfGuesses, setAmountOfGuesses] = useState(6) // keeps track of how many guesses should the player be granted.
 
   return (
     <div className='Hangman__game'>
