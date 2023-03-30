@@ -28,17 +28,22 @@ const GameplayArea = ({
   setGameHasEnded,
   nextRound,
   guessesLeft,
-  setGuessesLeft
+  setGuessesLeft,
+  amountOfGuesses
 }) => {
 
-  console.log(randomWord)
+  /* Function for masking a word.
+   * Gets a string as input.
+   * Makes word lowercased.
+   * Checks the string letter by letter.
+   * If a letter in question is NOT included in the guessedLetters array AND the letter is NOT ' ', ';', '(', ')', '-' ==> mask letter to '_'
+   * Return the result after inspecting all the letters.
+   */
   const maskWord = (word) => {
     let maskedWord = word.toLowerCase()
     for(var i = 0; i < word.length; i++){
       if(!guessedLetters.includes(word[i].toLowerCase())){
-        if(' ' === word[i]){
-          maskedWord = maskedWord.substring(0, i) + ' ' + maskedWord.substring(i + 1)
-        } else if (![';','(',')','_','-'].includes(word[i])){
+        if (![';','(',')',' ','-'].includes(word[i])){
           maskedWord = maskedWord.substring(0, i) + '_' + maskedWord.substring(i + 1)
         }
       }
@@ -46,62 +51,77 @@ const GameplayArea = ({
     return(maskedWord)
   }
 
-  const [guessedLetters, setGuessedLetters] = useState([])
-  const [wordToBeGuessed, setWordToBeGuessed] = useState(maskWord(randomWord.toLowerCase()))
-  const [roundWon, setRoundWon] = useState(false)
+  const [guessedLetters, setGuessedLetters] = useState([]) // Keeps track of the guessed letters
+  const [wordToBeGuessed, setWordToBeGuessed] = useState(maskWord(randomWord)) // state variable that contains the word to be guessed (masked)
+  const [roundWon, setRoundWon] = useState(false) // state variable used to store info about the round win.
 
+  // Mask word to be guessed again and check if the game is won, every time guessedLetters array changes.
   useEffect(() => {
     setWordToBeGuessed(maskWord(randomWord))
   }, [guessedLetters])
 
+  // Every time word to be guessed changes, check if the game is won.
   useEffect(() => {
     if(wordToBeGuessed === randomWord.toLowerCase()){
       setRoundWon(true)
-      handleOpen()
+      handleOpen() // Open the end-of-round modal
     }
   }, [wordToBeGuessed])
 
+  // Function for handling clicks on the keyboard.
   const onKeyPress = (button) => {
+    // If button (letter) pressed is not in the guessedLetters array, add it in there. Otherwise do nothing.
     if(!guessedLetters.includes(button)){
       setGuessedLetters(guessedLetters.concat(button))
-      if(!randomWord.includes(button)){
-        if(guessesLeft === 1){
-          handleOpen()
-          //setGameHasEnded(true)
-        }
+      // After adding the letter to the array of guessedLetters, check whether the letter does NOT appear in the randomword (word to be guessed (not masked)).
+      if(!randomWord.toLowerCase().includes(button)){
+        // deduct one guess from the player
         setGuessesLeft(guessesLeft - 1)
+        // Check if the plater loses
+        if(guessesLeft === 0){
+          handleOpen() // Open the end-of-round modal
+        }
       }
     }
   }
 
+  // Function used for getting the used letters in a string separated with a space ' '
+  // This function is used in the keyboard element to put specific css on certain letters.
   const getUsedLetters = () => {
     return guessedLetters.toString().replaceAll(',', ' ')
   }
 
+  // Function for adding space between the underscores of the masked word to be guessed.
   function addSpace(str) {
+    // split the word to be guessed in parts
     let parts = str.split(' ')
 
+    // for each part and space between each character.
     for(var i = 0; i < parts.length; i++){
       parts[i] = parts[i].split('').join(' ')
     }
 
+    // join parts together with larger space in between to distinguish separate words from each other.
     const result = parts.join('\u00A0\u00A0\u00A0\u00A0')
     return <div>{result}</div>
   }
 
+  // Function used for printing the guessed letters.
   const printGuessedLetters = () => {
     return(<div>{`${guessedLetters.toString()}`}</div>)
   }
 
+  // Function that handles opening of the 'end-of-round' modal
   const handleOpen = () => {
     setModalOpen(true)
   }
 
+  // Function that handles closing of the 'end-of-round' modal
   const handleClose = () => {
     setModalOpen(false)
   }
 
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false) // Keeps track whether the modal is open or closed.
 
   return (
     <div className='hangman__main'>
@@ -163,7 +183,7 @@ const GameplayArea = ({
             Sana oli { randomWord }
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Väärin menneitä arvauksia {6 - guessesLeft}
+            Väärin menneitä arvauksia {amountOfGuesses - guessesLeft}
           </Typography>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
             <Button  color='warning' onClick={() => {
